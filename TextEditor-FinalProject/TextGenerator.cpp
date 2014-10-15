@@ -8,6 +8,5 @@ int main()
 	cout << "ARRANCA" << endl;
 	cout << "Sigo con los cambios." << endl;
 	cout << "Salieron" << endl;
-	//Branch de Sebi y Chris
 	return (0);
 }
