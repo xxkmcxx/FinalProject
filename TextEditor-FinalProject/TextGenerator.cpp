@@ -7,5 +7,6 @@ int main()
 	cout << "this is a second test." << endl;
 	cout << "ARRANCA" << endl;
 	cout << "Sigo con los cambios." << endl;
+	cout << "Salieron" << endl;
 	return (0);
 }
