@@ -87,8 +87,6 @@
     <ClCompile Include="TextGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Coleccion\MyMenu.h" />
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Tipo\MyString.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="EditorManager.h" />
     <ClInclude Include="FileManager.h" />

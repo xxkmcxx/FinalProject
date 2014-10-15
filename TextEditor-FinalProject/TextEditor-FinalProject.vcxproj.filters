@@ -41,12 +41,6 @@
     <ClInclude Include="FileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Tipo\MyString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Coleccion\MyMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ListaDeCadenas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
