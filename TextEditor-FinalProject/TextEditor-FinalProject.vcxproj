@@ -78,10 +78,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Coleccion\MyMenu.cpp" />
+    <ClCompile Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Tipo\MyString.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="TextGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Coleccion\MyMenu.h" />
+    <ClInclude Include="..\..\..\..\Documents\Visual Studio 2013\Projects\CECS2223\Tipo\MyString.h" />
     <ClInclude Include="FileManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
