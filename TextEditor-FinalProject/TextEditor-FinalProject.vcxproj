@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alpha_Driver.cpp" />
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="EditorManager.cpp" />
     <ClCompile Include="FileManager.cpp" />
