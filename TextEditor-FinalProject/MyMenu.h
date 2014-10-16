@@ -1,6 +1,6 @@
 #include <iostream>
 #include "ListaDeCadenas.h"
-#include "..\Type\MyString.h"
+#include "MyString.h"
 
 using namespace std;
 
