@@ -9,7 +9,7 @@ using namespace std;
 class FileManager
 {
 private:
-// Constructors are made private because class methods are static.
+//Class instance variables
 	EditorManager eManager;
 
 public:
