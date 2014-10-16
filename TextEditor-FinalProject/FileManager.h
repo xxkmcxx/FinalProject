@@ -10,7 +10,8 @@ class FileManager
 {
 private:
 // Constructors are made private because class methods are static.
-	EditorManager eManager;
+	EditorManager eManager; 
+
 
 public:
 	FileManager();
