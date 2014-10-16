@@ -62,7 +62,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Alpha.txt">
+    <Text Include="LogFile.txt">
       <Filter>Text Files</Filter>
     </Text>
   </ItemGroup>
