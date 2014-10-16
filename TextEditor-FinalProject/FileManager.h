@@ -5,13 +5,14 @@
 #include "EditorManager.h"
 #include <string>
 
+const int MAX_FILES = 10;
+
 using namespace std;
 class FileManager
 {
 private:
-// Constructors are made private because class methods are static.
-	EditorManager eManager; 
-
+//Class instance variables
+	fstream file;
 
 public:
 	FileManager();
@@ -20,4 +21,4 @@ public:
 	static void createFile();
 	static void copyDocument();
 	static void showMenu();
-};
+}FileManager[MAX_FILES];

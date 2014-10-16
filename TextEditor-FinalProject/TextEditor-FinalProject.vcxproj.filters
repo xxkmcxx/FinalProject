@@ -69,4 +69,7 @@
       <Filter>Text Files</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\OneDrive\Documents\TextEditor-FinalProject\Class Diagram.vsdx" />
+  </ItemGroup>
 </Project>
