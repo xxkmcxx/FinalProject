@@ -15,6 +15,7 @@
     </Filter>
     <Filter Include="Text Files">
       <UniqueIdentifier>{53669290-7907-4ad5-ab71-8dbf761e23d8}</UniqueIdentifier>
+      <Extensions>.txt</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +62,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LogFile.txt">
+      <Filter>Text Files</Filter>
+    </Text>
     <Text Include="Alpha.txt">
       <Filter>Text Files</Filter>
     </Text>
