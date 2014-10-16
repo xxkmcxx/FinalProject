@@ -5,12 +5,14 @@
 #include "EditorManager.h"
 #include <string>
 
+const int MAX_FILES = 10;
+
 using namespace std;
 class FileManager
 {
 private:
 //Class instance variables
-	EditorManager eManager;
+	fstream file;
 
 public:
 	FileManager();
@@ -19,4 +21,4 @@ public:
 	static void createFile();
 	static void copyDocument();
 	static void showMenu();
-};
+}FileManager[MAX_FILES];
