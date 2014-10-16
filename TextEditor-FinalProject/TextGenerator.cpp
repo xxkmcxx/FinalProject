@@ -20,6 +20,40 @@ int main()
 	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
 	//dsfasdkfjadlfkjadslfjalsdf
 	//fsadkljfladsjflkasjldkfjsdlkf/
+
+	//fdjslfkjasdlkfjlasjfkl
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+	//fdjslfkjasdlkfjlasjfkl
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+	//fdjslfkjasdlkfjlasjfkl
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+
+	//fdjslfkjasdlkfjlasjfkl
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+	//fdjslfkjasdlkfjlasjfkl
+	//nfjsdaklfaklsdfjaklfjlajdfalskfladsf
+	///dfjklasjflsadjfldsjfljfljdsalfjlkadsfjksa
+	//dsfasdkfjadlfkjadslfjalsdf
+	//fsadkljfladsjflkasjldkfjsdlkf/
+
+	//fdjslfkjasdlkfjlasjfkl
 	//fdjslfkjasdlkfjlasjfkl
 	return (0);
 }
