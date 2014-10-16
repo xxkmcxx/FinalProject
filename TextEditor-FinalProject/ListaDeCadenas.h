@@ -1,5 +1,5 @@
 #include <iostream>
-#include "..\Type\MyString.h"
+#include "MyString.h"
 
 const int MAX_CAD = 80;
 
