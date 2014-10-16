@@ -1,24 +1,22 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include "ListaDeCadenas.h"
+#include "MyMenu.h"
+#include "EditorManager.h"
+#include <string>
+
 using namespace std;
-
-const int MAX_FILE = 10;
-const int MAX_SENT = 100;
-
 class FileManager
 {
 private:
-	fstream file;
-	ListaDeCadenas sentence;
-	int quantity;
+//Class instance variables
+	EditorManager eManager;
+
 public:
 	FileManager();
-	FileManager();
 	~FileManager();
-	void openFile();
-	void closeFile();
-	void newFile();
+	static void openFile();
+	static void createFile();
+	static void copyDocument();
+	static void showMenu();
 };
-
