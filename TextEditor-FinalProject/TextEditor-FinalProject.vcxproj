@@ -85,7 +85,6 @@
     <ClCompile Include="ListaDeCadenas.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="MyString.cpp" />
-    <ClCompile Include="TextGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Editor.h" />
