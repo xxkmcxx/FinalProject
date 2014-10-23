@@ -82,6 +82,7 @@
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="EditorManager.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="ListaDeCadenas.cpp" />
     <ClCompile Include="MyMenu.cpp" />
     <ClCompile Include="MyString.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="Editor.h" />
     <ClInclude Include="EditorManager.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="ListaDeCadenas.h" />
     <ClInclude Include="MyMenu.h" />
     <ClInclude Include="MyString.h" />
