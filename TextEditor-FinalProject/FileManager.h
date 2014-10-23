@@ -21,4 +21,4 @@ public:
 	static void createFile();
 	static void copyDocument();
 	static void showMenu();
-}FileManager[MAX_FILES];
+};
