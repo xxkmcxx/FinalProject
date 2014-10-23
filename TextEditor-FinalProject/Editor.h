@@ -18,6 +18,5 @@ public:
 	void FindEOFSymbol();
 	void FindEnterSymbol();
 	void FindListSymbol();
-
 };
 

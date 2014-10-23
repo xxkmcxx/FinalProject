@@ -13,12 +13,13 @@ class FileManager
 private:
 //Class instance variables
 	fstream file;
+	string FileName;
 
 public:
 	FileManager();
 	~FileManager();
-	static void openFile();
-	static void createFile();
-	static void copyDocument();
-	static void showMenu();
+	void openFile();
+	void createFile();
+	void copyDocument();
+	void showMenu();
 };
