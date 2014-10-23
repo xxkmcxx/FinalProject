@@ -52,5 +52,6 @@ void FileManager::copyDocument()
 
 string FileManager::fixName(string FileName)
 {
-
+	FileName += ".txt";
+	return FileName;
 }
