@@ -12,8 +12,8 @@ class FileManager
 {
 private:
 //Class instance variables
-	fstream file;
-	string FileName; //Guarda el nombre del file.
+	fstream * file;
+	string * FileName; //Guarda el nombre del file.
 
 public:
 	FileManager();
