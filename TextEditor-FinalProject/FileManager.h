@@ -18,6 +18,8 @@ private:
 public:
 	FileManager();
 	~FileManager();
+	double setName(string FileName);
+	void getName() const;
 	void openFile();
 	void createFile();
 	void copyDocument();
