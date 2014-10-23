@@ -7,6 +7,21 @@ FileManager::~FileManager()
 {
 }
 //This is the menu that will display the FileManager
+void FileManager::createFile()
+{
+	MyString name;
+	cout << "Insert a name for a file" << endl;
+	cin >> name;
+	
+}
+void FileManager::openFile()
+{
+
+}
+void FileManager::copyDocument()
+{
+
+}
 void FileManager::showMenu()
 {
 	MyMenu menu;
@@ -37,15 +52,4 @@ void FileManager::showMenu()
 			cout << "Invalid input. Please try again." << endl;
 		}
 	} while (option != 4 || option != 5);
-}
-void FileManager::openFile()
-{
-	
-}
-void FileManager::createFile()
-{
-	cout << "Enter the name of the file" << endl;
-}
-void FileManager::copyDocument()
-{
 }

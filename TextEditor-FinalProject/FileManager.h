@@ -5,8 +5,6 @@
 #include "EditorManager.h"
 #include <string>
 
-const int MAX_FILES = 10;
-
 using namespace std;
 class FileManager
 {
@@ -17,8 +15,8 @@ private:
 public:
 	FileManager();
 	~FileManager();
-	static void openFile();
-	static void createFile();
-	static void copyDocument();
-	static void showMenu();
-}FileManager[MAX_FILES];
+	void openFile();
+	void createFile();
+	void copyDocument();
+	void showMenu();
+};
