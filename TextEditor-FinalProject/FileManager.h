@@ -18,7 +18,7 @@ private:
 public:
 	FileManager();
 	~FileManager();
-	double fixName(string FileName); //A~ade .txt al nombre del file
+	string fixName(string FileName); //A~ade .txt al nombre del file
 	void getName() const;
 	void openFile();
 	void createFile();
