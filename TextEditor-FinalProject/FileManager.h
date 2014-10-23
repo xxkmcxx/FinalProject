@@ -12,13 +12,17 @@ class FileManager
 {
 private:
 //Class instance variables
-	fstream file;
-
+	fstream *file;
+	string *FileName; //Guarda el nombre del file.
 public:
-	FileManager();
+	FileManager(fstream *file, string *FileName);
+	FileManager(const FileManager & aFileManager);
 	~FileManager();
-	static void openFile();
-	static void createFile();
-	static void copyDocument();
-	static void showMenu();
+	FileManager & operator = (const FileManager & aFileManager);
+	string fixName(string FileName); //A~ade .txt al nombre del file
+	void getName() const;
+	void openFile();
+	void createFile();
+	void copyDocument();
+	void showMenu();
 };
