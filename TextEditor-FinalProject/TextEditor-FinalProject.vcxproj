@@ -96,6 +96,13 @@
     <ClInclude Include="MyMenu.h" />
     <ClInclude Include="MyString.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Alpha.txt" />
+    <Text Include="LogFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\OneDrive\Documents\TextEditor-FinalProject\Class Diagram.vsdx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
