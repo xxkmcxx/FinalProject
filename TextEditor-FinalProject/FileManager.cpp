@@ -20,9 +20,8 @@ void FileManager::openFile()
 	MyString fName;
 	Editor editor(*file, fName);
 	editor.menu();
-	this->fileName[count] = fName
+	this->FileName[count] = fName
 	this->fcount++;
-
 }
 void FileManager::copyDocument()
 {
@@ -55,11 +54,6 @@ void FileManager::showMenu()
 			cout << "Invalid input. Please try again." << endl;
 		}
 	} while (option != 4 || option != 5);
-}
-
-void FileManager::openFile()
-{
-	
 }
 
 void FileManager::createFile()
