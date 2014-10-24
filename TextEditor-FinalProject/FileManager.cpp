@@ -63,7 +63,6 @@ void FileManager::copyDocument(const FileManager & aFileManager, string FileName
 		{
 			FileName[i] = source;
 			g++;
-			i = i;
 		}
 	}
 	for (int j = 0, g = 0; g == 1; j++)
@@ -73,22 +72,22 @@ void FileManager::copyDocument(const FileManager & aFileManager, string FileName
 			FileName[j] = destination;
 		}
 	}
-		fstream *file(FileName[i]);
+		ifstream file(source);
 
 	char a[512];
 
 
-	while (!stream1.eof())
+	while (!source.eof())
 
 	{
-		stream1 >> a;
+		source >> a;
 	}
 
 
-	ofstream myfile;
-	myfile.open("c:\\destination.txt");
-	myfile << a;
-	myfile.close();
+	ofstream aFileManager.FileName[i];
+	file.open(destination);
+	file << a;
+	file.close();
 }
 
 bool FileManager::operator ==(const FileManager & aFileManager) const
