@@ -1,8 +1,7 @@
 
 #include "FileManager.h"
-FileManager::FileManager()
+FileManager::FileManager(fstream *file, string FileName)
 {
-	count = 0;
 }
 FileManager::~FileManager()
 {
@@ -56,4 +55,21 @@ void FileManager::showMenu()
 			cout << "Invalid input. Please try again." << endl;
 		}
 	} while (option != 4 || option != 5);
+}
+void FileManager::openFile()
+{
+	
+}
+void FileManager::createFile()
+{
+	cout << "Enter the name of the file" << endl;
+}
+void FileManager::copyDocument()
+{
+}
+
+string FileManager::fixName(string FileName)
+{
+	FileName += ".txt";
+	return FileName;
 }
