@@ -1,7 +1,8 @@
 
 #include "FileManager.h"
-FileManager::FileManager()
+FileManager::FileManager(fstream *file, string FileName)
 {
+	string FileName = "";
 }
 FileManager::~FileManager()
 {
@@ -42,12 +43,62 @@ void FileManager::openFile()
 {
 	
 }
+
 void FileManager::createFile()
 {
 	cout << "Enter the name of the file" << endl;
 }
-void FileManager::copyDocument()
+
+void FileManager::copyDocument(const FileManager & aFileManager, string FileName[MAX_FILES])
 {
+	string source, destination;
+	int a = 0;
+	cout << "Enter the name of the source file: ";
+	cin >> source;
+	cout << "Enter the name of the destination file: ";
+	cin >> destination;
+	for (int i = 0, int g = 0; g == 1 ; i++)
+	{
+		if (source == FileName[i])
+		{
+			FileName[i] = source;
+			g++;
+			i = i;
+		}
+	}
+	for (int j = 0, g = 0; g == 1; j++)
+	{
+		if (FileName[j] == "")
+		{
+			FileName[j] = destination;
+		}
+	}
+		fstream *file(FileName[i]);
+
+	char a[512];
+
+
+	while (!stream1.eof())
+
+	{
+		stream1 >> a;
+	}
+
+
+	ofstream myfile;
+	myfile.open("c:\\destination.txt");
+	myfile << a;
+	myfile.close();
+}
+
+bool FileManager::operator ==(const FileManager & aFileManager) const
+{
+	return(this->FileName == aFileManager.FileName);
+}
+
+bool FileManager::operator ==(string FileManager) const
+{
+
 }
 
 string FileManager::fixName(string FileName)
