@@ -66,6 +66,7 @@ void FileManager::createFile()
 }
 void FileManager::copyDocument()
 {
+
 }
 
 string FileManager::fixName(string FileName)
