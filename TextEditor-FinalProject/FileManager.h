@@ -8,6 +8,8 @@
 
 using namespace std;
 
+const int MAX_FILES = 10;
+
 class FileManager
 {
 private:
