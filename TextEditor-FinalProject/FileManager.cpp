@@ -20,9 +20,8 @@ void FileManager::openFile()
 	MyString fName;
 	Editor editor(*file, fName);
 	editor.menu();
-	this->fileName[count] = fName
+	this->FileName[count] = fName
 	this->fcount++;
-
 }
 void FileManager::copyDocument()
 {
@@ -56,17 +55,16 @@ void FileManager::showMenu()
 		}
 	} while (option != 4 || option != 5);
 }
-void FileManager::openFile()
-{
-	
-}
+
 void FileManager::createFile()
 {
 	cout << "Enter the name of the file" << endl;
 }
-void FileManager::copyDocument()
-{
 
+void FileManager::copyDocument(const FileManager & aFileManager, string FileName[MAX_FILES])
+{
+	string source, destination;
+	int i = 0, j = 0, g = 0;
 }
 
 string FileManager::fixName(string FileName)
