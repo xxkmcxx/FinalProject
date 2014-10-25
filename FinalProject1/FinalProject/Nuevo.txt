@@ -1,0 +1,14 @@
+
+Escribe... tengo hambre cono
+MIerrraaadadad.
+Quiero escribir como un hp.
+Y no me importa lo q digan jfkaljdslkfasldflasdfjldsajflkasdjflkasdjklfjadslfjlfkldsafklasdfjladjflkajflkadjsklfjadslkfjladskf
+dsafadslkjfsadklfjldsafjldsjfladsjkfadslkfjasdf
+sadfljakdsflkadsjflkdasjfladkjsflkasdfjlkas
+fadslkfjasdlkfjladsjfkldsjfasdd
+fadlfjadsklfjawoiwfjlkdsafja
+dfkladsjflmaweifladslfkjdasklfjasdf
+sdafjldsflkasdjf;asdjfkadsjfksdklfjasdlkfjasd
+sjfalsfjsalkjfsaf
+safasjlfsalkfjlaskjflksjflksafas
+cout >> "tobee es pato"<< endl;.
