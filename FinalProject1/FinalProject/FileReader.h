@@ -4,8 +4,8 @@
 #include <fstream>
 #include <string>
 
-
 using namespace std;
+
 class FileReader
 {
 private:
@@ -14,5 +14,6 @@ public:
 	FileReader(string name);
 	~FileReader();
 	void fileRead();
+	int ParagraphCount();
 };
 
