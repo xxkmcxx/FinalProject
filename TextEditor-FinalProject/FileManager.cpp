@@ -1,22 +1,15 @@
 #include "MyString.h"
 #include "FileManager.h"
 #include <string>
+#include <string.h>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
-FileManager::FileManager(string FileName[MAX_FILES])
+FileManager::FileManager(string FileName)
 {
-	FileName[0] = "";
-	FileName[1] = "";
-	FileName[2] = "";
-	FileName[3] = "";
-	FileName[4] = "";
-	FileName[5] = "";
-	FileName[6] = "";
-	FileName[7] = "";
-	FileName[8] = "";
-	FileName[9] = "";
+	(*this) = FileName;
 }
 
 FileManager::FileManager(const FileManager & aFileManager)
@@ -28,37 +21,28 @@ FileManager::~FileManager()
 {
 }
 
-void FileManager::setName(const FileManager & aFileManager)
-{
-	strcpy(this->FileName, MAX_LEN, aFileManager);
-}
-
-string FileManager::getName() const
-{
-	return(*this);
-}
-
 //This is the menu that will display the FileManager
-void FileManager::createFile()
+void FileManager::createFile(int &g, unsigned int &x, unsigned int &n, unsigned int &w)
 {
-	MyString name;
-	cout << "Insert a name for a file" << endl;
-	cin >> name;
-	
+	askName(g);
+	cout << "Creating File...";
+	loadbar(x, n, w);
+	cout << "File Creation Complete.";
 }
-void FileManager::openFile()
+void FileManager::openFile(int &g)
 {
-	fstream *file;
-	MyString fName;
-	Editor editor(*file, fName);
-	editor.menu();
-	this->FileName[count] = fName
-	this->fcount++;
+	fstream file;
+	nameCount(g);
 }
-void FileManager::copyDocument()
-{
 
+void FileManager::askName(int &g)
+{
+	cout << "Enter the name of the document: ";
+	nameCount(g);
+	cin >> this->FileName[g];
+	fixName(g);
 }
+
 void FileManager::showMenu()
 {
 	MyMenu menu;
@@ -80,7 +64,7 @@ void FileManager::showMenu()
 		case 3:
 			void copyFile();
 		case 4:
-
+			int exit();
 		case 5:
 		default:
 			cout << "Invalid input. Please try again." << endl;
@@ -88,29 +72,23 @@ void FileManager::showMenu()
 	} while (option != 4 || option != 5);
 }
 
-void FileManager::createFile()
-{
-
-}
-
-void FileManager::copyDocument(string FileName)
+void FileManager::copyDocument()
 {
 	string source, destination;
 	int i = 0, j = 0, g = 0;
 }
 
-string FileManager::fixName(string FileName[], int &g)
+string FileManager::fixName(int &g)
 {
-	nameCount(g);
-	FileName[g] += ".txt";
-	return FileName[g];
+	this->FileName[g] += ".txt";
+	return this->FileName[g];
 }
 
 int FileManager::nameCount(int &g)
 {
 	for (int i = 0; i < MAX_FILES; i++)
 	{
-		if (FileName[i] == "")
+		if (this->FileName[i] == "")
 		{
 			i = g;
 		}
@@ -140,4 +118,23 @@ void FileManager::RecentDocumentsSave()
 	getline(cin, Name, '\n');
 	cin.ignore();
 	file.close();
+}
+
+int FileManager::exit()
+{
+	return 0;
+}
+
+static inline void loadbar(unsigned int &x, unsigned int &n, unsigned int &w)
+{
+	w = 50;
+	if ((x != n) && (x % (n / 100 + 1) != 0)) return;
+
+	float ratio = x / (float)n;
+	int   c = ratio * w;
+
+	cout << setw(3) << (int)(ratio * 100) << "% [";
+	for (int x = 0; x<c; x++) cout << "=";
+	for (int x = c; x<w; x++) cout << " ";
+	cout << "]\r" << flush;
 }
