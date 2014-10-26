@@ -99,6 +99,7 @@
   <ItemGroup>
     <Text Include="Alpha.txt" />
     <Text Include="LogFile.txt" />
+    <Text Include="Recent Files.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\OneDrive\Documents\TextEditor-FinalProject\Class Diagram.vsdx" />

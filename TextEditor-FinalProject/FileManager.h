@@ -13,20 +13,20 @@ const int MAX_FILES = 10;
 class FileManager
 {
 private:
-//Class instance variables
-	fstream file;
-	string FileName; //Guarda el nombre del file.
-
+	string FileName[MAX_FILES]; //Guarda el nombre del file.
 public:
-	FileManager(fstream *file, string FileName);
+	FileManager(string FileName[MAX_FILES]);
 	FileManager(const FileManager & aFileManager);
 	~FileManager();
-	string fixName(string FileName); //A~ade .txt al nombre del file
-	void getName() const;
+	string fixName(string FileName[], int &g); //A~ade .txt al nombre del file
+	void setName(const FileManager & aFileManager);
+	string getName() const;
 	void openFile();
 	void createFile();
-	void copyDocument(const FileManager & aFileManager, string FileName[MAX_FILES]);
+	void copyDocument(string FileName);
 	bool operator == (const FileManager & aFileManager) const;
-	bool operator == (string FileName[MAX_FILES]) const;
+	bool operator == (string FileName) const;
 	void showMenu();
+	int nameCount(int &g); //Busca un indice vacio para colocar el nombre en el array.
+	void RecentDocumentsSave();
 };

@@ -1,11 +1,43 @@
-
+#include "MyString.h"
 #include "FileManager.h"
-FileManager::FileManager(fstream *file, string FileName)
+#include <string>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+FileManager::FileManager(string FileName[MAX_FILES])
 {
+	FileName[0] = "";
+	FileName[1] = "";
+	FileName[2] = "";
+	FileName[3] = "";
+	FileName[4] = "";
+	FileName[5] = "";
+	FileName[6] = "";
+	FileName[7] = "";
+	FileName[8] = "";
+	FileName[9] = "";
 }
+
+FileManager::FileManager(const FileManager & aFileManager)
+{
+	(*this) = aFileManager;
+}
+
 FileManager::~FileManager()
 {
 }
+
+void FileManager::setName(const FileManager & aFileManager)
+{
+	strcpy(this->FileName, MAX_LEN, aFileManager);
+}
+
+string FileManager::getName() const
+{
+	return(*this);
+}
+
 //This is the menu that will display the FileManager
 void FileManager::createFile()
 {
@@ -58,17 +90,54 @@ void FileManager::showMenu()
 
 void FileManager::createFile()
 {
-	cout << "Enter the name of the file" << endl;
+
 }
 
-void FileManager::copyDocument(const FileManager & aFileManager, string FileName[MAX_FILES])
+void FileManager::copyDocument(string FileName)
 {
 	string source, destination;
 	int i = 0, j = 0, g = 0;
 }
 
-string FileManager::fixName(string FileName)
+string FileManager::fixName(string FileName[], int &g)
 {
-	FileName += ".txt";
-	return FileName;
+	nameCount(g);
+	FileName[g] += ".txt";
+	return FileName[g];
+}
+
+int FileManager::nameCount(int &g)
+{
+	for (int i = 0; i < MAX_FILES; i++)
+	{
+		if (FileName[i] == "")
+		{
+			i = g;
+		}
+	}
+	return g;
+}
+
+void FileManager::RecentDocumentsSave()
+{
+	fstream file;
+	string Name = "", 
+		   files = "";
+
+	file.open("Recent Files.txt");
+
+	while (getline(file, files))
+	{
+		getline(cin, files);
+		cout << endl;
+	}	
+
+	for (int i = 0; i < (MAX_FILES) && file.is_open(); i++)
+	{
+		Name = FileName[i] + '\n';
+	}		
+	files = files + Name;
+	getline(cin, Name, '\n');
+	cin.ignore();
+	file.close();
 }

@@ -37,6 +37,12 @@
     <ClCompile Include="Alpha_Driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
@@ -66,6 +72,9 @@
       <Filter>Text Files</Filter>
     </Text>
     <Text Include="Alpha.txt">
+      <Filter>Text Files</Filter>
+    </Text>
+    <Text Include="Recent Files.txt">
       <Filter>Text Files</Filter>
     </Text>
   </ItemGroup>
