@@ -13,6 +13,7 @@ class Editor
 private:
 	string f_name;
 	fstream file;
+	bool isempty();
 public:
 	Editor(string name);
 	Editor(char*name, int);
