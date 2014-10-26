@@ -8,7 +8,6 @@ int main()
 {
 	FileManager fm;
 
-	fm.setName("Ricardo");
+	fm.showMenu();
 
-	return 0;
 }

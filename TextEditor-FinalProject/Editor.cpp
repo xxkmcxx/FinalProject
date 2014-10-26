@@ -1,5 +1,5 @@
 #include "Editor.h"
-
+/*
 
 Editor::Editor(const FileManager & a, const FileManager & b, const FileManager & c){
 }
@@ -50,3 +50,4 @@ void Editor::FindListSymbol(){
 Editor::~Editor()
 {
 }
+*/

@@ -9,7 +9,10 @@ using namespace std;
 
 FileManager::FileManager(string FileName)
 {
-	(*this) = FileName;
+	for (int i = 0; i < MAX_FILES; i++)
+	{
+		this->FileName[i] = "";
+	}
 }
 
 FileManager::FileManager(const FileManager & aFileManager)
@@ -19,6 +22,7 @@ FileManager::FileManager(const FileManager & aFileManager)
 
 FileManager::~FileManager()
 {
+
 }
 
 //This is the menu that will display the FileManager
@@ -46,7 +50,7 @@ void FileManager::askName(int &g)
 void FileManager::showMenu()
 {
 	MyMenu menu;
-	int option;
+	int option = 0;
 	menu.cambiarTitulo("File Manager Menu");
 	menu.agregarOpcion("Create a new File");
 	menu.agregarOpcion("Open an existing File");
@@ -59,15 +63,19 @@ void FileManager::showMenu()
 		{
 		case 1:
 			void createFile();
+			break;
 		case 2:
 			void openFile();
+			break;
 		case 3:
 			void copyFile();
+			break;
 		case 4:
 			int exit();
+			break;
 		case 5:
-		default:
 			cout << "Invalid input. Please try again." << endl;
+			break;
 		}
 	} while (option != 4 || option != 5);
 }
@@ -125,16 +133,16 @@ int FileManager::exit()
 	return 0;
 }
 
-static inline void loadbar(unsigned int &x, unsigned int &n, unsigned int &w)
+inline void FileManager::loadbar(unsigned int &x, unsigned int &n, unsigned int &w)
 {
 	w = 50;
 	if ((x != n) && (x % (n / 100 + 1) != 0)) return;
 
-	float ratio = x / (float)n;
-	int   c = ratio * w;
+	double ratio = x / n;
+	double   c = ratio * w;
 
 	cout << setw(3) << (int)(ratio * 100) << "% [";
-	for (int x = 0; x<c; x++) cout << "=";
-	for (int x = c; x<w; x++) cout << " ";
+	for (x = 0; x<c; x++) cout << "=";
+	for (x = c; x < w; x++) cout << " ";
 	cout << "]\r" << flush;
 }

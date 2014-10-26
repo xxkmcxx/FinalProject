@@ -15,7 +15,7 @@ class FileManager
 private:
 	string FileName[MAX_FILES]; //Guarda el nombre del file.
 public:
-	FileManager(const string FileName = "");
+	FileManager(string FileName = "");
 	FileManager(const FileManager & aFileManager);
 	~FileManager();
 	string fixName(int &g); //A~ade .txt al nombre del file

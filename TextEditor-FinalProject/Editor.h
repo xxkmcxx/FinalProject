@@ -1,6 +1,6 @@
 #pragma once
 #include "FileManager.h"
-
+/*
 class Editor
 {
 private:
@@ -18,5 +18,4 @@ public:
 	void FindEOFSymbol();
 	void FindEnterSymbol();
 	void FindListSymbol();
-};
-
+};*/
