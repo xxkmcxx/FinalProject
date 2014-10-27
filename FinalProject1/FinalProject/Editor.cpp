@@ -188,9 +188,8 @@ void Editor::menu()
 	}
 	else if (option == 5)
 	{
-		/*this->clearFile(file);
-		this->menu(file);*/
-
+		this->clearFile(file);		
+		this->menu();
 	}
 	else if (option == 6)
 	{
