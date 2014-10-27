@@ -13,112 +13,18 @@ bool Editor::isempty(){
 	ifstream in(filename);
 	if (!in){
 		cout << filename << " failed to open\n";
-		return true;
+		return false;
 	}
 	else {
-		return false;
+		return true;
 		// Read a character, test for end-of-file
 		bool empty = (in.get(), in.eof());
 		cout << filename << " is "
 			<< (empty ? "" : "not ")
 			<< "empty"<<endl;
 	}
-
-
-
-	/*
-	ifstream inFile("a.txt", ios::binary);
-
-	inFile.seekg(0, ios::beg);
-	inFile.close();
-	if (inFile.peek() == 0){
-		cout << "ESTA VACIO." << endl;
-		return true;
-	}
-	if (inFile.get() != 0){
-		cout << "NO ESTA VACIO." << endl;
-		return false;
-	}
-		
-		// ...do something with empty file...  
 	
-	
-		ifstream file("filename", ios::binary);
-
-		file.seekg(0, ios::end);
-		if (file.tellg() == 0)
-		{
-			cout << "File is empty" << endl;
 		}
-	}
-
-	
-	fstream inFile("file.dat", ios::in | ios::out | ios::binary);
-	inFile.seekg(0, ios::end);
-	if (inFile.tellg() == 0){
-
-		cout << " VACIO" << endl;
-	}
-	if (inFile.tellg() != 0){
-
-		cout << "NOESTAVACIO" << endl;
-	}
-		//File is empty
-
-
-		int length;
-		ifstream f;
-
-		f.open("fileYouWatToTest.txt", ios::app); // open your file
-		f.seekg(0, ios::end); // put the "cursor" at the end of the file
-		length = f.tellg(); // find the position of the cursor
-		f.close(); // close your file
-
-		if (f.peek() == 0)
-		return true;
-		cout << "El archivo esta vacio." << endl;
-
-		if (f.get() != 0)
-		cout << "El archivo NO esta vacio" << endl;
-		return false;
-		}
-
-
-
-
-		string   s;
-		ifstream f(f_name, ios::out);
-
-		// Check for UTF-8 BOM
-		if (f.peek() == 0)
-		{
-		f.get();
-		if (f.get() != 0) return false;
-		if (f.get() != 0) return false;
-		cout << "El archivo esta vacio";
-		}
-
-		// Scan every line of the file for non-whitespace characters
-		while (getline(f, s))
-		{
-		if (s.find_first_not_of(
-		" \t\n\v\f\r" // whitespace
-		"\0\xFE\xFF"  // non-printing (used in various Unicode encodings)
-		) != string::npos)
-		return false;
-		cout << "El archivo no esta vacio.";
-		}
-
-		// If we get this far, then the file only contains whitespace
-		// (or its size is zero)
-		return true;
-		cout << "El archivo esta vacio.";
-
-		}
-
-		*/
-	
-	}
 
 void Editor::editFile()
 {

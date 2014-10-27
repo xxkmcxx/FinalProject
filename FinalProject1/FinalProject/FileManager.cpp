@@ -16,6 +16,7 @@ void FileManager::menu()
 		MyMenu menu;
 		int option;
 		menu.cambiarTitulo("File Manager Menu                           |");
+		menu.agregarOpcion("Instructions of the Editor        |");
 		menu.agregarOpcion("Create a new File                 |");
 		menu.agregarOpcion("Open an existing File             |");
 		menu.agregarOpcion("Copy File to new File             |");
@@ -29,7 +30,7 @@ void FileManager::menu()
 		cin >> option;
 		if (option == 1)
 		{
-			this->createFile();
+			this->openreadme();
 			this->menu();
 		}
 		else if (option == 2)
@@ -39,10 +40,15 @@ void FileManager::menu()
 		}
 		else if (option == 3)
 		{
-			this->copyFile();
+			//openExistingFile();
 			this->menu();
 		}
 		else if (option == 4)
+		{
+			this->copyFile();
+			this->menu();
+		}
+		else if (option == 5)
 		{
 			cout << "Thank you,Bye!" << endl;
 			return;
@@ -60,6 +66,7 @@ int FileManager::openFile()
 	cout << "Enter the name of the file to open" << endl;
 	cin >> name;
 	name.append(".txt");
+	cout << "This is what the file has currently written" << endl << endl;
 
 	fstream file;
 		if(file.fail())
@@ -167,3 +174,14 @@ void FileManager::loading()
 }
 
 
+void FileManager::openreadme(){
+
+	ifstream file;
+
+	cout << "Instructions for the program:" << endl;
+	cout << endl;
+	FileReader fr("readme.txt");
+	fr.fileRead();
+
+
+}
