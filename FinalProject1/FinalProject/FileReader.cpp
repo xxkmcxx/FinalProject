@@ -200,8 +200,7 @@ void FileReader::deleteParagraph(int p_number)
 				aft_pgraph.append(pgraph);
 				aft_pgraph.append("$");
 
-	return(p_count);
-}
+			}
 			j++;
 		}
 		file.close();
