@@ -1,12 +1,14 @@
 //Driver 1.00.01
 //Last Edited by: JOSHUA
-
+#include "FileManager.h"
 #include<iostream>
 using namespace::std;
 
 int main()
 {
-	
+	FileManager fm;
+	int g;
 
-	return 0;
+	fm.askName(g);
+
 }

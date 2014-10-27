@@ -1,13 +1,18 @@
 #include "FileReader.h"
+#include <string>
 
 
 FileReader::FileReader(string name) : f_name(name)
 {
+
 }
+
 FileReader::~FileReader()
 {
+
 }
-void FileReader:: fileRead()
+
+void FileReader::fileRead()
 {
 	this->file.open(this->f_name,ios::in);
 	cout << "This is what the file has currently written" << endl << endl;
@@ -67,7 +72,7 @@ void FileReader::lineReplace(int l_number)
 		file << bfr_Line;
 		file.close();
 	}
-
+	
 }
 void FileReader::deleteLine(int l_number)
 {
@@ -80,7 +85,7 @@ void FileReader::deleteLine(int l_number)
 	}
 	else
 	{
-
+	
 		int i = 1, j = 1;
 		while (getline(file, line, '\n'))
 		{
@@ -90,12 +95,12 @@ void FileReader::deleteLine(int l_number)
 				bfr_Line.append("\n");
 				i++;
 			}
-
+	
 			if (j > l_number)
 			{
 				aft_Line.append(line);
 				aft_Line.append("\n");
-
+	
 			}
 			j++;
 		}
@@ -105,7 +110,7 @@ void FileReader::deleteLine(int l_number)
 		file << bfr_Line;
 		file.close();
 	}
-
+	
 }
 //counts how many lines are in a file
 int FileReader:: lineCount()
@@ -124,7 +129,7 @@ int FileReader:: lineCount()
 	return count;
 }
 void FileReader::paragraphReplace(int p_number)
-{
+	{
 	cout << "Entro aqui" << endl;
 	fstream file;
 	file.open(this->f_name, ios::in);
@@ -154,7 +159,7 @@ void FileReader::paragraphReplace(int p_number)
 			}
 			j++;
 		}
-		file.close();
+	file.close();
 		string newline;
 		cout << "Enter the new paragraph to replace with" << endl;
 		getline(cin, newline, '-');
@@ -195,7 +200,8 @@ void FileReader::deleteParagraph(int p_number)
 				aft_pgraph.append(pgraph);
 				aft_pgraph.append("$");
 
-			}
+	return(p_count);
+}
 			j++;
 		}
 		file.close();

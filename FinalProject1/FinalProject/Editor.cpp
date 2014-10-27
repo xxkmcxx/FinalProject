@@ -1,11 +1,32 @@
 #include "Editor.h"
+#include<iostream>
 
 
 Editor::Editor(string name) :f_name(name), reader(name)
 {
 	
 }
-void Editor:: editFile()
+
+bool Editor::isempty(){
+
+	string filename(this->f_name);
+	ifstream in(filename);
+	if (!in){
+		cout << filename << " failed to open\n";
+		return false;
+	}
+	else {
+		return true;
+		// Read a character, test for end-of-file
+		bool empty = (in.get(), in.eof());
+		cout << filename << " is "
+			<< (empty ? "" : "not ")
+			<< "empty"<<endl;
+	}
+	
+		}
+
+void Editor::editFile()
 {
 	//this methods needs to validate if the file 
 	//has is new or has something written in it
@@ -30,13 +51,13 @@ void Editor::clearFile()
 	cout << "File cleared" << endl;
 }
 void Editor::editLine()
-{
+	{
 	
 	int l_number;
 	cout << "Enter the number of the line you want to replace" << endl;
 	cin >> l_number;
 	this->reader.lineReplace(l_number);
-}
+	}
 void Editor::deleteLine()
 {
 	int l_number;
