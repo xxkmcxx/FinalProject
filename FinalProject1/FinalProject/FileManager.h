@@ -19,5 +19,6 @@ public:
 	void copyFile();
 	void openreadme();
 	void RecentFiles();
+	void playsong();
 };
 
