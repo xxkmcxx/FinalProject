@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+
 using namespace std;
 
 FileManager::FileManager(string FileName)
@@ -28,67 +29,97 @@ FileManager::~FileManager()
 //This is the menu that will display the FileManager
 void FileManager::createFile(int &g, unsigned int &x, unsigned int &n, unsigned int &w)
 {
-	askName(g);
+	void askName();
 	cout << "Creating File...";
-	loadbar(x, n, w);
+	void loadbar();
+	ofstream file(FileName[g]);
+	void RecentDocumentsSave();
 	cout << "File Creation Complete.";
 }
+
 void FileManager::openFile(int &g)
 {
 	fstream file;
 	nameCount(g);
 }
 
-void FileManager::askName(int &g)
+void FileManager::askName()
 {
+	int g;
 	cout << "Enter the name of the document: ";
+	int nameCount();
+	g = nameCount();
+	cin >> FileName[g];
+	void fixName();
+	void openFile();
+}
+
+void FileManager::Menu()
+{
+	MyMenu menu;
+	int option;
+	menu.cambiarTitulo("File Manager Menu                           |");
+	menu.agregarOpcion("Create a new File                 |");
+	menu.agregarOpcion("Open an existing File             |");
+	menu.agregarOpcion("Exit                              |");
+	menu.cambiarPregunta("Please choose one of the option shown above.|");
+
+
+	cout << "____________________________________________" << endl;
+	cout << menu << endl;
+	cout << "____________________________________________" << endl;
+	cin >> option;
+	if (option == 1)
+	{
+		void createFile();
+		void menu();
+	}
+	else if (option == 2)
+	{
+		//openExistingFile();
+		void menu();
+	}
+	else if (option == 3)
+	{
+		cout << "Thank you,Bye!" << endl;
+		exit();
+	}
+	else
+	{
+		cout << "Invalid input, please try again" << endl;
+		void menu();
+	}
+
+}
+
+void FileManager::copyDocument(int &g)
+{
+	fstream file("Recent Files.txt"), file1;
+	string recent, source, destination;
+	cout << "Enter the name of the source file: ";
 	nameCount(g);
 	cin >> this->FileName[g];
 	fixName(g);
-}
-
-void FileManager::showMenu()
-{
-	MyMenu menu;
-	int option = 0;
-	menu.cambiarTitulo("File Manager Menu");
-	menu.agregarOpcion("Create a new File");
-	menu.agregarOpcion("Open an existing File");
-	menu.agregarOpcion("Copy an existing File");  //not sure if this option is needed
-	menu.agregarOpcion("Exit");
-	menu.cambiarPregunta("Please choose one of the option shown above.");
-	do
+	source = this->FileName[g];
+	if (file.is_open())
 	{
-		switch (option)
+		while (getline(file, recent))
 		{
-		case 1:
-			void createFile();
-			break;
-		case 2:
-			void openFile();
-			break;
-		case 3:
-			void copyFile();
-			break;
-		case 4:
-			int exit();
-			break;
-		case 5:
-			cout << "Invalid input. Please try again." << endl;
-			break;
+			cout << recent << '\n';
 		}
-	} while (option != 4 || option != 5);
-}
-
-void FileManager::copyDocument()
-{
-	string source, destination;
-	int i = 0, j = 0, g = 0;
+		file.close();
+	}
+	else cout << "Unable to open file";
+	cout << "Enter the name of the destination file: ";
+	nameCount(g);
+	cin >> this->FileName[g];
+	fixName(g);
+	destination = this->FileName[g];
 }
 
 string FileManager::fixName(int &g)
 {
-	this->FileName[g] += ".txt";
+	this->FileName[g].append(".txt");
 	return this->FileName[g];
 }
 
@@ -120,7 +151,8 @@ void FileManager::RecentDocumentsSave()
 
 	for (int i = 0; i < (MAX_FILES) && file.is_open(); i++)
 	{
-		Name = FileName[i] + '\n';
+		this->FileName[i].append("\n");
+		Name = this->FileName[i];
 	}		
 	files = files + Name;
 	getline(cin, Name, '\n');

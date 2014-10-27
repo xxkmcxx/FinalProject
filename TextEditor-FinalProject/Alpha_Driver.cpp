@@ -7,7 +7,8 @@ using namespace::std;
 int main()
 {
 	FileManager fm;
+	int g;
 
-	fm.showMenu();
+	fm.askName(g);
 
 }

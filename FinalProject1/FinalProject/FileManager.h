@@ -11,8 +11,9 @@ class FileManager
 public:
 	FileManager();
 	int openFile();
-	void creatFile();
+	void createFile();
 	void menu();
 	~FileManager();
+	void loading();
 };
 
