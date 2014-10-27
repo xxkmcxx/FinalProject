@@ -183,5 +183,25 @@ void FileManager::openreadme(){
 	FileReader fr("readme.txt");
 	fr.fileRead();
 
+}
 
+void FileManager::RecentFiles()
+{
+	fstream file("Recent Files.txt");
+	string line;
+	file.open("Recent Files.txt");
+	if (file.is_open())
+	{
+		if (file.is_open())
+		{
+			while (getline(file, line))
+			{
+				cout << line << '\n';
+			}
+
+			file.close();
+		}
+		else cout << "Unable to open file";
+
+	}
 }

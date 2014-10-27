@@ -17,5 +17,6 @@ public:
 	void loading();
 	void copyFile();
 	void openreadme();
+	void RecentFiles();
 };
 
