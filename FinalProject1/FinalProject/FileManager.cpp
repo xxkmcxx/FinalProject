@@ -18,6 +18,7 @@ void FileManager::menu()
 		menu.cambiarTitulo("File Manager Menu                           |");
 		menu.agregarOpcion("Create a new File                 |");
 		menu.agregarOpcion("Open an existing File             |");
+		menu.agregarOpcion("Copy File to new File             |");
 		menu.agregarOpcion("Exit                              |");
 		menu.cambiarPregunta("Please choose one of the option shown above.|");
 		
@@ -37,6 +38,11 @@ void FileManager::menu()
 			this->menu();
 		}
 		else if (option == 3)
+		{
+			this->copyFile();
+			this->menu();
+		}
+		else if (option == 4)
 		{
 			cout << "Thank you,Bye!" << endl;
 			return;
@@ -58,7 +64,7 @@ int FileManager::openFile()
 	fstream file;
 		if(file.fail())
 		{
-			cout << "File with the name of " << name << "does not exist" << endl;
+			cout << "File with the name of " << name << " does not exist" << endl;
 				return (0);
 		}
 		else
@@ -95,6 +101,43 @@ void FileManager::createFile()
 	file.close();
 }
 
+void FileManager::copyFile()
+{
+	string source, destination, content;
+	cout << "Enter the name of the source file: " << endl;
+	cin >> source;
+	source.append(".txt");
+
+	fstream file(source);
+	if (file.fail())
+	{
+		cout << "File with the name of " << source << " does not exist" << endl;
+	}
+	else
+	{
+		cout << "Enter the name of the destination file: ";
+		cin >> destination;
+		destination.append(".txt");
+		fstream file2(destination);
+
+		while (getline(file2, content))
+		{
+			getline(cin, content);
+		}
+		file.close();
+		if (file.fail())
+		{
+			cout << "Whoops! The file is missing." << endl;
+		}
+		else
+		{
+			file2.close();
+			Editor edit(destination);
+			edit.menu();
+		}
+	}
+}
+
 void FileManager::loading()
 {
 	double progress = 0.0;
@@ -116,5 +159,10 @@ void FileManager::loading()
 		progress += 0.10;
 	}
 	std::cout << std::endl;
+}
+
+int exit()
+{
+	return 0;
 }
 

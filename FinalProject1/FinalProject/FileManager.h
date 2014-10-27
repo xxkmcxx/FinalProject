@@ -15,5 +15,7 @@ public:
 	void menu();
 	~FileManager();
 	void loading();
+	void copyFile();
+	int exit();
 };
 
