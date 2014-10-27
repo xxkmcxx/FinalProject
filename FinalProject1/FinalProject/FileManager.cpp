@@ -16,7 +16,7 @@ void FileManager::menu()
 		MyMenu menu;
 		int option;
 		menu.cambiarTitulo("File Manager Menu                           |");
-		menu.agregarOpcion("Instructions of the Editor        |");
+		menu.agregarOpcion("User Manual for Editor            |");
 		menu.agregarOpcion("Create a new File                 |");
 		menu.agregarOpcion("Open an existing File             |");
 		menu.agregarOpcion("Copy File to new File             |");
