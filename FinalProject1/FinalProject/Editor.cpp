@@ -7,6 +7,16 @@ Editor::Editor(string name) :f_name(name)
 	
 }
 
+Editor::Editor(const Editor & anEditor){
+	this->f_name = anEditor.f_name;
+}
+
+Editor & Editor::operator =(const Editor & anEditor){
+	this->f_name = anEditor.f_name;
+
+	return (*this);
+}
+
 bool Editor::isempty(){
 
 	string filename(this->f_name);

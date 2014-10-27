@@ -15,8 +15,10 @@ private:
 	fstream file;
 	bool isempty();
 public:
+	Editor(const Editor & anEditor);
 	Editor(string name);
 	Editor(char*name, int);
+	Editor & operator =(const Editor & anEditor);
 	void editFile();
 	void clearFile(fstream &file);
 	void readFile(string name);
