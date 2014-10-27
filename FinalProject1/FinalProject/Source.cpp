@@ -10,31 +10,13 @@ using namespace std;
 int main()
 {
 
-
-
-
 	FileManager fm;
-	fm.menu();
-//	FileReader f_reader;
-//
-//	fstream file;
-//	file.open("Prueba.txt", ios::in | ios::app);
-//	
-//
-//	string name;
-//	getline(std::cin, name, '.');
-//	name.append(".");
-//	file << name;
-//
-//	file.close();
-//	/*string name;
-//	getline(std::cin, name, '.');
-//	name.append(".");
-//	file << name;
-//*/
-//	file.close();
-//
+	FileReader fr("Kevin.txt");
 
+	cout << fr.paragraphCount() << endl;
+	cout << fr.lineCount() << endl;
+
+	fm.menu();
 
 	return(0);
 }

@@ -9,29 +9,214 @@ FileReader::~FileReader()
 }
 void FileReader:: fileRead()
 {
-	fstream file;
-	file.open(this->f_name,ios::in);
+	this->file.open(this->f_name,ios::in);
 	cout << "This is what the file has currently written" << endl << endl;
 	
 	char ch;
-	file.get(ch);
+	this->file.get(ch);
 	while (!file.fail())
 	{
 		cout.put(ch);
-		file.get(ch);
+		this->file.get(ch);
 	}
 	cout << endl;
-	
-	
-	
-	
-	
-	//string str;
-	/*file >> str;
-	while (getline(file, str))
-	{
-		cout << str << endl;
-	}*/
-	file.close();
+	this->file.close();
 
+}
+//replaces an existing line on a file
+void FileReader::lineReplace(int l_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string line,bfr_Line,aft_Line;
+	if (l_number > this->lineCount())
+	{
+		cout << "The line entered does not match the number of lines displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, line, '\n'))
+		{
+			if (i < l_number)
+			{
+				bfr_Line.append(line);
+				bfr_Line.append("\n");
+				i++;
+			}
+
+			if (j > l_number)
+			{
+				aft_Line.append(line);
+				aft_Line.append("\n");
+
+			}
+			j++;
+		}
+		file.close();
+		string newline;
+		cout << "Enter the new sentence to replace with" << endl;
+		getline(cin, newline, '-');
+		newline = newline.substr(1, newline.length());
+		newline.append("\n");
+		newline.append(aft_Line);
+		bfr_Line.append(newline);
+
+		file.open(this->f_name, ios::out);
+		file << bfr_Line;
+		file.close();
+	}
+
+}
+void FileReader::deleteLine(int l_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  line, bfr_Line, aft_Line;
+	if (l_number > this->lineCount())
+	{
+		cout << "The line entered does not match the number of lines displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, line, '\n'))
+		{
+			if (i < l_number)
+			{
+				bfr_Line.append(line);
+				bfr_Line.append("\n");
+				i++;
+			}
+
+			if (j > l_number)
+			{
+				aft_Line.append(line);
+				aft_Line.append("\n");
+
+			}
+			j++;
+		}
+		file.close();
+		file.open(this->f_name, ios::out);
+		bfr_Line.append(aft_Line);
+		file << bfr_Line;
+		file.close();
+	}
+
+}
+//counts how many lines are in a file
+int FileReader:: lineCount()
+{
+	char ch;
+	int count =0;
+	this->file.open(this->f_name, ios::in);
+	this->file.get(ch);
+	while (!file.eof()) //algorith for counting lines in a file
+	{
+		if (ch == '\n')
+			count++;
+		file.get(ch);
+	}
+	this->file.close();
+	return count;
+}
+void FileReader::paragraphReplace(int p_number)
+{
+	cout << "Entro aqui" << endl;
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  pgraph, bfr_pgraph, aft_pgraph;
+	if (p_number > this->paragraphCount())
+	{
+		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, pgraph, '$'))
+		{
+			if (i < p_number)
+			{
+				bfr_pgraph.append(pgraph);
+				bfr_pgraph.append("$");
+				i++;
+			}
+
+			if (j > p_number)
+			{
+				aft_pgraph.append(pgraph);
+				aft_pgraph.append("$");
+
+			}
+			j++;
+		}
+		file.close();
+		string newline;
+		cout << "Enter the new paragraph to replace with" << endl;
+		getline(cin, newline, '-');
+		newline  = newline.substr(1, newline.length());
+		newline.append("\n");
+		newline.append(aft_pgraph);
+		bfr_pgraph.append(newline);
+		file.open(this->f_name, ios::out);
+		file << bfr_pgraph;
+		file.close();
+	}
+}
+void FileReader::deleteParagraph(int p_number)
+{
+	cout << "Entro al delete de parrafo" << endl;
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  pgraph, bfr_pgraph, aft_pgraph;
+	if (p_number > this->paragraphCount())
+	{
+		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, pgraph, '$'))
+		{
+			if (i < p_number)
+			{
+				bfr_pgraph.append(pgraph);
+				bfr_pgraph.append("$");
+				i++;
+			}
+
+			if (j > p_number)
+			{
+				aft_pgraph.append(pgraph);
+				aft_pgraph.append("$");
+
+			}
+			j++;
+		}
+		file.close();
+		bfr_pgraph.append(aft_pgraph);
+		file.open(this->f_name, ios::out);
+		file << bfr_pgraph;
+		file.close();
+	}
+}
+int FileReader::paragraphCount()
+{
+	char ch;
+	int count = 0;
+	this->file.open(this->f_name, ios::in);
+	this->file.get(ch);
+	while (!file.eof()) //algorith for counting lines in a file
+	{
+		if (ch == '$')
+			count++;
+		file.get(ch);
+	}
+	this->file.close();
+	return count;
 }

@@ -13,12 +13,16 @@ class Editor
 private:
 	string f_name;
 	fstream file;
+	FileReader reader;
 public:
 	Editor(string name);
 	Editor(char*name, int);
 	void editFile();
-	void clearFile(fstream &file);
-	void readFile(string name);
+	void clearFile();
+	void editLine();
+	void deleteLine();
+	void editParagraph();
+	void deleteParagraph();
 	void menu();
 	~Editor();
 };
