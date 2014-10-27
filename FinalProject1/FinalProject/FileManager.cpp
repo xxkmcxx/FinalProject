@@ -172,7 +172,6 @@ void FileManager::loading()
 	std::cout << std::endl;
 }
 
-
 void FileManager::openreadme(){
 
 	ifstream file;

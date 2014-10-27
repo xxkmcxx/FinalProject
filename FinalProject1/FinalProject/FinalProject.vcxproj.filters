@@ -68,5 +68,8 @@
     <Text Include="Recent Files.txt">
       <Filter>Text Files</Filter>
     </Text>
+    <Text Include="readme.txt">
+      <Filter>Text Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

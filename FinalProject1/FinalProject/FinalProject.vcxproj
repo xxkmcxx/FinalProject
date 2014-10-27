@@ -95,6 +95,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="readme.txt" />
     <Text Include="Recent Files.txt" />
     <Text Include="Test.txt" />
   </ItemGroup>
