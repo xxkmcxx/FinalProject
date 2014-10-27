@@ -120,12 +120,17 @@ void FileManager::copyFile()
 		destination.append(".txt");
 		fstream file2(destination);
 
-		while (getline(file2, content))
+		while (getline(file, content))
 		{
-			getline(cin, content);
+			;
+		}
+		if (file2.is_open())
+		{
+			file2 << content;
+			file2.close();
 		}
 		file.close();
-		if (file.fail())
+		if (file2.fail())
 		{
 			cout << "Whoops! The file is missing." << endl;
 		}
@@ -161,8 +166,4 @@ void FileManager::loading()
 	std::cout << std::endl;
 }
 
-int exit()
-{
-	return 0;
-}
 

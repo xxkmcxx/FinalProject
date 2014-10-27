@@ -16,6 +16,5 @@ public:
 	~FileManager();
 	void loading();
 	void copyFile();
-	int exit();
 };
 
