@@ -22,5 +22,6 @@ public:
 	~FileReader();
 	void fileRead();
 	int ParagraphCount();
+	bool is_empty(string f_name);
 };
 

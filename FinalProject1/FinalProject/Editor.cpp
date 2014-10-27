@@ -1,5 +1,6 @@
 #include "Editor.h"
 #include<iostream>
+#include "FileManager.h"
 
 
 Editor::Editor(string name) :f_name(name), reader(name)
@@ -28,9 +29,18 @@ bool Editor::isempty(){
 
 void Editor::editFile()
 {
+	FileReader emp(f_name);
 	//this methods needs to validate if the file 
 	//has is new or has something written in it
-	cout << "This is what the file has currently written" << endl << endl;
+	if (emp.is_empty(f_name))
+	{
+		cout << "File is empty." << endl;
+	}
+	else
+	{
+		cout << "This is what the file has currently written" << endl << endl;
+	}
+
 	this->reader.fileRead();
 	file.open(this->f_name,ios::app);
 
@@ -46,10 +56,18 @@ void Editor::editFile()
 
 void Editor::clearFile()
 {
-	
+	string yn;
+	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
+	cin >> yn;
+	if (yn == "Y" || yn == "Yes" || yn == "y" || yn == "YES")
+	{
+	FileManager Mana;
+	Mana.loading();
 	this->file.open(this->f_name, ios::out | ios::trunc);
 	file.close();
 	cout << "File cleared" << endl;
+	}
+	else cout << "File wasn't deleted. Returning to main menu." << endl;
 }
 void Editor::editLine()
 	{

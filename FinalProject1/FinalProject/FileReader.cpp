@@ -223,3 +223,9 @@ int FileReader::paragraphCount()
 	this->file.close();
 	return count;
 }
+
+bool FileReader::is_empty(string f_name)
+{
+	ifstream file(f_name);
+	return(file.peek() == ifstream::traits_type::eof());
+}

@@ -66,7 +66,15 @@ int FileManager::openFile()
 	cout << "Enter the name of the file to open: ";
 	cin >> name;
 	name.append(".txt");
-	cout << "This is what the file has currently written" << endl << endl;
+	FileReader emp(name);
+	if (emp.is_empty(name))
+	{
+		cout << "File is empty." << endl;
+	}
+	else
+	{
+		cout << "This is what the file has currently written" << endl << endl;
+	}
 	FileReader read(name);
 	read.fileRead();
 	fstream file;
