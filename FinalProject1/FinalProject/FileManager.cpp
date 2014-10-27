@@ -126,17 +126,13 @@ void FileManager::copyFile()
 		cin >> destination;
 		destination.append(".txt");
 		ofstream file2(destination);
-		ifstream file3(destination);
-		while (getline(file, content))
-		{
-			;
-		}
+		fstream file3(destination);
+		(getline(file, content));
 		if (file3.is_open())
 		{
-			file2 << content;
+			file3 << content;
 			this->loading();
 			cout << "File Cloning Completed." << endl << "You are editing " << destination << endl;
-
 		}
 		file.close();
 		if (file3.is_open())
