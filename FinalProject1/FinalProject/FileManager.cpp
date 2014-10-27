@@ -402,12 +402,6 @@ void FileManager::playsong()
 	Beep(932, 100); Sleep(125);
 	Beep(932, 100); Sleep(125);
 	Beep(1046, 675);
-	Beep(300, 500);
-	Sleep(50);
-	Beep(300, 500);
-	Sleep(50);
-	Beep(300, 500);
-	Sleep(50);
 	///*StarWars*/
 	//Beep(250, 500);
 	//Sleep(50);
