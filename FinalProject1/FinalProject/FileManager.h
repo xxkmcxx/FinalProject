@@ -16,5 +16,6 @@ public:
 	~FileManager();
 	void loading();
 	void copyFile();
+	void openreadme();
 };
 

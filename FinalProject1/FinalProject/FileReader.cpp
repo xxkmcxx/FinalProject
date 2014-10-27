@@ -16,7 +16,7 @@ void FileReader::fileRead()
 {
 	fstream file;
 	file.open(this->f_name, ios::in);
-	cout << "This is what the file has currently written" << endl << endl;
+	
 
 	char ch;
 	file.get(ch);
