@@ -94,7 +94,7 @@ void FileManager::createFile()
 	cout << "Creating File..." << endl;
 	this->loading();
 	cout << "File creation was succeful!" << endl;
-	fstream file;
+	fstream file(name);
 	if (file.fail())
 	{
 		cout << "Whoops! The file is missing." << endl;
@@ -105,7 +105,7 @@ void FileManager::createFile()
 		Editor edit(name);
 		edit.menu();
 	}
-	file.close();
+
 }
 
 void FileManager::copyFile()
