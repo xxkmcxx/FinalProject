@@ -59,7 +59,7 @@ void Editor::clearFile()
 	string yn;
 	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
 	cin >> yn;
-	if (yn == "Y" || yn == "Yes" || yn == "y" || yn == "YES")
+	if (yn == "Y" || yn == "Yes" || yn == "y" || yn == "YES" || yn == "yes")
 	{
 	FileManager Mana;
 	Mana.loading();
@@ -67,7 +67,13 @@ void Editor::clearFile()
 	file.close();
 	cout << "File cleared" << endl;
 	}
-	else cout << "File wasn't deleted. Returning to main menu." << endl;
+	else if (yn == "N" || yn == "No" || yn == "n" || yn == "NO")
+		cout << "File wasn't deleted. Returning to main menu." << endl;
+	else
+	{
+		cout << "Didn't get that. Try agai. \n Yes or No? ";
+		cin >> yn;
+	}
 }
 void Editor::editLine()
 	{

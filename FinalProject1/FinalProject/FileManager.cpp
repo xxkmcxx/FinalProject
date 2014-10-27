@@ -121,13 +121,21 @@ void FileManager::createFile()
 void FileManager::copyFile()
 {
 	string source, destination, content;
+	FileReader emp(source);
+	do
+	{
+		cout << "Enter the name of the source file: ";
+		cin >> source;
+		source.append(".txt");
+		if (emp.is_empty(source))
+		{
+			cout << "This file is empty. Try a file with something on it.\n";
+		}
+	} while (emp.is_empty(source));
 
-	cout << "Enter the name of the source file: ";
-	cin >> source;
-	source.append(".txt");
 
 	fstream file(source);
-	FileReader emp(source);
+	
 	while (!file.eof())
 	{
 		getline(file, content, '-');
