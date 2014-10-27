@@ -14,9 +14,7 @@ FileReader::~FileReader()
 
 void FileReader::fileRead()
 {
-	this->file.open(this->f_name,ios::in);
-	cout << "This is what the file has currently written" << endl << endl;
-	
+	this->file.open(this->f_name,ios::in);	
 	char ch;
 	this->file.get(ch);
 	while (!file.fail())

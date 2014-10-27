@@ -30,6 +30,7 @@ void Editor::editFile()
 {
 	//this methods needs to validate if the file 
 	//has is new or has something written in it
+	cout << "This is what the file has currently written" << endl << endl;
 	this->reader.fileRead();
 	file.open(this->f_name,ios::app);
 

@@ -63,7 +63,7 @@ void FileManager::menu()
 int FileManager::openFile()
 {
 	string name;
-	cout << "Enter the name of the file to open" << endl;
+	cout << "Enter the name of the file to open: ";
 	cin >> name;
 	name.append(".txt");
 	cout << "This is what the file has currently written" << endl << endl;
@@ -94,7 +94,7 @@ void FileManager::createFile()
 	cout << "Creating File..." << endl;
 	this->loading();
 	cout << "File creation was succeful!" << endl;
-	fstream file(name);
+	fstream file;
 	if (file.fail())
 	{
 		cout << "Whoops! The file is missing." << endl;
@@ -111,7 +111,7 @@ void FileManager::createFile()
 void FileManager::copyFile()
 {
 	string source, destination, content;
-	cout << "Enter the name of the source file: " << endl;
+	cout << "Enter the name of the source file: ";
 	cin >> source;
 	source.append(".txt");
 
@@ -125,27 +125,29 @@ void FileManager::copyFile()
 		cout << "Enter the name of the destination file: ";
 		cin >> destination;
 		destination.append(".txt");
-		fstream file2(destination);
-
+		ofstream file2(destination);
+		ifstream file3(destination);
 		while (getline(file, content))
 		{
 			;
 		}
-		if (file2.is_open())
+		if (file3.is_open())
 		{
 			file2 << content;
-			file2.close();
+			this->loading();
+			cout << "File Cloning Completed." << endl << "You are editing " << destination << endl;
+
 		}
 		file.close();
-		if (file2.fail())
+		if (file3.is_open())
 		{
-			cout << "Whoops! The file is missing." << endl;
+			file3.close();
+			Editor edit(destination);
+			edit.menu();
 		}
 		else
 		{
-			file2.close();
-			Editor edit(destination);
-			edit.menu();
+			cout << "Whoops! You broke something. Try Again!" << endl;
 		}
 	}
 }
