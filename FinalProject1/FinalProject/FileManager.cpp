@@ -35,12 +35,12 @@ void FileManager::menu()
 		}
 		else if (option == 2)
 		{
-			this->openFile();
+			this->createFile();
 			this->menu();
 		}
 		else if (option == 3)
 		{
-			//openExistingFile();
+			this->openFile();
 			this->menu();
 		}
 		else if (option == 4)
