@@ -67,7 +67,8 @@ int FileManager::openFile()
 	cin >> name;
 	name.append(".txt");
 	cout << "This is what the file has currently written" << endl << endl;
-
+	FileReader read(name);
+	read.fileRead();
 	fstream file;
 		if(file.fail())
 		{

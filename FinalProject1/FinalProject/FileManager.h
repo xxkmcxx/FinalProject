@@ -3,6 +3,7 @@
 #include "MyMenu.h"
 #include <string>
 #include "Editor.h"
+#include "FileReader.h"
 
 
 class FileManager
