@@ -66,7 +66,6 @@ int FileManager::openFile()
 	cout << "Enter the name of the file to open: ";
 	cin >> name;
 	name.append(".txt");
-	cout << "This is what the file has currently written" << endl << endl;
 
 	fstream file;
 		if(file.fail())
