@@ -19,7 +19,7 @@ void FileManager::menu()
 		menu.agregarOpcion("User Manual for Editor            |");
 		menu.agregarOpcion("Create a new File                 |");
 		menu.agregarOpcion("Open an existing File             |");
-		menu.agregarOpcion("Copy File to new File             |");
+		menu.agregarOpcion("Clone File to new File            |");
 		menu.agregarOpcion("Exit                              |");
 		menu.cambiarPregunta("Please choose one of the option shown above.|");
 		
@@ -55,7 +55,7 @@ void FileManager::menu()
 		}
 		else
 		{
-			cout << "Invalid input, please try again" << endl;
+			cout << "\aInvalid input, please try again" << endl;
 			this->menu();
 		}
 }
@@ -80,7 +80,7 @@ int FileManager::openFile()
 	fstream file;
 		if(file.fail())
 		{
-			cout << "File with the name of " << name << " does not exist" << endl;
+			cout << "\aFile with the name of " << name << " does not exist" << endl;
 				return (0);
 		}
 		else
@@ -102,11 +102,11 @@ void FileManager::createFile()
 	name.append(".txt");
 	cout << "Creating File..." << endl;
 	this->loading();
-	cout << "File creation was succeful!" << endl;
+	cout << "\aFile creation was succeful!" << endl;
 	fstream file;
 	if (file.fail())
 	{
-		cout << "Whoops! The file is missing." << endl;
+		cout << "\aWhoops! The file is missing." << endl;
 	}
 	else
 	{
@@ -123,37 +123,54 @@ void FileManager::copyFile()
 	cout << "Enter the name of the source file: ";
 	cin >> source;
 	source.append(".txt");
-
 	fstream file(source);
-	if (file.fail())
+	FileReader emp(source);
+	if (emp.is_empty(source))
 	{
-		cout << "File with the name of " << source << " does not exist" << endl;
-	}
-	else
-	{
-		cout << "Enter the name of the destination file: ";
-		cin >> destination;
-		destination.append(".txt");
-		ofstream file2(destination);
-		fstream file3(destination);
-		(getline(file, content));
-		if (file3.is_open())
+		string yn;
+		cout << "File is empty. Are you sure you want to clone this file? Y/N" << endl;
+		cin >> yn;
+		if (yn == "Y" || yn == "Yes" || yn == "y" || yn == "YES" || yn == "yes")
 		{
-			file3 << content;
-			this->loading();
-			cout << "File Cloning Completed." << endl << "You are editing " << destination << endl;
-		}
-		file.close();
-		if (file3.is_open())
-		{
-			file3.close();
-			Editor edit(destination);
-			edit.menu();
+			if (file.fail())
+			{
+				cout << "\aFile with the name of " << source << " does not exist" << endl;
+			}
+			else
+			{
+				cout << "Enter the name of the destination file: ";
+				cin >> destination;
+				destination.append(".txt");
+				ofstream file2(destination);
+				fstream file3(destination);
+				(getline(file, content));
+				if (file3.is_open())
+				{
+					file3 << content;
+					this->loading();
+					cout << "\aFile Cloning Completed." << endl << "You are editing " << destination << endl;
+				}
+				file.close();
+				if (file3.is_open())
+				{
+					file3.close();
+					Editor edit(destination);
+					edit.menu();
+				}
+				else
+				{
+					cout << "\aWhoops! You broke something. Try Again!" << endl;
+				}
+			}
 		}
 		else
 		{
-			cout << "Whoops! You broke something. Try Again!" << endl;
+			cout << "Returning to the main menu." << endl;
 		}
+	}
+	else
+	{
+		cout << "Returning to main menu." << endl;
 	}
 }
 
@@ -207,7 +224,7 @@ void FileManager::RecentFiles()
 
 			file.close();
 		}
-		else cout << "Unable to open file";
+		else cout << "\aUnable to open file";
 
 	}
 }

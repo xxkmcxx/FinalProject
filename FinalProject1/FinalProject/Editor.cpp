@@ -177,7 +177,7 @@ void Editor::menu()
 	}
 	else
 	{
-		cout << "Invalid input, please try again" << endl;
+		cout << "\aInvalid input, please try again" << endl;
 		this->menu();
 	}
 }
