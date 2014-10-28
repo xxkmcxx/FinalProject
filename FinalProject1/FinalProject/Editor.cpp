@@ -158,12 +158,6 @@ void Editor::editWord()
 		a = word2.length() - word.length();
 	}
 
-	/*if (content.find("\n", pos + 1))
-	{
-		if (word.length() < word2.length())
-			word2.append("\n");
-	}*/
-
 	if (word.length() < word2.length())
 		content.replace(pos, word.length() + a - 1, word2);
 	if (word.length() > word2.length())
