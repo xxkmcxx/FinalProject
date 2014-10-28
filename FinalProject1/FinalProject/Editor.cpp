@@ -171,6 +171,52 @@ void Editor::editWord()
 	emp2 << content;
 	emp2.close();
 }
+void Editor::deleteWord()
+{
+	string word, content, word2;
+	int c = 1, i = 0, pos = 0;
+	cout << "Type in the word you want to delete. Please type as it is in the file : ";
+	cin >> word;
+	ifstream emp(f_name);
+	while (!emp.eof())
+	{
+		getline(emp, content, '-');
+		emp.close();
+	}
+	fstream emp2(f_name);
+	size_t Found = content.find(word);
+	cout << "We found " << word << " on: " << endl;
+	if (Found != string::npos)
+	{
+		cout << '\t' << i + 1 << ')' << Found << endl;
+		i++;
+	}
+	for (int g = Found; g == Found;)
+	{
+		g = Found;
+		Found = content.find(word, Found + 1);
+		if (Found > g && Found < 300)
+		{
+			cout << '\t' << i + 1 << ')' << Found << endl;
+			i++;
+			g = Found;
+		}
+		if (g == Found - 1)
+		{
+			g = 0;
+		}
+	}
+	cout << "Enter the position of the word: ";
+	cin >> pos;
+	for (int q = 0; q < word.length(); q++)
+	{
+		content.append("\b");
+	}
+	content.erase(pos, word.length());
+
+	emp2 << content;
+	emp2.close();
+}
 Editor::~Editor()
 {
 	
@@ -215,7 +261,8 @@ void Editor::menu()
 	}
 	else if (option == 4)
 	{
-		//deleteWord();
+		this->deleteWord();
+		this->menu();
 	}
 	else if (option == 5)
 	{
