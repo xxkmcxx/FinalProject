@@ -160,7 +160,7 @@ void FileManager::copyFile()
 		{
 			cout << "This file does not exist. Try a file that exist." << endl;
 		}
-		if (emp.is_empty(source))
+		if (emp.is_empty(source) && !this->fileExist(source))
 		{
 			cout << "\aThis file is empty. Try a file with something on it.\n";
 		}
