@@ -100,10 +100,10 @@ void FileManager::createFile()
 	cout << "Enter the name of the new file: ";
 	cin >> name;
 	name.append(".txt");
+	fstream file(name, ios::out);
 	cout << "Creating File..." << endl;
 	this->loading();
 	cout << "\aFile creation was succeful!" << endl;
-	fstream file;
 	if (file.fail())
 	{
 		cout << "\aWhoops! The file is missing." << endl;
