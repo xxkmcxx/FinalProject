@@ -95,8 +95,15 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="kaikai.txt" />
+    <Text Include="keikei.txt" />
+    <Text Include="Kevin.txt" />
+    <Text Include="koko.txt" />
+    <Text Include="kwiwi.txt" />
+    <Text Include="lololo.txt" />
     <Text Include="readme.txt" />
     <Text Include="Recent Files.txt" />
+    <Text Include="sebi.txt" />
     <Text Include="Test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
