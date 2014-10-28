@@ -228,3 +228,99 @@ bool FileReader::is_empty(string f_name)
 	ifstream file(f_name);
 	return(file.peek() == ifstream::traits_type::eof());
 }
+
+void FileReader::sentenceReplace(int s_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  sntnc, bfr_sntnc, aft_sntnc;
+	if (s_number > this->sentenceCount())
+	{
+		cout << "The sentence number entered does not match the number of sentences displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, sntnc, '#'))
+		{
+			if (i < s_number)
+			{
+				bfr_sntnc.append(sntnc);
+				bfr_sntnc.append("#");
+				i++;
+			}
+
+			if (j > s_number)
+			{
+				aft_sntnc.append(sntnc);
+				aft_sntnc.append("#");
+
+			}
+			j++;
+		}
+		file.close();
+		string newline;
+		cout << "Enter the new sentece to replace with" << endl;
+		getline(cin, newline, '-');
+		newline = newline.substr(1, newline.length());
+		newline.append(aft_sntnc);
+		bfr_sntnc.append(newline);
+		file.open(this->f_name, ios::out);
+		file << bfr_sntnc;
+		file.close();
+	}
+}
+void FileReader::deleteSentence(int s_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  sntnc, bfr_sntnc, aft_sntnc;
+	if (s_number > this->sentenceCount())
+	{
+		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, sntnc, '#'))
+		{
+			if (i < s_number)
+			{
+				bfr_sntnc.append(sntnc);
+				bfr_sntnc.append("#");
+				i++;
+			}
+
+			if (j > s_number)
+			{
+				aft_sntnc.append(sntnc);
+				aft_sntnc.append("#");
+
+			}
+			j++;
+		}
+		file.close();
+		bfr_sntnc.append(aft_sntnc);
+		file.open(this->f_name, ios::out);
+		file << bfr_sntnc;
+		file.close();
+	}
+}
+
+int FileReader::sentenceCount()
+{
+	char ch;
+	int count = 0;
+	this->file.open(this->f_name, ios::in);
+	this->file.get(ch);
+	while (!file.eof()) //algorith for counting sentences in a file
+	{
+		if (ch == '#')
+			count++;
+		file.get(ch);
+	}
+	this->file.close();
+	return count;
+}
