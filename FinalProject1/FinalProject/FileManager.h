@@ -19,6 +19,7 @@ public:
 	void copyFile();
 	void openreadme();
 	void RecentFiles();
+	bool fileExist(string name) const;
 	void playsong();
 };
 

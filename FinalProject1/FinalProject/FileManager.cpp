@@ -100,9 +100,8 @@ void FileManager::createFile()
 	cout << "Enter the name of the new file: ";
 	cin >> name;
 	name.append(".txt");
-	ifstream file;
-	file.open(name);
-	if (file.fail())
+	
+	if (this->fileExist(name))
 	{
 		fstream file(name);
 		cout << "Creating File..." << endl;
@@ -129,6 +128,7 @@ void FileManager::createFile()
 		{
 			if (yn == "Y" || yn == "y")
 			{
+				fstream file(name);
 				Editor edit(name);
 				file.open(name);
 				edit.menu();
@@ -156,8 +156,12 @@ void FileManager::copyFile()
 		cout << "Enter the name of the source file: ";
 		cin >> source;
 		source.append(".txt");
-		if (emp.is_empty(source))
+		if (!this->fileExist(source))
 		{
+			cout << "This file does not exist. Try a file that exist." << endl;
+		}
+		if (emp.is_empty(source))
+		{	
 			cout << "\aThis file is empty. Try a file with something on it.\n";
 		}
 	} while (emp.is_empty(source));
@@ -452,4 +456,10 @@ void FileManager::playsong()
 	//Beep(350, 250);
 	//Beep(300, 500);
 	//Sleep(50);*/
+}
+
+bool FileManager::fileExist(string name) const
+{
+	ifstream file(name);
+	return(file.fail());
 }
