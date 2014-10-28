@@ -110,7 +110,7 @@ void Editor::editWord()
 	int c = 1, i = 0, pos = 0;
 	cout << "Type in the word you want to edit. Please type as it is in the file : ";
 	cin >> word;
-	cout << "Enter the replacement word (If the original word contained a point you must added to this word.):";
+	cout << "Enter the replacement word :";
 	cin >> word2;
 	ifstream emp(f_name);
 	while (!emp.eof())
