@@ -39,7 +39,7 @@ void Editor::clearFile()
 	string yn;
 	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
 	cin >> yn;
-	while (yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
+	while(yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
 	{
 		cout << "Didn't get that. Try again. \n Yes or No? ";
 		cin >> yn;
@@ -91,18 +91,31 @@ void Editor::deleteParagraph()
 
 void Editor::editWord()
 {
-	string word, content, word2;
+	string word, content, word2, word3;
 	int c = 1, i = 0, pos = 0;
 	cout << "Type in the word you want to edit. Please type as it is in the file : ";
 	cin >> word;
-	cout << "Enter the replacement word :";
-	cin >> word2;
 	ifstream emp(f_name);
 	while (!emp.eof())
 	{
 		getline(emp, content, '~');
+		bool g = true;
+		do
+		{
+			if (content.find(word, 0) != string::npos)
+				g = true;
+			else
+			{
+				cout << "\nWord was not found on the file. Try Again. \n\nEnter word: ";
+				cin >> word;
+				g = false;
+			}
+		}while (g != true);
+
 		emp.close();
 	}
+	cout << "Enter the replacement word :";
+	cin >> word2;
 	fstream emp2(f_name);
 	size_t Found = content.find(word);
 	cout << "We found " << word << " on: " << endl;
@@ -114,14 +127,15 @@ void Editor::editWord()
 	for (int g = Found; g == Found;)
 	{
 		g = Found;
+		int m = 1;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 300)
+		if (Found > g && Found < 10000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
 			g = Found;
 		}
-		if (g == Found - 1)
+		else//if (g == Found - 1)
 		{
 			g = 0;
 		}
@@ -161,7 +175,19 @@ void Editor::deleteWord()
 	ifstream emp(f_name);
 	while (!emp.eof())
 	{
+		bool g;
 		getline(emp, content, '~');
+		do
+		{
+			if (content.find(word, 0) != string::npos)
+				g = true;
+			else
+			{
+				cout << "\nWord was not found on the file. Try Again. \n\nEnter word: ";
+				cin >> word;
+				g = false;
+			}
+		} while (g != true);
 		emp.close();
 	}
 	fstream emp2(f_name);
@@ -176,7 +202,7 @@ void Editor::deleteWord()
 	{
 		g = Found;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 300)
+		if (Found > g && Found < 10000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
