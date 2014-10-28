@@ -163,8 +163,9 @@ void Editor::editWord()
 		content.replace(pos, word.length() + a - 1, word2);
 	if (word.length() > word2.length())
 	{
-		content.append("\b\b");
-		content.replace(pos, word.length() - a + 2, word2);	
+		for (int q = 0; q < (word.length() - word2.length());q++)
+			content.append("\b\b");
+		content.replace(pos, word.length() - a + (word.length() - word2.length()), word2);
 	}
 
 
