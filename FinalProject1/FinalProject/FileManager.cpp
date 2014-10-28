@@ -156,7 +156,7 @@ void FileManager::copyFile()
 		cout << "Enter the name of the source file: ";
 		cin >> source;
 		source.append(".txt");
-		if (!this->fileExist(source))
+		if (this->fileExist(source))
 		{
 			cout << "This file does not exist. Try a file that exist." << endl;
 		}
