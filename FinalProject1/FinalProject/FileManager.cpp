@@ -139,7 +139,7 @@ void FileManager::createFile()
 			else
 			{
 				{
-					cout << "Didn't get that. Try again. \n Y or N? ";
+					cout << "\aDidn't get that. Try again. \n Y or N? ";
 					cin >> yn;
 				}
 			}
@@ -445,8 +445,8 @@ void FileManager::playsong()
 	//Beep(932, 100); Sleep(125);
 	//Beep(1046, 675);
 	//this->playsong();
-	/////*StarWars*/
-	///*Beep(250, 500);
+	/*StarWars*/
+	//Beep(250, 500);
 	//Sleep(50);
 	//Beep(350, 250);
 	//Beep(300, 500);
@@ -455,7 +455,8 @@ void FileManager::playsong()
 	//Sleep(50);
 	//Beep(350, 250);
 	//Beep(300, 500);
-	//Sleep(50);*/
+	//Sleep(50);
+	//this->playsong();
 }
 
 bool FileManager::fileExist(string name) const
