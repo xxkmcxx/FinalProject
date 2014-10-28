@@ -75,6 +75,7 @@ void Editor::clearFile()
 	else 
 		cout << "File wasn't deleted. Returning to main menu." << endl;
 }
+
 void Editor::editLine()
 	{
 	
@@ -83,6 +84,7 @@ void Editor::editLine()
 	cin >> l_number;
 	this->reader.lineReplace(l_number);
 	}
+
 void Editor::deleteLine()
 {
 	int l_number;
@@ -90,6 +92,7 @@ void Editor::deleteLine()
 	cin >> l_number;
 	this->reader.deleteLine(l_number);
 }
+
 void Editor::editParagraph()
 {
 	int p_number;
@@ -97,6 +100,7 @@ void Editor::editParagraph()
 	cin >> p_number;
 	this->reader.paragraphReplace(p_number);
 }
+
 void Editor::deleteParagraph()
 {
 	int p_number;
@@ -104,13 +108,14 @@ void Editor::deleteParagraph()
 	cin >> p_number;
 	this->reader.deleteParagraph(p_number);
 }
+
 void Editor::editWord()
 {
 	string word, content, word2;
 	int c = 1, i = 0, pos = 0;
 	cout << "Type in the word you want to edit. Please type as it is in the file : ";
 	cin >> word;
-	cout << "Enter the replacement word (If the original word contained a point you must added to this word.):";
+	cout << "Enter the replacement word :";
 	cin >> word2;
 	ifstream emp(f_name);
 	while (!emp.eof())
@@ -132,7 +137,7 @@ void Editor::editWord()
 		Found = content.find(word, Found + 1);
 		if (Found > g && Found < 300)
 		{
-			cout << '\t' << i + 1 << ')' << Found - 1 << endl;
+			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
 			g = Found;
 		}
@@ -141,34 +146,90 @@ void Editor::editWord()
 			g = 0;
 		}
 	}
-	cout << '\t' << i + 1 << ") Para cambiar todos los" << word << "presione -1" << endl;
 	cout << "Enter the position of the word: ";
 	cin >> pos;
-	if (content.find("\n", pos + 1) != string::npos)
+	int a = word.length();
+	if (word.length() > word2.length())
 	{
-		word2.append("\n");
+		a = word.length() - word2.length();
 	}
-	if (pos == -1)
-		while (Found != string::npos)
-		{
-			content.replace(content.find(word), word.length()+ 1, word2);
-		}
-	else if (pos == pos)
+	if (word.length() < word2.length())
 	{
-		content.replace(content.find(word), word.length() + 1, word2);
+		a = word2.length() - word.length();
 	}
-	else if (pos < pos + 1)
+
+	if (content.find("\n", pos))
 	{
-		content.replace(content.find(word), pos - 1, word2);
+		if (word.length() < word2.length())
+			word2.append("\n");
 	}
+
+	if (word.length() < word2.length())
+		content.replace(pos, word.length() + a - 1, word2);
+	if (word.length() > word2.length())
+	{
+		for (int q = 0; q < (word.length() - word2.length());q++)
+			content.append("\b\b");
+		content.replace(pos, word.length() - a + (word.length() - word2.length()), word2);
+	}
+
 
 	emp2 << content;
 	emp2.close();
 }
+
+void Editor::deleteWord()
+{
+	string word, content, word2;
+	int c = 1, i = 0, pos = 0;
+	cout << "Type in the word you want to delete. Please type as it is in the file : ";
+	cin >> word;
+	ifstream emp(f_name);
+	while (!emp.eof())
+	{
+		getline(emp, content, '-');
+		emp.close();
+	}
+	fstream emp2(f_name);
+	size_t Found = content.find(word);
+	cout << "We found " << word << " on: " << endl;
+	if (Found != string::npos)
+	{
+		cout << '\t' << i + 1 << ')' << Found << endl;
+		i++;
+	}
+	for (int g = Found; g == Found;)
+	{
+		g = Found;
+		Found = content.find(word, Found + 1);
+		if (Found > g && Found < 300)
+		{
+			cout << '\t' << i + 1 << ')' << Found << endl;
+			i++;
+			g = Found;
+		}
+		if (g == Found - 1)
+		{
+			g = 0;
+		}
+	}
+	cout << "Enter the position of the word: ";
+	cin >> pos;
+	for (int q = 0; q < word.length(); q++)
+	{
+		content.append("\b");
+	}
+	content.erase(pos, word.length());
+
+	emp2 << content;
+	emp2.close();
+}
+
 Editor::~Editor()
 {
 	
 }
+
 void Editor::menu()
 {
 	MyMenu menu;
@@ -209,7 +270,8 @@ void Editor::menu()
 	}
 	else if (option == 4)
 	{
-		//deleteWord();
+		this->deleteWord();
+		this->menu();
 	}
 	else if (option == 5)
 	{
