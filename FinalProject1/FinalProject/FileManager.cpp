@@ -107,16 +107,10 @@ void FileManager::createFile()
 		cout << "Creating File..." << endl;
 		this->loading();
 		cout << "\aFile creation was succeful!" << endl;
-		if (file.fail())
-		{
-			cout << "\aWhoops! The file is missing." << endl;
-		}
-		else
-		{
-			file.close();
-			Editor edit(name);
-			edit.menu();
-		}
+		file.close();
+		Editor edit(name);
+		edit.menu();
+		
 	}
 	else
 	{
