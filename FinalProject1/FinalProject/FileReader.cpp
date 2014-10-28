@@ -172,7 +172,7 @@ void FileReader::paragraphReplace(int p_number)
 }
 void FileReader::deleteParagraph(int p_number)
 {
-	cout << "Entro al delete de parrafo" << endl;
+	
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;

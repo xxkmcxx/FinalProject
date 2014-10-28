@@ -230,50 +230,50 @@ void FileManager::RecentFiles()
 void FileManager::playsong()
 {
 	/*Metalica*/
-	/*
-		Beep(329, 300); //E
-	Beep(493, 300); //B
-	Beep(698, 300); //F^
-	Beep(659, 600); //E^
+	//
+	//	Beep(329, 300); //E
+	//Beep(493, 300); //B
+	//Beep(698, 300); //F^
+	//Beep(659, 600); //E^
 
-	Beep(783, 300); //G^
-	Beep(698, 300); //F^
-	Beep(659, 600); //E^
+	//Beep(783, 300); //G^
+	//Beep(698, 300); //F^
+	//Beep(659, 600); //E^
 
-	Beep(329, 100);
-	Beep(493, 300);
-	Beep(698, 300);
-	Beep(659, 600);
+	//Beep(329, 100);
+	//Beep(493, 300);
+	//Beep(698, 300);
+	//Beep(659, 600);
 
-	Beep(392, 250);
-	Beep(440, 200);
-	Beep(587, 300);
+	//Beep(392, 250);
+	//Beep(440, 200);
+	//Beep(587, 300);
 
-	Beep(349, 250);
-	Beep(587, 500);
+	//Beep(349, 250);
+	//Beep(587, 500);
 
-	Beep(329, 300);
-	Beep(493, 300);
-	Beep(698, 300);
-	Beep(659, 600);
+	//Beep(329, 300);
+	//Beep(493, 300);
+	//Beep(698, 300);
+	//Beep(659, 600);
 
-	Beep(783, 300);
-	Beep(698, 300);
-	Beep(659, 600);
+	//Beep(783, 300);
+	//Beep(698, 300);
+	//Beep(659, 600);
 
-	Beep(329, 100);
-	Beep(493, 300);
-	Beep(698, 300);
-	Beep(659, 600);
+	//Beep(329, 100);
+	//Beep(493, 300);
+	//Beep(698, 300);
+	//Beep(659, 600);
 
-	Beep(392, 250);
-	Beep(440, 200);
-	Beep(587, 300);
+	//Beep(392, 250);
+	//Beep(440, 200);
+	//Beep(587, 300);
 
-	Beep(349, 250);
-	Beep(587, 400);
+	//Beep(349, 250);
+	//Beep(587, 400);
 
-	*/
+	
 	/*Mario*/
 	Beep(330, 100); Sleep(100);
 	Beep(330, 100); Sleep(300);
@@ -410,15 +410,16 @@ void FileManager::playsong()
 	Beep(932, 100); Sleep(125);
 	Beep(932, 100); Sleep(125);
 	Beep(1046, 675);
+	this->playsong();
 	///*StarWars*/
-	//Beep(250, 500);
-	//Sleep(50);
-	//Beep(350, 250);
-	//Beep(300, 500);
-	//Sleep(50);
-	//Beep(250, 500);
-	//Sleep(50);
-	//Beep(350, 250);
-	//Beep(300, 500);
-	//Sleep(50);
+	/*Beep(250, 500);
+	Sleep(50);
+	Beep(350, 250);
+	Beep(300, 500);
+	Sleep(50);
+	Beep(250, 500);
+	Sleep(50);
+	Beep(350, 250);
+	Beep(300, 500);
+	Sleep(50);*/
 }
