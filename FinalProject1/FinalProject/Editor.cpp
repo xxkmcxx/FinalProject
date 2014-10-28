@@ -147,14 +147,15 @@ void Editor::editWord()
 	for (int g = Found; g == Found;)
 	{
 		g = Found;
+		int m = 1;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 300)
+		if (Found > g && Found < 10000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
 			g = Found;
 		}
-		if (g == Found - 1)
+		else//if (g == Found - 1)
 		{
 			g = 0;
 		}
@@ -194,7 +195,19 @@ void Editor::deleteWord()
 	ifstream emp(f_name);
 	while (!emp.eof())
 	{
+		bool g;
 		getline(emp, content, '~');
+		do
+		{
+			if (content.find(word, 0) != string::npos)
+				g = true;
+			else
+			{
+				cout << "\nWord was not found on the file. Try Again. \n\nEnter word: ";
+				cin >> word;
+				g = false;
+			}
+		} while (g != true);
 		emp.close();
 	}
 	fstream emp2(f_name);
@@ -209,7 +222,7 @@ void Editor::deleteWord()
 	{
 		g = Found;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 300)
+		if (Found > g && Found < 10000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
