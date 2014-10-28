@@ -24,6 +24,8 @@ public:
 	void deleteLine();
 	void editParagraph();
 	void deleteParagraph();
+	void editWord();
+	void deleteWord();
 	void menu();
 	~Editor();
 };

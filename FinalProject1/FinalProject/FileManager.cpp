@@ -55,7 +55,7 @@ void FileManager::menu()
 		else if (option == 5)
 		{
 			cout << "Thank you,Bye!" << endl;
-			this->playsong();
+			//this->playsong();
 			return;
 		}
 		else
