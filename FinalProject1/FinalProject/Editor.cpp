@@ -75,6 +75,7 @@ void Editor::clearFile()
 		cin >> yn;
 	}
 }
+
 void Editor::editLine()
 	{
 	
@@ -83,6 +84,7 @@ void Editor::editLine()
 	cin >> l_number;
 	this->reader.lineReplace(l_number);
 	}
+
 void Editor::deleteLine()
 {
 	int l_number;
@@ -90,6 +92,7 @@ void Editor::deleteLine()
 	cin >> l_number;
 	this->reader.deleteLine(l_number);
 }
+
 void Editor::editParagraph()
 {
 	int p_number;
@@ -97,6 +100,7 @@ void Editor::editParagraph()
 	cin >> p_number;
 	this->reader.paragraphReplace(p_number);
 }
+
 void Editor::deleteParagraph()
 {
 	int p_number;
@@ -104,6 +108,7 @@ void Editor::deleteParagraph()
 	cin >> p_number;
 	this->reader.deleteParagraph(p_number);
 }
+
 void Editor::editWord()
 {
 	string word, content, word2;
@@ -172,6 +177,7 @@ void Editor::editWord()
 	emp2 << content;
 	emp2.close();
 }
+
 void Editor::deleteWord()
 {
 	string word, content, word2;
@@ -218,10 +224,12 @@ void Editor::deleteWord()
 	emp2 << content;
 	emp2.close();
 }
+
 Editor::~Editor()
 {
 	
 }
+
 void Editor::menu()
 {
 	MyMenu menu;
