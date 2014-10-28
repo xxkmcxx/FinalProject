@@ -143,7 +143,7 @@ void FileManager::copyFile()
 	
 	while (!file.eof())
 	{
-		getline(file, content, '-');
+		getline(file, content, '~');
 	}
 
 	if (file.fail())

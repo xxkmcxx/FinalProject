@@ -60,7 +60,7 @@ void FileReader::lineReplace(int l_number)
 		file.close();
 		string newline;
 		cout << "Enter the new sentence to replace with" << endl;
-		getline(cin, newline, '-');
+		getline(cin, newline, '~');
 		newline = newline.substr(1, newline.length());
 		newline.append("\n");
 		newline.append(aft_Line);
@@ -128,7 +128,6 @@ int FileReader:: lineCount()
 }
 void FileReader::paragraphReplace(int p_number)
 	{
-	cout << "Entro aqui" << endl;
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;
@@ -140,19 +139,19 @@ void FileReader::paragraphReplace(int p_number)
 	{
 
 		int i = 1, j = 1;
-		while (getline(file, pgraph, '$'))
+		while (getline(file, pgraph, '`'))
 		{
 			if (i < p_number)
 			{
 				bfr_pgraph.append(pgraph);
-				bfr_pgraph.append("$");
+				bfr_pgraph.append("`");
 				i++;
 			}
 
 			if (j > p_number)
 			{
 				aft_pgraph.append(pgraph);
-				aft_pgraph.append("$");
+				aft_pgraph.append("`");
 
 			}
 			j++;
@@ -160,7 +159,7 @@ void FileReader::paragraphReplace(int p_number)
 	file.close();
 		string newline;
 		cout << "Enter the new paragraph to replace with" << endl;
-		getline(cin, newline, '-');
+		getline(cin, newline, '~');
 		newline  = newline.substr(1, newline.length());
 		newline.append("\n");
 		newline.append(aft_pgraph);
@@ -184,19 +183,19 @@ void FileReader::deleteParagraph(int p_number)
 	{
 
 		int i = 1, j = 1;
-		while (getline(file, pgraph, '$'))
+		while (getline(file, pgraph, '`'))
 		{
 			if (i < p_number)
 			{
 				bfr_pgraph.append(pgraph);
-				bfr_pgraph.append("$");
+				bfr_pgraph.append("`");
 				i++;
 			}
 
 			if (j > p_number)
 			{
 				aft_pgraph.append(pgraph);
-				aft_pgraph.append("$");
+				aft_pgraph.append("`");
 
 			}
 			j++;
@@ -216,7 +215,7 @@ int FileReader::paragraphCount()
 	this->file.get(ch);
 	while (!file.eof()) //algorith for counting lines in a file
 	{
-		if (ch == '$')
+		if (ch == '`')
 			count++;
 		file.get(ch);
 	}

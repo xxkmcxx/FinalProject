@@ -46,7 +46,7 @@ void Editor::editFile()
 
 	cout << "You can now start writing into the file." << endl;
 	string n_text,text;
-	getline(cin, n_text, '-');
+	getline(cin, n_text, '~');
 	cin.ignore();
 	text  = n_text.substr(1, n_text.length());
 	file << text;
@@ -120,7 +120,7 @@ void Editor::editWord()
 	ifstream emp(f_name);
 	while (!emp.eof())
 	{
-		getline(emp, content, '-');
+		getline(emp, content, '~');
 		emp.close();
 	}
 	fstream emp2(f_name);
@@ -181,7 +181,7 @@ void Editor::deleteWord()
 	ifstream emp(f_name);
 	while (!emp.eof())
 	{
-		getline(emp, content, '-');
+		getline(emp, content, '~');
 		emp.close();
 	}
 	fstream emp2(f_name);
