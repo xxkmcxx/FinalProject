@@ -158,7 +158,7 @@ void Editor::editWord()
 		a = word2.length() - word.length();
 	}
 
-	if (content.find("\n", pos) != string::npos)
+	if (content.find("\n", pos))
 	{
 		if (word.length() < word2.length())
 			word2.append("\n");
