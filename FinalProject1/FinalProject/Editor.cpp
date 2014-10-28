@@ -227,7 +227,7 @@ Editor::~Editor()
 void Editor::menu()
 {
 	MyMenu menu;
-	int option;
+	string option;
 	menu.cambiarTitulo("Welcome to the text editing tool            |");
 	menu.agregarOpcion("Start writing into the file.      |");
 	menu.agregarOpcion("View file content.                |");
@@ -247,53 +247,52 @@ void Editor::menu()
 
 	cin >> option;
 
-	if (option == 1)
+	if (option == "1")
 	{
 		this->editFile();
 		this->menu();
 	}
-	else if (option == 2)
+	else if (option == "2")
 	{
 		this->reader.fileRead();
 		this->menu();
 	}
-	else if (option == 3)
+	else if (option == "3")
 	{
 		this->editWord();
 		this->menu();
 	}
-	else if (option == 4)
+	else if (option == "4")
 	{
 		this->deleteWord();
 		this->menu();
 	}
-	else if (option == 5)
+	else if (option == "5")
 	{
 		this->editLine();
 		this->menu();
 	}
-	else if (option == 6)
+	else if (option == "6")
 	{
 		this->deleteLine();
 		this->menu();
 	}
-	else if (option == 7)
+	else if (option == "7")
 	{
 		this->editParagraph();
 		this->menu();
 	}
-	else if (option == 8)
+	else if (option == "8")
 	{
 		this->deleteParagraph();
 		this->menu();
 	}
-	else if (option == 9)
+	else if (option == "9")
 	{
 		this->clearFile();
 		this->menu();
-
 	}
-	else if (option == 10)
+	else if (option == "10")
 	{
 		cout << "Saving document..." << endl
 			<< "Now going back to previous menu." << endl;

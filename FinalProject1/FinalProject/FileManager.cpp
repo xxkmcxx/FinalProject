@@ -17,7 +17,7 @@ FileManager::~FileManager()
 void FileManager::menu()
 {
 		MyMenu menu;
-		int option;
+		string option;
 		menu.cambiarTitulo("File Manager Menu                           |");
 		menu.agregarOpcion("User Manual for Editor            |");
 		menu.agregarOpcion("Create a new File                 |");
@@ -31,27 +31,27 @@ void FileManager::menu()
 		cout << menu << endl;
 		cout << "____________________________________________" << endl;
 		cin >> option;
-		if (option == 1)
+		if (option == "1")
 		{
 			this->openreadme();
 			this->menu();
 		}
-		else if (option == 2)
+		else if (option == "2")
 		{
 			this->createFile();
 			this->menu();
 		}
-		else if (option == 3)
+		else if (option == "3")
 		{
 			this->openFile();
 			this->menu();
 		}
-		else if (option == 4)
+		else if (option == "4")
 		{
 			this->copyFile();
 			this->menu();
 		}
-		else if (option == 5)
+		else if (option == "5")
 		{
 			cout << "Thank you,Bye!" << endl;
 			return;
