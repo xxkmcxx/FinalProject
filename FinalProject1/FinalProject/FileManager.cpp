@@ -55,7 +55,6 @@ void FileManager::menu()
 		else if (option == 5)
 		{
 			cout << "Thank you,Bye!" << endl;
-			//this->playsong();
 			return;
 		}
 		else
@@ -183,20 +182,20 @@ void FileManager::loading()
 	{
 		int barWidth = 55;
 
-		std::cout << "[";
+		cout << "[";
 		int pos = barWidth * progress;
 		for (int i = 0; i <= barWidth; ++i) {
-			if (i < pos) std::cout << "=";
-			else if (i == pos) std::cout << ">";
-			else std::cout << " ";
+			if (i < pos) cout << "=";
+			else if (i == pos) cout << ">";
+			else cout << " ";
 			Sleep(1);
 		}
-		std::cout << "] " << int(progress * 100.1) << " %\r";
-		std::cout.flush();
+		cout << "] " << int(progress * 100.1) << " %\r";
+		cout.flush();
 
 		progress += 0.10;
 	}
-	std::cout << std::endl;
+	cout <<endl;
 }
 
 void FileManager::openreadme(){
@@ -229,201 +228,4 @@ void FileManager::RecentFiles()
 		else cout << "\aUnable to open file";
 
 	}
-}
-
-void FileManager::playsong()
-{
-	/*Metalica*/
-	//
-	//	Beep(329, 300); //E
-	//Beep(493, 300); //B
-	//Beep(698, 300); //F^
-	//Beep(659, 600); //E^
-
-	//Beep(783, 300); //G^
-	//Beep(698, 300); //F^
-	//Beep(659, 600); //E^
-
-	//Beep(329, 100);
-	//Beep(493, 300);
-	//Beep(698, 300);
-	//Beep(659, 600);
-
-	//Beep(392, 250);
-	//Beep(440, 200);
-	//Beep(587, 300);
-
-	//Beep(349, 250);
-	//Beep(587, 500);
-
-	//Beep(329, 300);
-	//Beep(493, 300);
-	//Beep(698, 300);
-	//Beep(659, 600);
-
-	//Beep(783, 300);
-	//Beep(698, 300);
-	//Beep(659, 600);
-
-	//Beep(329, 100);
-	//Beep(493, 300);
-	//Beep(698, 300);
-	//Beep(659, 600);
-
-	//Beep(392, 250);
-	//Beep(440, 200);
-	//Beep(587, 300);
-
-	//Beep(349, 250);
-	//Beep(587, 400);
-
-	
-	/*Mario*/
-	Beep(330, 100); Sleep(100);
-	Beep(330, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(330, 100); Sleep(300);
-	Beep(392, 100); Sleep(700);
-	Beep(196, 100); Sleep(700);
-	Beep(262, 300); Sleep(300);
-	Beep(196, 300); Sleep(300);
-	Beep(164, 300); Sleep(300);
-	Beep(220, 300); Sleep(100);
-	Beep(246, 100); Sleep(300);
-	Beep(233, 200);
-	Beep(220, 100); Sleep(300);
-	Beep(196, 100); Sleep(150);
-	Beep(330, 100); Sleep(150);
-	Beep(392, 100); Sleep(150);
-	Beep(440, 100); Sleep(300);
-	Beep(349, 100); Sleep(100);
-	Beep(392, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(100);
-	Beep(247, 100); Sleep(500);
-	Beep(262, 300); Sleep(300);
-	Beep(196, 300); Sleep(300);
-	Beep(164, 300); Sleep(300);
-	Beep(220, 300); Sleep(100);
-	Beep(246, 100); Sleep(300);
-	Beep(233, 200);
-	Beep(220, 100); Sleep(300);
-	Beep(196, 100); Sleep(150);
-	Beep(330, 100); Sleep(150);
-	Beep(392, 100); Sleep(150);
-	Beep(440, 100); Sleep(300);
-	Beep(349, 100); Sleep(100);
-	Beep(392, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(100);
-	Beep(247, 100); Sleep(900);
-	Beep(392, 100); Sleep(100);
-	Beep(370, 100); Sleep(100);
-	Beep(349, 100); Sleep(100);
-	Beep(311, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(207, 100); Sleep(100);
-	Beep(220, 100); Sleep(100);
-	Beep(262, 100); Sleep(300);
-	Beep(220, 100); Sleep(100);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(500);
-	Beep(392, 100); Sleep(100);
-	Beep(370, 100); Sleep(100);
-	Beep(349, 100); Sleep(100);
-	Beep(311, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(523, 100); Sleep(300);
-	Beep(523, 100); Sleep(100);
-	Beep(523, 100); Sleep(1100);
-	Beep(392, 100); Sleep(100);
-	Beep(370, 100); Sleep(100);
-	Beep(349, 100); Sleep(100);
-	Beep(311, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(207, 100); Sleep(100);
-	Beep(220, 100); Sleep(100);
-	Beep(262, 100); Sleep(300);
-	Beep(220, 100); Sleep(100);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(500);
-	Beep(311, 300); Sleep(300);
-	Beep(296, 300); Sleep(300);
-	Beep(262, 300); Sleep(1300);
-	Beep(262, 100); Sleep(100);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(300);
-	Beep(330, 200); Sleep(50);
-	Beep(262, 200); Sleep(50);
-	Beep(220, 200); Sleep(50);
-	Beep(196, 100); Sleep(700);
-	Beep(262, 100); Sleep(100);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(100);
-	Beep(330, 100); Sleep(700);
-	Beep(440, 100); Sleep(300);
-	Beep(392, 100); Sleep(500);
-	Beep(262, 100); Sleep(100);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(294, 100); Sleep(300);
-	Beep(330, 200); Sleep(50);
-	Beep(262, 200); Sleep(50);
-	Beep(220, 200); Sleep(50);
-	Beep(196, 100); Sleep(700);
-	/*Intro*/
-	Beep(330, 100); Sleep(100);
-	Beep(330, 100); Sleep(300);
-	Beep(330, 100); Sleep(300);
-	Beep(262, 100); Sleep(100);
-	Beep(330, 100); Sleep(300);
-	Beep(392, 100); Sleep(700);
-	Beep(196, 100); Sleep(700);
-	Beep(196, 100); Sleep(125);
-	Beep(262, 100); Sleep(125);
-	Beep(330, 100); Sleep(125);
-	Beep(392, 100); Sleep(125);
-	Beep(523, 100); Sleep(125);
-	Beep(660, 100); Sleep(125);
-	Beep(784, 100); Sleep(575);
-	Beep(660, 100); Sleep(575);
-	Beep(207, 100); Sleep(125);
-	Beep(262, 100); Sleep(125);
-	Beep(311, 100); Sleep(125);
-	Beep(415, 100); Sleep(125);
-	Beep(523, 100); Sleep(125);
-	Beep(622, 100); Sleep(125);
-	Beep(830, 100); Sleep(575);
-	Beep(622, 100); Sleep(575);
-	Beep(233, 100); Sleep(125);
-	Beep(294, 100); Sleep(125);
-	Beep(349, 100); Sleep(125);
-	Beep(466, 100); Sleep(125);
-	Beep(587, 100); Sleep(125);
-	Beep(698, 100); Sleep(125);
-	Beep(932, 100); Sleep(575);
-	Beep(932, 100); Sleep(125);
-	Beep(932, 100); Sleep(125);
-	Beep(932, 100); Sleep(125);
-	Beep(1046, 675);
-	this->playsong();
-	///*StarWars*/
-	/*Beep(250, 500);
-	Sleep(50);
-	Beep(350, 250);
-	Beep(300, 500);
-	Sleep(50);
-	Beep(250, 500);
-	Sleep(50);
-	Beep(350, 250);
-	Beep(300, 500);
-	Sleep(50);*/
 }
