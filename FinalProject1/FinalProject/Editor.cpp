@@ -7,26 +7,6 @@ Editor::Editor(string name) :f_name(name), reader(name)
 {
 	
 }
-
-bool Editor::isempty(){
-
-	string filename(this->f_name);
-	ifstream in(filename);
-	if (!in){
-		cout << filename << " failed to open\n";
-		return false;
-	}
-	else {
-		return true;
-		// Read a character, test for end-of-file
-		bool empty = (in.get(), in.eof());
-		cout << filename << " is "
-			<< (empty ? "" : "not ")
-			<< "empty"<<endl;
-	}
-	
-		}
-
 void Editor::editFile()
 {
 	FileReader emp(f_name);
