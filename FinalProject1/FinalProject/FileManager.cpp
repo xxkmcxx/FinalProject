@@ -26,7 +26,7 @@ void FileManager::menu()
 		menu.agregarOpcion("Exit                              |");
 		menu.cambiarPregunta("Please choose one of the option shown above.|");
 		
-
+		option = 0;
 		cout << "____________________________________________" << endl;
 		cout << menu << endl;
 		cout << "____________________________________________" << endl;
@@ -54,7 +54,6 @@ void FileManager::menu()
 		else if (option == 5)
 		{
 			cout << "Thank you,Bye!" << endl;
-			//this->playsong();
 			return;
 		}
 		else
@@ -62,6 +61,7 @@ void FileManager::menu()
 			cout << "\aInvalid input, please try again" << endl;
 			this->menu();
 		}
+
 }
 
 int FileManager::openFile()
@@ -182,20 +182,20 @@ void FileManager::loading()
 	{
 		int barWidth = 55;
 
-		std::cout << "[";
+		cout << "[";
 		int pos = barWidth * progress;
 		for (int i = 0; i <= barWidth; ++i) {
-			if (i < pos) std::cout << "=";
-			else if (i == pos) std::cout << ">";
-			else std::cout << " ";
+			if (i < pos) cout << "=";
+			else if (i == pos) cout << ">";
+			else cout << " ";
 			Sleep(1);
 		}
-		std::cout << "] " << int(progress * 100.1) << " %\r";
-		std::cout.flush();
+		cout << "] " << int(progress * 100.1) << " %\r";
+		cout.flush();
 
 		progress += 0.10;
 	}
-	std::cout << std::endl;
+	cout << endl;
 }
 
 void FileManager::openreadme(){
@@ -368,7 +368,6 @@ void FileManager::playsong()
 	Beep(932, 100); Sleep(125);
 	Beep(932, 100); Sleep(125);
 	Beep(1046, 675);
-	this->playsong();
 	/*StarWars*/
 	Beep(250, 500);
 	Sleep(50);
@@ -380,4 +379,6 @@ void FileManager::playsong()
 	Beep(350, 250);
 	Beep(300, 500);
 	Sleep(50);
+	this->playsong();
+
 }
