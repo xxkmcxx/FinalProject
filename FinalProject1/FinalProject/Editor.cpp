@@ -59,7 +59,7 @@ void Editor::clearFile()
 	string yn;
 	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
 	cin >> yn;
-	while (yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
+	while(yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
 	{
 		cout << "Didn't get that. Try again. \n Yes or No? ";
 		cin >> yn;

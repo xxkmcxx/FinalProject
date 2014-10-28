@@ -100,21 +100,51 @@ void FileManager::createFile()
 	cout << "Enter the name of the new file: ";
 	cin >> name;
 	name.append(".txt");
-	fstream file(name, ios::out);
-	cout << "Creating File..." << endl;
-	this->loading();
-	cout << "\aFile creation was succeful!" << endl;
+	ifstream file;
+	file.open(name);
 	if (file.fail())
 	{
-		cout << "\aWhoops! The file is missing." << endl;
+		fstream file(name);
+		cout << "Creating File..." << endl;
+		this->loading();
+		cout << "\aFile creation was succeful!" << endl;
+		if (file.fail())
+		{
+			cout << "\aWhoops! The file is missing." << endl;
+		}
+		else
+		{
+			file.close();
+			Editor edit(name);
+			edit.menu();
+		}
 	}
 	else
 	{
-		file.close();
-		Editor edit(name);
-		edit.menu();
+		string yn;
+		cout << "\aWhoops! This file already exist." << endl;
+		cout << "Do you want to open it instead? (Y/N): ";
+		cin >> yn;
+		do
+		{
+			if (yn == "Y" || yn == "y")
+			{
+				Editor edit(name);
+				file.open(name);
+				edit.menu();
+				this->menu();
+			}
+			else if (yn == "N" || yn == "n")
+				this->menu();
+			else
+			{
+				{
+					cout << "Didn't get that. Try again. \n Y or N? ";
+					cin >> yn;
+				}
+			}
+		} while (yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 	}
-
 }
 
 void FileManager::copyFile()
