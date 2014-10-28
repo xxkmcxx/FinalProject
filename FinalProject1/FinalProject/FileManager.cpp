@@ -180,8 +180,16 @@ void FileManager::copyFile()
 	}
 	else
 	{
-		cout << "Enter the name of the destination file: ";
-		cin >> destination;
+		do
+		{
+			cout << "Enter the name of the destination file: ";
+			cin >> destination;
+			if (destination == source)
+			{
+				cout << "\aYou cant clone a file to itself. Try Again. \n\n Destination File: ";
+				cin >> destination;
+			}
+		} while (destination == source);
 		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
