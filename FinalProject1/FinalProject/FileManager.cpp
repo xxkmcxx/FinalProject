@@ -1,3 +1,7 @@
+#define _WIN32_WINNT 0x0501
+#include <SDKDDKVer.h>
+#define WIN32_LEAN_AND_MEAN
+#include <d3d9.h>
 #include "FileManager.h"
 #include <stdio.h>
 #include <Windows.h>
@@ -51,7 +55,7 @@ void FileManager::menu()
 		else if (option == 5)
 		{
 			cout << "Thank you,Bye!" << endl;
-			this->playsong();
+			//this->playsong();
 			return;
 		}
 		else
@@ -129,7 +133,7 @@ void FileManager::copyFile()
 		source.append(".txt");
 		if (emp.is_empty(source))
 		{
-			cout << "This file is empty. Try a file with something on it.\n";
+			cout << "\aThis file is empty. Try a file with something on it.\n";
 		}
 	} while (emp.is_empty(source));
 
