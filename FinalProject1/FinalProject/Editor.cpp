@@ -132,7 +132,7 @@ void Editor::editWord()
 		Found = content.find(word, Found + 1);
 		if (Found > g && Found < 300)
 		{
-			cout << '\t' << i + 1 << ')' << Found - 1 << endl;
+			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
 			g = Found;
 		}
@@ -141,25 +141,29 @@ void Editor::editWord()
 			g = 0;
 		}
 	}
-	cout << '\t' << i + 1 << ") Para cambiar todos los" << word << "presione -1" << endl;
 	cout << "Enter the position of the word: ";
 	cin >> pos;
-	if (content.find("\n", pos + 1) != string::npos)
+	int a = word.length();
+	if (word.length() > word2.length())
+	{
+		a = word.length() - word2.length();
+	}
+	if (word.length() < word2.length())
+	{
+		a = word2.length() - word.length();
+	}
+
+	if (content.find("\n", pos) != string::npos)
 	{
 		word2.append("\n");
 	}
-	if (pos == -1)
-		while (Found != string::npos)
-		{
-			content.replace(content.find(word), word.length()+ 1, word2);
-		}
-	else if (pos == pos)
+	if (i == 1)
 	{
-		content.replace(content.find(word), word.length() + 1, word2);
+		content.replace(pos, word.length() + a - 1, word2);
 	}
-	else if (pos < pos + 1)
+	else if (i > 1)
 	{
-		content.replace(content.find(word), pos - 1, word2);
+		content.replace(pos, word.length() + a, word2);
 	}
 
 	emp2 << content;
