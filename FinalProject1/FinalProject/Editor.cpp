@@ -87,15 +87,21 @@ void Editor::editParagraph()
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
-	this->reader.paragraphReplace(p_number);
-}
+	if (reader.paragraphCount() == 0)
+	{
+		this->reader.paragraphReplace(p_number);
 
+	}
+}
 void Editor::deleteParagraph()
 {
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
-	this->reader.deleteParagraph(p_number);
+	if (reader.paragraphCount() == 0)
+	{
+		this->reader.deleteParagraph(p_number);
+	}
 }
 
 void Editor::editWord()
