@@ -90,7 +90,7 @@ void FileManager::openFile()
 	}
 	else
 	{
-		cout << "This is what the file has currently written" << endl << endl;
+		cout << "\nThis is what the file has currently written" << endl << endl;
 	}
 	FileReader read(name);
 	read.fileRead();

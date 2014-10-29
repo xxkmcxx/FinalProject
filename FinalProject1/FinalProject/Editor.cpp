@@ -153,7 +153,7 @@ void Editor::editWord()
 
 		emp.close();
 	}
-	cout << "Enter the replacement word :";
+	cout << "\nEnter the replacement word :";
 	cin >> word2;
 	fstream emp2(f_name);
 	size_t Found = content.find(word);
@@ -406,7 +406,7 @@ void Editor::menu()
 		}
 		else
 		{
-			cout << "\aInvalid input, please try again" << endl;
+			cout << "\aInvalid input, please try again." << endl;
 			this->menu();
 		}
 	}
