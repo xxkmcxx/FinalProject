@@ -87,7 +87,7 @@ void Editor::editParagraph()
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty())
+	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
 	{
 		this->reader.paragraphReplace(p_number);
 
@@ -98,7 +98,7 @@ void Editor::deleteParagraph()
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty())
+	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
 	{
 		this->reader.deleteParagraph(p_number);
 	}
