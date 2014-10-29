@@ -83,7 +83,7 @@ void Editor::editLine()
 void Editor::deleteLine()
 {
 	int l_number;
-	if (this->reader.is_empty(this->f_name))
+	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount <= 0)
 	{
 		cout << "Nothing to edit. File is emtpty." << endl;
 	}
@@ -412,4 +412,4 @@ void Editor::menu()
 		}
 	}
 }
-}
+
