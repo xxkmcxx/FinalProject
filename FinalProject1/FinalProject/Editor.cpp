@@ -96,7 +96,6 @@ void Editor::deleteLine()
 }
 
 }
-
 void Editor::editParagraph()
 {
 	int p_number;
@@ -294,7 +293,6 @@ Editor::~Editor()
 {
 	
 }
-
 void Editor::menu()
 {
 	MyMenu menu;
