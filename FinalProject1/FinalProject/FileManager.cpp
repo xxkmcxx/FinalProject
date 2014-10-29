@@ -160,7 +160,7 @@ void FileManager::copyFile()
 		{
 			cout << "This file does not exist. Try a file that exist." << endl;
 		}
-		if (emp.is_empty(source))
+		if (emp.is_empty(source) && !this->fileExist(source))
 		{
 			cout << "\aThis file is empty. Try a file with something on it.\n";
 		}
@@ -180,8 +180,16 @@ void FileManager::copyFile()
 	}
 	else
 	{
-		cout << "Enter the name of the destination file: ";
-		cin >> destination;
+		do
+		{
+			cout << "Enter the name of the destination file: ";
+			cin >> destination;
+			if (destination == source)
+			{
+				cout << "\aYou cant clone a file to itself. Try Again. \n\n Destination File: ";
+				cin >> destination;
+			}
+		} while (destination == source);
 		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
