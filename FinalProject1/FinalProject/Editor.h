@@ -16,10 +16,8 @@ private:
 	bool isempty();
 	FileReader reader;
 public:
-	Editor(const Editor & anEditor);
 	Editor(string name);
 	Editor(char*name, int);
-	Editor & operator =(const Editor & anEditor);
 	void editFile();
 	void clearFile();
 	void editLine();

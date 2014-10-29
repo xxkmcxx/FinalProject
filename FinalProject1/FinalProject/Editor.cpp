@@ -47,14 +47,15 @@ void Editor::clearFile()
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
-			return;
+			this->menu();
+			Mana.menu();
 		}
 		else if (yn == "n" || yn == "N")
 		{
-			FileManager Mana;
 			cout << "File wasn't deleted. Returning to main menu." << endl;
-			return;
+			this->menu();
 		}
+
 		else
 		{
 			cout << "Didn't get that. Try again. \n Yes or No? ";
@@ -72,7 +73,7 @@ void Editor::editLine()
 	}
 	else
 	{ 
-		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+		cout << "There are " << this->reader.lineCount() << "lines on file. " << endl
 			 << "Enter the number of the line you want to replace" << endl;
 		cin >> l_number;
 		this->reader.lineReplace(l_number);
@@ -82,7 +83,7 @@ void Editor::editLine()
 void Editor::deleteLine()
 {
 	int l_number;
-	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() <= 0)
+	if (this->reader.is_empty(this->f_name))
 	{
 		cout << "Nothing to edit. File is emtpty." << endl;
 	}
@@ -271,7 +272,7 @@ void Editor::editSentence()
 	}
 	else
 	{
-		cout << "There are " << this->reader.sentenceCount() << " sentences on file. " << endl
+		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
 			<< "Enter the number of the sentence you want to replace." << endl;
 	cin >> s_number;
 	this->reader.sentenceReplace(s_number);
@@ -335,7 +336,6 @@ void Editor::menu()
 	else if (option == "2")
 	{
 		this->reader.fileRead();
-		cout << endl;
 		this->menu();
 	}
 	if (!men.is_empty(this->f_name))

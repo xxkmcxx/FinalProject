@@ -77,7 +77,7 @@ void FileManager::openFile()
 		{
 			cout << "\aFile with the name of " << name << " does not exist" << endl;
 			cout << "Please try again." << endl;
-			cout << "Enter the name of the file to open: ";
+			cout << "Enter the name of the file to open";
 			cin >> name;
 			name.append(".txt");
 			file.close();
@@ -94,9 +94,10 @@ void FileManager::openFile()
 	}
 	FileReader read(name);
 	read.fileRead();
-	file.close();
-	Editor mem(name);
-	mem.menu();
+			file.close();
+			Editor edit(name);
+			edit.menu();
+
 }
 
 void FileManager::createFile()
@@ -110,12 +111,13 @@ void FileManager::createFile()
 	{
 		fstream file;
 		file.open(name, ios::out);
-		cout << "Creating File..." << endl;
-		this->loading();
-		cout << "\aFile creation was succeful!" << endl;
+	cout << "Creating File..." << endl;
+	this->loading();
+	cout << "\aFile creation was succeful!" << endl;
 		file.close();
 		Editor edit(name);
 		edit.menu();
+		this->menu();
 	}
 	else
 	{
@@ -128,12 +130,13 @@ void FileManager::createFile()
 			if (yn == "Y" || yn == "y")
 			{
 				fstream file(name);
-				Editor edit(name);
-				return;
-
-			}
+		Editor edit(name);
+				file.open(name);
+		edit.menu();
+				this->menu();
+	}
 			else if (yn == "N" || yn == "n")
-				return;
+				this->menu();
 			else
 			{
 				{

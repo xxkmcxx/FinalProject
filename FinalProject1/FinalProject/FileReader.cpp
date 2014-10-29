@@ -13,7 +13,6 @@ FileReader::~FileReader()
 }
 void FileReader::fileRead()
 {
-	cout << "\tV--------------------------File Content-------------------------V"<<endl << endl;
 	this->file.open(this->f_name,ios::in);	
 	char ch;
 	this->file.get(ch);
@@ -244,27 +243,27 @@ void FileReader::sentenceReplace(int s_number)
 	{
 
 		int i = 1, j = 1;
-		while (getline(file, sntnc, '_'))
+		while (getline(file, sntnc, '#'))
 		{
 			if (i < s_number)
 			{
 				bfr_sntnc.append(sntnc);
-				bfr_sntnc.append("_");
+				bfr_sntnc.append("#");
 				i++;
 			}
 
 			if (j > s_number)
 			{
 				aft_sntnc.append(sntnc);
-				aft_sntnc.append("_");
+				aft_sntnc.append("#");
 
 			}
 			j++;
 		}
 		file.close();
 		string newline;
-		cout << "Enter the new sentece to replace with: " << endl;
-		getline(cin, newline, '~');
+		cout << "Enter the new sentece to replace with" << endl;
+		getline(cin, newline, '-');
 		newline = newline.substr(1, newline.length());
 		newline.append(aft_sntnc);
 		bfr_sntnc.append(newline);
@@ -286,19 +285,19 @@ void FileReader::deleteSentence(int s_number)
 	{
 
 		int i = 1, j = 1;
-		while (getline(file, sntnc, '_'))
+		while (getline(file, sntnc, '#'))
 		{
 			if (i < s_number)
 			{
 				bfr_sntnc.append(sntnc);
-				bfr_sntnc.append("_");
+				bfr_sntnc.append("#");
 				i++;
 			}
 
 			if (j > s_number)
 			{
 				aft_sntnc.append(sntnc);
-				aft_sntnc.append("_");
+				aft_sntnc.append("#");
 
 			}
 			j++;
@@ -318,7 +317,7 @@ int FileReader::sentenceCount()
 	this->file.get(ch);
 	while (!file.eof()) //algorith for counting sentences in a file
 	{
-		if (ch == '_')
+		if (ch == '#')
 			count++;
 		file.get(ch);
 	}
