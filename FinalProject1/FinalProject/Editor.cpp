@@ -47,13 +47,12 @@ void Editor::clearFile()
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
-			this->menu();
-			Mana.menu();
+			return;
 		}
 		else if (yn == "n" || yn == "N")
 		{
 			cout << "File wasn't deleted. Returning to main menu." << endl;
-			this->menu();
+			return;
 		}
 
 		else
