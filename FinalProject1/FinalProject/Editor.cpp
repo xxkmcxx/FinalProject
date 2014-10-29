@@ -47,15 +47,14 @@ void Editor::clearFile()
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
-			this->menu();
-			Mana.menu();
+			return;
 		}
 		else if (yn == "n" || yn == "N")
 		{
+			FileManager Mana;
 			cout << "File wasn't deleted. Returning to main menu." << endl;
-			this->menu();
+			return;
 		}
-
 		else
 		{
 			cout << "Didn't get that. Try again. \n Yes or No? ";
@@ -272,7 +271,7 @@ void Editor::editSentence()
 	}
 	else
 	{
-		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
+		cout << "There are " << this->reader.sentenceCount() << " sentences on file. " << endl
 			<< "Enter the number of the sentence you want to replace." << endl;
 	cin >> s_number;
 	this->reader.sentenceReplace(s_number);
