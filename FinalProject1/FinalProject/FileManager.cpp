@@ -111,9 +111,9 @@ void FileManager::createFile()
 	{
 		fstream file;
 		file.open(name, ios::out);
-		cout << "Creating File..." << endl;
-		this->loading();
-		cout << "\aFile creation was succeful!" << endl;
+	cout << "Creating File..." << endl;
+	this->loading();
+	cout << "\aFile creation was succeful!" << endl;
 		file.close();
 		Editor edit(name);
 		edit.menu();
@@ -193,6 +193,7 @@ void FileManager::copyFile()
 				destination.append(".txt");
 			}
 		} while (destination == source);
+		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
 		if (file3.is_open())
