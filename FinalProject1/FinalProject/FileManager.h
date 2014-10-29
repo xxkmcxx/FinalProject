@@ -8,7 +8,6 @@
 
 class FileManager
 {
-
 public:
 	FileManager();
 	void openFile();
@@ -18,7 +17,6 @@ public:
 	void loading();
 	void copyFile();
 	void openreadme();
-	void RecentFiles();
 	bool fileExist(string name) const;
 	void playsong();
 };

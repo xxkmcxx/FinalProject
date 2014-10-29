@@ -73,13 +73,16 @@ void FileManager::openFile()
 	name.append(".txt");
 	ifstream file;
 	file.open(name);
-		if(file.fail())
+		while(file.fail())
 		{
 			cout << "\aFile with the name of " << name << " does not exist" << endl;
-			return;
+			cout << "Please try again." << endl;
+			cout << "Enter the name of the file to open";
+			cin >> name;
+			name.append(".txt");
+			file.close();
+			file.open(name);
 		}
-		else
-		{
 	FileReader emp(name);
 	if (emp.is_empty(name))
 	{
@@ -94,10 +97,7 @@ void FileManager::openFile()
 			file.close();
 			Editor edit(name);
 			edit.menu();
-			
-		}
-		
-		return;
+
 }
 
 void FileManager::createFile()
@@ -238,27 +238,6 @@ void FileManager::openreadme(){
 	FileReader fr("readme.txt");
 	fr.fileRead();
 
-}
-
-void FileManager::RecentFiles()
-{
-	fstream file("Recent Files.txt");
-	string line;
-	file.open("Recent Files.txt");
-	if (file.is_open())
-	{
-		if (file.is_open())
-		{
-			while (getline(file, line))
-			{
-				cout << line << '\n';
-			}
-
-			file.close();
-		}
-		else cout << "\aUnable to open file";
-
-	}
 }
 
 bool FileManager::fileExist(string name) const

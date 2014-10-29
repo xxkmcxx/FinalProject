@@ -295,10 +295,20 @@ void Editor::menu()
 	}
 	else if (option == "9")
 	{
-		this->clearFile();
+		this->editSentence();
 		this->menu();
 	}
 	else if (option == "10")
+	{
+		this->deleteSentence();
+		this->menu();
+	}
+	else if (option == "11")
+	{
+		this->clearFile();
+		this->menu();
+	}
+	else if (option == "12")
 	{
 		cout << "Saving document..." << endl
 			<< "Now going back to previous menu." << endl;

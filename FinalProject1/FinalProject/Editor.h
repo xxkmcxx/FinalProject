@@ -26,6 +26,8 @@ public:
 	void deleteParagraph();
 	void editWord();
 	void deleteWord();
+	void editSentence();
+	void deleteSentence();
 	void menu();
 	~Editor();
 };
