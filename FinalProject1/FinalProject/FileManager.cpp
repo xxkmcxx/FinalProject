@@ -128,9 +128,9 @@ void FileManager::createFile()
 			if (yn == "Y" || yn == "y")
 			{
 				fstream file(name);
-		Editor edit(name);
+				Editor edit(name);
 				file.open(name);
-		edit.menu();
+				edit.menu();
 				this->menu();
 	}
 			else if (yn == "N" || yn == "n")
