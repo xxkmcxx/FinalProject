@@ -4,37 +4,12 @@
 #include <fstream>
 #include "FileReader.h"
 #include <string>
-
+#include <thread>
 using namespace std;
 
 int main()
 {
-
-
-
-
-	FileManager fm;
+	FileManager fm, fr;
 	fm.menu();
-//	FileReader f_reader;
-//
-//	fstream file;
-//	file.open("Prueba.txt", ios::in | ios::app);
-//	
-//
-//	string name;
-//	getline(std::cin, name, '.');
-//	name.append(".");
-//	file << name;
-//
-//	file.close();
-//	/*string name;
-//	getline(std::cin, name, '.');
-//	name.append(".");
-//	file << name;
-//*/
-//	file.close();
-//
-
-
 	return(0);
 }

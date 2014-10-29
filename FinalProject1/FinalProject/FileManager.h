@@ -3,19 +3,21 @@
 #include "MyMenu.h"
 #include <string>
 #include "Editor.h"
+#include "FileReader.h"
 
 
 class FileManager
 {
-
 public:
 	FileManager();
-	int openFile();
+	void openFile();
 	void createFile();
 	void menu();
 	~FileManager();
 	void loading();
 	void copyFile();
 	void openreadme();
+	bool fileExist(string name) const;
+	void playsong();
 };
 
