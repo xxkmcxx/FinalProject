@@ -109,7 +109,8 @@ void FileManager::createFile()
 	
 	if (this->fileExist(name))
 	{
-		fstream file(name);
+		fstream file;
+		file.open(name, ios::out);
 	cout << "Creating File..." << endl;
 	this->loading();
 	cout << "\aFile creation was succeful!" << endl;

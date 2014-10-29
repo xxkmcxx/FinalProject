@@ -60,7 +60,7 @@ void Editor::editLine()
 {
 	
 	int l_number;
-	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() == 0)
+	if (this->reader.is_empty(this->f_name))
 	{
 		cout << "Nothing to edit. File is emtpty." << endl;
 	}
@@ -77,9 +77,18 @@ void Editor::editLine()
 void Editor::deleteLine()
 {
 	int l_number;
-	cout << "Enter the number of the line you want to delete" << endl;
-	cin >> l_number;
-	this->reader.deleteLine(l_number);
+	if (this->reader.is_empty(this->f_name))
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line you want to delete" << endl;
+		cin >> l_number;
+		this->reader.deleteLine(l_number);
+	}
+	
 }
 
 void Editor::editParagraph()
@@ -236,17 +245,36 @@ void Editor::deleteWord()
 
 void Editor::editSentence()
 {
+	
 	int s_number;
-	cout << "Enter the number of the sentence" << endl;
-	cin >> s_number;
-	this->reader.sentenceReplace(s_number);
+	if (this->reader.is_empty(this->f_name)|| this->reader.sentenceCount <= 0)
+	{
+		cout << "Nothing to edit. File has no sentences or is empty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
+			<< "Enter the number of the sentence you want to replace." << endl;
+		cin >> s_number;
+		this->reader.sentenceReplace(s_number);
+	}
+	
 }
 void Editor::deleteSentence()
 {
 	int s_number;
-	cout << "Enter the number of the sentece" << endl;
-	cin >> s_number;
-	this->reader.deleteSentence(s_number);
+	if (this->reader.is_empty(this->f_name) || this->reader.sentenceCount <= 0)
+	{
+		cout << "Nothing to edit. File has no sentences or is empty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
+			<< "Enter the number of the sentence you want to delete." << endl;
+		cin >> s_number;
+		this->reader.deleteSentence(s_number);
+	}
+	
 }
 Editor::~Editor()
 {
@@ -266,6 +294,8 @@ void Editor::menu()
 	menu.agregarOpcion("Delete a line.                    |");
 	menu.agregarOpcion("Edit a paragraph.                 |");
 	menu.agregarOpcion("Delete a paragraph.               |");
+	menu.agregarOpcion("Edit a sentence.                  |");
+	menu.agregarOpcion("Delete a sentence.                |");
 	menu.agregarOpcion("Clear file.                       |");
 	menu.agregarOpcion("Return to previous menu.         |");
 	menu.cambiarPregunta("Please choose one of the option shown above.|");

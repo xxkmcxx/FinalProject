@@ -28,7 +28,7 @@ void FileReader::lineReplace(int l_number)
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string line,bfr_Line,aft_Line;
-	if (l_number > this->lineCount())
+	if (l_number > this->lineCount() || l_number <=0)
 	{
 		cout << "The line entered does not match the number of lines displayed on the file." << endl;
 	}
@@ -74,7 +74,7 @@ void FileReader::deleteLine(int l_number)
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  line, bfr_Line, aft_Line;
-	if (l_number > this->lineCount())
+	if (l_number > this->lineCount()|| l_number <= 0)
 	{
 		cout << "The line entered does not match the number of lines displayed on the file." << endl;
 	}
@@ -125,11 +125,11 @@ int FileReader:: lineCount()
 }
 //replaces a paragraph
 void FileReader::paragraphReplace(int p_number)
-	{
+{
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;
-	if (p_number > this->paragraphCount())
+	if (p_number > this->paragraphCount()|| p_number <=0)
 	{
 		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
 	}
@@ -173,7 +173,7 @@ void FileReader::deleteParagraph(int p_number)
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;
-	if (p_number > this->paragraphCount())
+	if (p_number > this->paragraphCount() || p_number <= 0)
 	{
 		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
 	}
@@ -230,7 +230,7 @@ void FileReader::sentenceReplace(int s_number)
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  sntnc, bfr_sntnc, aft_sntnc;
-	if (s_number > this->sentenceCount())
+	if (s_number > this->sentenceCount()|| s_number  <= 0)
 	{
 		cout << "The sentence number entered does not match the number of sentences displayed on the file." << endl;
 	}
@@ -272,7 +272,7 @@ void FileReader::deleteSentence(int s_number)
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  sntnc, bfr_sntnc, aft_sntnc;
-	if (s_number > this->sentenceCount())
+	if (s_number > this->sentenceCount() || s_number <= 0)
 	{
 		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
 	}
