@@ -304,22 +304,23 @@ void Editor::menu()
 	MyMenu menu;
 	string option;
 	FileReader men(this->f_name);
-	menu.cambiarTitulo("Welcome to the text editing tool            |");
-	menu.agregarOpcion("Start writing into the file.      |");
-	menu.agregarOpcion("View file content.                |");
+	menu.cambiarTitulo("Welcome to the text editing tool            I");
+	menu.agregarOpcion("Start writing into the file.     I");
+	menu.agregarOpcion("View file content.               I");
 	if (!men.is_empty(this->f_name))
 	{
-		menu.agregarOpcion("Edit a word.                      |");
-		menu.agregarOpcion("Delete a word.                    |");
-		menu.agregarOpcion("Edit a line.                      |");
-		menu.agregarOpcion("Delete a line.                    |");
-		menu.agregarOpcion("Edit a paragraph.                 |");
-		menu.agregarOpcion("Delete a paragraph.               |");
-		menu.agregarOpcion("Edit a sentence.                  |");
-		menu.agregarOpcion("Delete a sentence.               |");
-		menu.agregarOpcion("Clear file.                      |");
-	menu.agregarOpcion("Return to previous menu.         |");
-	menu.cambiarPregunta("Please choose one of the option shown above.|");
+		menu.agregarOpcion("Edit a word.                     I");
+		menu.agregarOpcion("Delete a word.                   I");
+		menu.agregarOpcion("Edit a line.                     I");
+		menu.agregarOpcion("Delete a line.                   I");
+		menu.agregarOpcion("Edit a paragraph.                I");
+		menu.agregarOpcion("Delete a paragraph.              I");
+		menu.agregarOpcion("Edit a sentence.                 I");
+		menu.agregarOpcion("Delete a sentence.               I");
+		menu.agregarOpcion("Clear file.                      I");
+	}
+		menu.agregarOpcion("Return to previous menu.         I");
+		menu.cambiarPregunta("Please choose one of the option shown above.I");
 
 	cout << "____________________________________________" << endl;
 	cout << menu << endl;
