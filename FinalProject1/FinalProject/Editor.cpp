@@ -234,16 +234,21 @@ void Editor::menu()
 {
 	MyMenu menu;
 	string option;
+	FileReader men(this->f_name);
 	menu.cambiarTitulo("Welcome to the text editing tool            |");
 	menu.agregarOpcion("Start writing into the file.      |");
 	menu.agregarOpcion("View file content.                |");
-	menu.agregarOpcion("Edit a word.                      |");
-	menu.agregarOpcion("Delete a word.                    |");
-	menu.agregarOpcion("Edit a line.                      |");
-	menu.agregarOpcion("Delete a line.                    |");
-	menu.agregarOpcion("Edit a paragraph.                 |");
-	menu.agregarOpcion("Delete a paragraph.               |");
-	menu.agregarOpcion("Clear file.                       |");
+	if (!men.is_empty(this->f_name))
+	{
+
+		menu.agregarOpcion("Edit a word.                      |");
+		menu.agregarOpcion("Delete a word.                    |");
+		menu.agregarOpcion("Edit a line.                      |");
+		menu.agregarOpcion("Delete a line.                    |");
+		menu.agregarOpcion("Edit a paragraph.                 |");
+		menu.agregarOpcion("Delete a paragraph.               |");
+		menu.agregarOpcion("Clear file.                       |");
+	}
 	menu.agregarOpcion("Return to previous menu.         |");
 	menu.cambiarPregunta("Please choose one of the option shown above.|");
 
