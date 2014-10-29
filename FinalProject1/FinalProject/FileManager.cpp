@@ -117,6 +117,7 @@ void FileManager::createFile()
 		file.close();
 		Editor edit(name);
 		edit.menu();
+		this->menu();
 	}
 	else
 	{
@@ -179,7 +180,7 @@ void FileManager::copyFile()
 		cout << "\aFile with the name of " << source << " does not exist" << endl;
 	}
 	else
-	{ 
+	{
 		do
 		{
 			cout << "Enter the name of the destination file: ";
@@ -192,7 +193,7 @@ void FileManager::copyFile()
 				destination.append(".txt");
 			}
 		} while (destination == source);
-		
+		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
 		if (file3.is_open())

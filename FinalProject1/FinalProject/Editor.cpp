@@ -33,7 +33,6 @@ void Editor::editFile()
 
 	file.close();
 }
-
 void Editor::clearFile()
 {
 	string yn;
@@ -64,7 +63,6 @@ void Editor::clearFile()
 		}
 	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
-
 void Editor::editLine()
 {
 	
@@ -82,7 +80,6 @@ void Editor::editLine()
 	}
 	
 }
-
 void Editor::deleteLine()
 {
 	int l_number;
@@ -99,29 +96,38 @@ void Editor::deleteLine()
 }
 
 }
-
 void Editor::editParagraph()
 {
 	int p_number;
-	cout << "Enter the number of the paragraph" << endl;
-	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	if (reader.paragraphCount() != 0)
 	{
+		cout << "Enter the number of the paragraph: " << endl;
+		cin >> p_number;
 	this->reader.paragraphReplace(p_number);
+	}
+	else
+	{
+		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
+		this->menu();
 
 	}
 }
 void Editor::deleteParagraph()
 {
 	int p_number;
-	cout << "Enter the number of the paragraph" << endl;
-	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	if (reader.paragraphCount() != 0)
 	{
-	this->reader.deleteParagraph(p_number);
-}
-}
+		cout << "Enter the number of the paragraph: " << endl;
+	cin >> p_number;
+		this->reader.deleteParagraph(p_number);
+	}
+	else
+	{
+		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
+		this->menu();
 
+}
+}
 void Editor::editWord()
 {
 	string word, content, word2, word3;
@@ -198,7 +204,6 @@ void Editor::editWord()
 	emp2 << content;
 	emp2.close();
 }
-
 void Editor::deleteWord()
 {
 	string word, content, word2;
@@ -257,7 +262,6 @@ void Editor::deleteWord()
 	emp2 << content;
 	emp2.close();
 }
-
 void Editor::editSentence()
 {
 	
@@ -295,7 +299,6 @@ Editor::~Editor()
 {
 	
 }
-
 void Editor::menu()
 {
 	MyMenu menu;
@@ -409,4 +412,4 @@ void Editor::menu()
 		}
 
 	}
-}
+
