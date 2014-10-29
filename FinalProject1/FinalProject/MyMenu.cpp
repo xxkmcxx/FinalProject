@@ -92,7 +92,16 @@ ostream & operator << (ostream & out, const MyMenu & unMenu)
 {
 	out << unMenu.obtenerTitulo() << endl;
 	for (int i = 0; i < unMenu.cantidadDeOpciones(); i++)
-		out << '\t' << (i + 1) << "." << unMenu[i + 2] << endl;
+	{
+		if (i >= 0 && i < 9)
+			out << '\t' <<"0"<< (i + 1) << "." << unMenu[i + 2] << endl;
+		else
+		{
+			out << '\t' << (i + 1) << "." << unMenu[i + 2] << endl;
+		}
+
+	}
+
 	out << unMenu.obtenerPregunta();
 
 	return(out);
