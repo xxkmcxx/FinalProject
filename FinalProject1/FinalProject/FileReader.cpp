@@ -167,7 +167,6 @@ void FileReader::paragraphReplace(int p_number)
 		file.close();
 	}
 }
-}
 void FileReader::deleteParagraph(int p_number)
 {
 	
