@@ -33,7 +33,6 @@ void Editor::editFile()
 
 	file.close();
 }
-
 void Editor::clearFile()
 {
 	string yn;
@@ -64,7 +63,6 @@ void Editor::clearFile()
 		}
 	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
-
 void Editor::editLine()
 {
 	
@@ -82,7 +80,6 @@ void Editor::editLine()
 	}
 	
 }
-
 void Editor::deleteLine()
 {
 	int l_number;
@@ -90,7 +87,6 @@ void Editor::deleteLine()
 	cin >> l_number;
 	this->reader.deleteLine(l_number);
 }
-
 void Editor::editParagraph()
 {
 	int p_number;
@@ -112,7 +108,6 @@ void Editor::deleteParagraph()
 		this->reader.deleteParagraph(p_number);
 	}
 }
-
 void Editor::editWord()
 {
 	string word, content, word2, word3;
@@ -189,7 +184,6 @@ void Editor::editWord()
 	emp2 << content;
 	emp2.close();
 }
-
 void Editor::deleteWord()
 {
 	string word, content, word2;
@@ -248,7 +242,6 @@ void Editor::deleteWord()
 	emp2 << content;
 	emp2.close();
 }
-
 void Editor::editSentence()
 {
 	int s_number;
