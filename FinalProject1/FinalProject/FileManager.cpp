@@ -110,13 +110,12 @@ void FileManager::createFile()
 	if (this->fileExist(name))
 	{
 		fstream file(name);
-	cout << "Creating File..." << endl;
-	this->loading();
-	cout << "\aFile creation was succeful!" << endl;
+		cout << "Creating File..." << endl;
+		this->loading();
+		cout << "\aFile creation was succeful!" << endl;
 		file.close();
 		Editor edit(name);
 		edit.menu();
-		
 	}
 	else
 	{

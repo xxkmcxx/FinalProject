@@ -39,21 +39,24 @@ void Editor::clearFile()
 	string yn;
 	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
 	cin >> yn;
-	while(yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
+	do
 	{
-		cout << "Didn't get that. Try again. \n Yes or No? ";
-		cin >> yn;
-	}
-	if (yn == "Y" || yn == "y")
-	{
-		FileManager Mana;
-		Mana.loading();
-		this->file.open(this->f_name, ios::out | ios::trunc);
-		file.close();
-		cout << "File cleared" << endl;
-	}
-	else 
-		cout << "File wasn't deleted. Returning to main menu." << endl;
+		if (yn == "Y" || yn == "y")
+		{
+			FileManager Mana;
+			Mana.loading();
+			this->file.open(this->f_name, ios::out | ios::trunc);
+			file.close();
+			cout << "File cleared" << endl;
+		}
+		else if (yn == "n" || yn == "N")
+			cout << "File wasn't deleted. Returning to main menu." << endl;
+		else
+		{
+			cout << "Didn't get that. Try again. \n Yes or No? ";
+			cin >> yn;
+		}
+	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
 
 void Editor::editLine()
@@ -263,16 +266,17 @@ void Editor::menu()
 	menu.agregarOpcion("View file content.                |");
 	if (!men.is_empty(this->f_name))
 	{
-
 		menu.agregarOpcion("Edit a word.                      |");
 		menu.agregarOpcion("Delete a word.                    |");
 		menu.agregarOpcion("Edit a line.                      |");
 		menu.agregarOpcion("Delete a line.                    |");
 		menu.agregarOpcion("Edit a paragraph.                 |");
 		menu.agregarOpcion("Delete a paragraph.               |");
-		menu.agregarOpcion("Clear file.                       |");
+		menu.agregarOpcion("Edit a sentence.                  |");
+		menu.agregarOpcion("Delete a sentence .              |");
+		menu.agregarOpcion("Clear file.                      |");
 	}
-	menu.agregarOpcion("Return to previous menu.         |");
+	menu.agregarOpcion("Return to previous menu.          |");
 	menu.cambiarPregunta("Please choose one of the option shown above.|");
 
 	cout << "____________________________________________" << endl;
@@ -291,60 +295,78 @@ void Editor::menu()
 		this->reader.fileRead();
 		this->menu();
 	}
-	else if (option == "3")
+	if (!men.is_empty(this->f_name))
 	{
-		this->editWord();
-		this->menu();
+		if (option == "3")
+		{
+			this->editWord();
+			this->menu();
+		}
+		else if (option == "4")
+		{
+			this->deleteWord();
+			this->menu();
+		}
+		else if (option == "5")
+		{
+			this->editLine();
+			this->menu();
+		}
+		else if (option == "6")
+		{
+			this->deleteLine();
+			this->menu();
+		}
+		else if (option == "7")
+		{
+			this->editParagraph();
+			this->menu();
+		}
+		else if (option == "8")
+		{
+			this->deleteParagraph();
+			this->menu();
+		}
+		else if (option == "9")
+		{
+			this->editSentence();
+			this->menu();
+		}
+		else if (option == "10")
+		{
+			this->deleteSentence();
+			this->menu();
+		}
+		else if (option == "11")
+		{
+			this->clearFile();
+			this->menu();
+		}
+		else if (option == "12")
+		{
+			cout << "Saving document..." << endl
+				<< "Now going back to previous menu." << endl;
+			return;
+		}
+		else
+		{
+			cout << "\aInvalid input, please try again" << endl;
+			this->menu();
+		}
 	}
-	else if (option == "4")
+	else if(men.is_empty(this->f_name))
 	{
-		this->deleteWord();
-		this->menu();
+		if (option == "3")
+		{
+			cout << "Saving document..." << endl
+				<< "Now going back to previous menu." << endl;
+			return;
+		}
+		else
+		{
+			cout << "\aInvalid input, please try again" << endl;
+			this->menu();
+		}
 	}
-	else if (option == "5")
-	{
-		this->editLine();
-		this->menu();
-	}
-	else if (option == "6")
-	{
-		this->deleteLine();
-		this->menu();
-	}
-	else if (option == "7")
-	{
-		this->editParagraph();
-		this->menu();
-	}
-	else if (option == "8")
-	{
-		this->deleteParagraph();
-		this->menu();
-	}
-	else if (option == "9")
-	{
-		this->editSentence();
-		this->menu();
-	}
-	else if (option == "10")
-	{
-		this->deleteSentence();
-		this->menu();
-	}
-	else if (option == "11")
-	{
-		this->clearFile();
-		this->menu();
-	}
-	else if (option == "12")
-	{
-		cout << "Saving document..." << endl
-			<< "Now going back to previous menu." << endl;
-		return;
-	}
-	else
-	{
-		cout << "\aInvalid input, please try again" << endl;
-		this->menu();
-	}
+
 }
