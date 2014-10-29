@@ -59,7 +59,7 @@ void FileReader::lineReplace(int l_number)
 		}
 		file.close();
 		string newline;
-		cout << "Enter the new line to replace with :" << endl;
+		cout << "Enter the new line to replace with: " << endl;
 		getline(cin, newline, '~');
 		newline = newline.substr(1, newline.length());
 		newline.append("\n");
