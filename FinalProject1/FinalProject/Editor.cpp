@@ -396,7 +396,7 @@ void Editor::menu()
 			this->menu();
 		}
 	}
-	else if(men.is_empty(this->f_name))
+		else if (men.is_empty(this->f_name))
 	{
 		if (option == "3")
 		{
@@ -411,5 +411,4 @@ void Editor::menu()
 		}
 	}
 }
-
-
+}
