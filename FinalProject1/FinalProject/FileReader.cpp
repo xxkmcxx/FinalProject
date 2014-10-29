@@ -125,46 +125,49 @@ int FileReader:: lineCount()
 }
 //replaces a paragraph
 void FileReader::paragraphReplace(int p_number)
-	{
+{
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;
-	if (p_number > this->paragraphCount())
+	if (this->paragraphCount() != 0 || !this->is_empty(this->f_name))
 	{
-		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
-	}
-	else
-	{
-
-		int i = 1, j = 1;
-		while (getline(file, pgraph, '`'))
+		if (p_number > this->paragraphCount())
 		{
-			if (i < p_number)
-			{
-				bfr_pgraph.append(pgraph);
-				bfr_pgraph.append("`");
-				i++;
-			}
-
-			if (j > p_number)
-			{
-				aft_pgraph.append(pgraph);
-				aft_pgraph.append("`");
-
-			}
-			j++;
+			cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
 		}
-	file.close();
-		string newline;
-		cout << "Enter the new paragraph to replace with" << endl;
-		getline(cin, newline, '~');
-		newline  = newline.substr(1, newline.length());
-		newline.append("\n");
-		newline.append(aft_pgraph);
-		bfr_pgraph.append(newline);
-		file.open(this->f_name, ios::out);
-		file << bfr_pgraph;
-		file.close();
+		else
+		{
+
+			int i = 1, j = 1;
+			while (getline(file, pgraph, '`'))
+			{
+				if (i < p_number)
+				{
+					bfr_pgraph.append(pgraph);
+					bfr_pgraph.append("`");
+					i++;
+				}
+
+				if (j > p_number)
+				{
+					aft_pgraph.append(pgraph);
+					aft_pgraph.append("`");
+
+				}
+				j++;
+			}
+			file.close();
+			string newline;
+			cout << "Enter the new paragraph to replace with" << endl;
+			getline(cin, newline, '~');
+			newline = newline.substr(1, newline.length());
+			newline.append("\n");
+			newline.append(aft_pgraph);
+			bfr_pgraph.append(newline);
+			file.open(this->f_name, ios::out);
+			file << bfr_pgraph;
+			file.close();
+		}
 	}
 }
 void FileReader::deleteParagraph(int p_number)
