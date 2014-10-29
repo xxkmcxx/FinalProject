@@ -13,6 +13,7 @@ FileReader::~FileReader()
 }
 void FileReader::fileRead()
 {
+	cout << "\tV--------------------------File Content-------------------------V"<<endl << endl;
 	this->file.open(this->f_name,ios::in);	
 	char ch;
 	this->file.get(ch);
