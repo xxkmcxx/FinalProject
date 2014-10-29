@@ -57,13 +57,22 @@ void Editor::clearFile()
 }
 
 void Editor::editLine()
-	{
+{
 	
 	int l_number;
-	cout << "Enter the number of the line you want to replace" << endl;
-	cin >> l_number;
-	this->reader.lineReplace(l_number);
+	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() == 0)
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
 	}
+	else
+	{ 
+		cout << "There are " << this->reader.lineCount() << "lines on file. " << endl
+			 << "Enter the number of the line you want to replace" << endl;
+		cin >> l_number;
+		this->reader.lineReplace(l_number);
+	}
+	
+}
 
 void Editor::deleteLine()
 {
@@ -225,6 +234,20 @@ void Editor::deleteWord()
 	emp2.close();
 }
 
+void Editor::editSentence()
+{
+	int s_number;
+	cout << "Enter the number of the sentence" << endl;
+	cin >> s_number;
+	this->reader.sentenceReplace(s_number);
+}
+void Editor::deleteSentence()
+{
+	int s_number;
+	cout << "Enter the number of the sentece" << endl;
+	cin >> s_number;
+	this->reader.deleteSentence(s_number);
+}
 Editor::~Editor()
 {
 	
