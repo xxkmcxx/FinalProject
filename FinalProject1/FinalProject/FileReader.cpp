@@ -1,17 +1,13 @@
 #include "FileReader.h"
 #include <string>
-
-
 FileReader::FileReader(string name) : f_name(name)
 {
 
 }
-
 FileReader::~FileReader()
 {
 
 }
-
 void FileReader::fileRead()
 {
 	this->file.open(this->f_name,ios::in);	
@@ -72,6 +68,7 @@ void FileReader::lineReplace(int l_number)
 	}
 	
 }
+//deletes a line on a file
 void FileReader::deleteLine(int l_number)
 {
 	fstream file;
@@ -126,6 +123,7 @@ int FileReader:: lineCount()
 	this->file.close();
 	return count;
 }
+//replaces a paragraph
 void FileReader::paragraphReplace(int p_number)
 	{
 	fstream file;
@@ -222,13 +220,11 @@ int FileReader::paragraphCount()
 	this->file.close();
 	return count;
 }
-
 bool FileReader::is_empty(string f_name)
 {
 	ifstream file(f_name);
 	return(file.peek() == ifstream::traits_type::eof());
 }
-
 void FileReader::sentenceReplace(int s_number)
 {
 	fstream file;
@@ -308,7 +304,6 @@ void FileReader::deleteSentence(int s_number)
 		file.close();
 	}
 }
-
 int FileReader::sentenceCount()
 {
 	char ch;
