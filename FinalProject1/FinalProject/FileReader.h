@@ -37,5 +37,6 @@ public:
 	~FileReader();
 	void fileRead();
 	bool is_empty(string f_name);
+	void editByLine(int l_number);
 };
 

@@ -11,7 +11,6 @@ int main()
 {
 	FileManager fm;
 	FileReader fr("kevin.txt");
-	cout << fr.paragraphCount() << endl;
-	fm.menu();
+	fr.editByLine(1);
 	return(0);
 }
