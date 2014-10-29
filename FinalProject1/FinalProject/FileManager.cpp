@@ -109,10 +109,11 @@ void FileManager::createFile()
 	
 	if (this->fileExist(name))
 	{
-		fstream file(name);
-		cout << "Creating File..." << endl;
-		this->loading();
-		cout << "\aFile creation was succeful!" << endl;
+		fstream file;
+		file.open(name, ios::out);
+	cout << "Creating File..." << endl;
+	this->loading();
+	cout << "\aFile creation was succeful!" << endl;
 		file.close();
 		Editor edit(name);
 		edit.menu();
@@ -128,9 +129,9 @@ void FileManager::createFile()
 			if (yn == "Y" || yn == "y")
 			{
 				fstream file(name);
-				Editor edit(name);
+		Editor edit(name);
 				file.open(name);
-				edit.menu();
+		edit.menu();
 				this->menu();
 	}
 			else if (yn == "N" || yn == "n")
