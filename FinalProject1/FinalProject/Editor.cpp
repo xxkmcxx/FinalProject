@@ -411,5 +411,3 @@ void Editor::menu()
 		}
 	}
 }
-
-
