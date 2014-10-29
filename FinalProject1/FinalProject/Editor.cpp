@@ -318,6 +318,7 @@ void Editor::menu()
 		menu.agregarOpcion("Edit a sentence.                  |");
 		menu.agregarOpcion("Delete a sentence.                |");
 		menu.agregarOpcion("Clear file.                       |");
+	}
 	menu.agregarOpcion("Return to previous menu.         |");
 	menu.cambiarPregunta("Please choose one of the option shown above.|");
 
@@ -412,4 +413,4 @@ void Editor::menu()
 	}
 
 }
-}
+
