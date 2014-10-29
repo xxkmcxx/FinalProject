@@ -100,12 +100,17 @@ void Editor::deleteLine()
 void Editor::editParagraph()
 {
 	int p_number;
-	cout << "Enter the number of the paragraph" << endl;
-	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	if (reader.paragraphCount() != 0)
 	{
+		cout << "Enter the number of the paragraph" << endl;
+		cin >> p_number;
 		this->reader.paragraphReplace(p_number);
-
+	}
+	else
+	{
+		cout << "\n\aWhoops! There are no pragraphs hinters on this file. Read the manual for more info. \n";
+		this->menu();
+	
 	}
 }
 void Editor::deleteParagraph()
@@ -113,7 +118,7 @@ void Editor::deleteParagraph()
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
-	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	if (reader.paragraphCount() != 0 || reader.is_empty(this->f_name))
 	{
 		this->reader.deleteParagraph(p_number);
 	}
