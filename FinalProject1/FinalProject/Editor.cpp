@@ -47,15 +47,14 @@ void Editor::clearFile()
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
-			this->menu();
-			Mana.menu();
+			return;
 		}
 		else if (yn == "n" || yn == "N")
 		{
+			FileManager Mana;
 			cout << "File wasn't deleted. Returning to main menu." << endl;
-			this->menu();
+			return;
 		}
-
 		else
 		{
 			cout << "Didn't get that. Try again. \n Yes or No? ";
@@ -73,7 +72,7 @@ void Editor::editLine()
 	}
 	else
 	{ 
-		cout << "There are " << this->reader.lineCount() << "lines on file. " << endl
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
 			 << "Enter the number of the line you want to replace" << endl;
 		cin >> l_number;
 		this->reader.lineReplace(l_number);
@@ -83,7 +82,7 @@ void Editor::editLine()
 void Editor::deleteLine()
 {
 	int l_number;
-	if (this->reader.is_empty(this->f_name))
+	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() <= 0)
 	{
 		cout << "Nothing to edit. File is emtpty." << endl;
 	}
@@ -131,7 +130,7 @@ void Editor::deleteParagraph()
 void Editor::editWord()
 {
 	string word, content, word2, word3;
-	int c = 1, i = 0, pos = 0;
+	unsigned int c = 1, i = 0, pos = 0;
 	cout << "Type in the word you want to edit. Please type as it is in the file : ";
 	cin >> word;
 	ifstream emp(f_name);
@@ -163,12 +162,12 @@ void Editor::editWord()
 		cout << '\t' << i + 1 << ')' << Found << endl;
 		i++;
 	}
-	for (int g = Found; g == Found;)
+	for (unsigned int g = Found; g == Found;)
 	{
 		g = Found;
 		int m = 1;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 10000)
+		if (Found > g && Found < 40000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
@@ -195,7 +194,7 @@ void Editor::editWord()
 		content.replace(pos, word.length() + a - 1, word2);
 	if (word.length() > word2.length())
 	{
-		for (int q = 0; q < (word.length() - word2.length());q++)
+		for (unsigned int q = 0; q < (word.length() - word2.length());q++)
 			content.append("\b\b");
 		content.replace(pos, word.length() - a + (word.length() - word2.length()), word2);
 	}
@@ -207,7 +206,7 @@ void Editor::editWord()
 void Editor::deleteWord()
 {
 	string word, content, word2;
-	int c = 1, i = 0, pos = 0;
+	unsigned int c = 1, i = 0, pos = 0;
 	cout << "Type in the word you want to delete. Please type as it is in the file : ";
 	cin >> word;
 	ifstream emp(f_name);
@@ -236,11 +235,11 @@ void Editor::deleteWord()
 		cout << '\t' << i + 1 << ')' << Found << endl;
 		i++;
 	}
-	for (int g = Found; g == Found;)
+	for (unsigned int g = Found; g == Found;)
 	{
 		g = Found;
 		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 10000)
+		if (Found > g && Found < 40000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
 			i++;
@@ -253,7 +252,7 @@ void Editor::deleteWord()
 	}
 	cout << "Enter the position of the word: ";
 	cin >> pos;
-	for (int q = 0; q < word.length(); q++)
+	for (unsigned int q = 0; q < word.length(); q++)
 	{
 		content.append("\b");
 	}
@@ -272,7 +271,7 @@ void Editor::editSentence()
 	}
 	else
 	{
-		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
+		cout << "There are " << this->reader.sentenceCount() << " sentences on file. " << endl
 			<< "Enter the number of the sentence you want to replace." << endl;
 	cin >> s_number;
 	this->reader.sentenceReplace(s_number);
@@ -336,6 +335,7 @@ void Editor::menu()
 	else if (option == "2")
 	{
 		this->reader.fileRead();
+		cout << endl;
 		this->menu();
 	}
 	if (!men.is_empty(this->f_name))
