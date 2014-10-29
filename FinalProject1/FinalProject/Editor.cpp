@@ -102,13 +102,13 @@ void Editor::editParagraph()
 	int p_number;
 	if (reader.paragraphCount() != 0)
 	{
-		cout << "Enter the number of the paragraph" << endl;
+		cout << "Enter the number of the paragraph: " << endl;
 		cin >> p_number;
 		this->reader.paragraphReplace(p_number);
 	}
 	else
 	{
-		cout << "\n\aWhoops! There are no pragraphs hinters on this file. Read the manual for more info. \n";
+		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
 		this->menu();
 	
 	}
