@@ -39,11 +39,8 @@ void Editor::clearFile()
 	string yn;
 	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
 	cin >> yn;
-	while(yn != "y" || yn != "Y" || yn!="n"|| yn!= "N")
+	do
 	{
-		cout << "Didn't get that. Try again. \n Yes or No? ";
-		cin >> yn;
-	}
 	if (yn == "Y" || yn == "y")
 	{
 		FileManager Mana;
@@ -51,9 +48,21 @@ void Editor::clearFile()
 		this->file.open(this->f_name, ios::out | ios::trunc);
 		file.close();
 		cout << "File cleared" << endl;
+			this->menu();
+			Mana.menu();
 	}
-	else 
+		else if (yn == "n" || yn == "N")
+		{
 		cout << "File wasn't deleted. Returning to main menu." << endl;
+			this->menu();
+}
+
+		else
+		{
+			cout << "Didn't get that. Try again. \n Yes or No? ";
+			cin >> yn;
+		}
+	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
 
 void Editor::editLine()
@@ -85,10 +94,10 @@ void Editor::deleteLine()
 	{
 		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
 			<< "Enter the number of the line you want to delete" << endl;
-		cin >> l_number;
-		this->reader.deleteLine(l_number);
-	}
-	
+	cin >> l_number;
+	this->reader.deleteLine(l_number);
+}
+
 }
 
 void Editor::editParagraph()
@@ -96,15 +105,21 @@ void Editor::editParagraph()
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
+	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	{
 	this->reader.paragraphReplace(p_number);
-}
 
+	}
+}
 void Editor::deleteParagraph()
 {
 	int p_number;
 	cout << "Enter the number of the paragraph" << endl;
 	cin >> p_number;
+	if (reader.paragraphCount() != 0 || !reader.is_empty(this->f_name))
+	{
 	this->reader.deleteParagraph(p_number);
+}
 }
 
 void Editor::editWord()
@@ -255,9 +270,9 @@ void Editor::editSentence()
 	{
 		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
 			<< "Enter the number of the sentence you want to replace." << endl;
-		cin >> s_number;
-		this->reader.sentenceReplace(s_number);
-	}
+	cin >> s_number;
+	this->reader.sentenceReplace(s_number);
+}
 	
 }
 void Editor::deleteSentence()
@@ -271,9 +286,9 @@ void Editor::deleteSentence()
 	{
 		cout << "There are " << this->reader.sentenceCount() << "sentences on file. " << endl
 			<< "Enter the number of the sentence you want to delete." << endl;
-		cin >> s_number;
-		this->reader.deleteSentence(s_number);
-	}
+	cin >> s_number;
+	this->reader.deleteSentence(s_number);
+}
 	
 }
 Editor::~Editor()
@@ -285,9 +300,12 @@ void Editor::menu()
 {
 	MyMenu menu;
 	string option;
+	FileReader men(this->f_name);
 	menu.cambiarTitulo("Welcome to the text editing tool            |");
 	menu.agregarOpcion("Start writing into the file.      |");
 	menu.agregarOpcion("View file content.                |");
+	if (!men.is_empty(this->f_name))
+	{
 	menu.agregarOpcion("Edit a word.                      |");
 	menu.agregarOpcion("Delete a word.                    |");
 	menu.agregarOpcion("Edit a line.                      |");
@@ -316,7 +334,9 @@ void Editor::menu()
 		this->reader.fileRead();
 		this->menu();
 	}
-	else if (option == "3")
+	if (!men.is_empty(this->f_name))
+	{
+		if (option == "3")
 	{
 		this->editWord();
 		this->menu();
@@ -371,5 +391,21 @@ void Editor::menu()
 	{
 		cout << "\aInvalid input, please try again" << endl;
 		this->menu();
+		}
 	}
+	else if(men.is_empty(this->f_name))
+	{
+		if (option == "3")
+		{
+			cout << "Saving document..." << endl
+				<< "Now going back to previous menu." << endl;
+			return;
+		}
+		else
+		{
+			cout << "\aInvalid input, please try again" << endl;
+			this->menu();
+	}
+	}
+
 }

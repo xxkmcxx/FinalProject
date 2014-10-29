@@ -55,7 +55,7 @@ void FileReader::lineReplace(int l_number)
 		}
 		file.close();
 		string newline;
-		cout << "Enter the new sentence to replace with" << endl;
+		cout << "Enter the new sentence to replace with :" << endl;
 		getline(cin, newline, '~');
 		newline = newline.substr(1, newline.length());
 		newline.append("\n");
@@ -125,7 +125,7 @@ int FileReader:: lineCount()
 }
 //replaces a paragraph
 void FileReader::paragraphReplace(int p_number)
-{
+	{
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;
@@ -158,7 +158,7 @@ void FileReader::paragraphReplace(int p_number)
 		string newline;
 		cout << "Enter the new paragraph to replace with" << endl;
 		getline(cin, newline, '~');
-		newline  = newline.substr(1, newline.length());
+			newline = newline.substr(1, newline.length());
 		newline.append("\n");
 		newline.append(aft_pgraph);
 		bfr_pgraph.append(newline);
@@ -166,6 +166,7 @@ void FileReader::paragraphReplace(int p_number)
 		file << bfr_pgraph;
 		file.close();
 	}
+}
 }
 void FileReader::deleteParagraph(int p_number)
 {

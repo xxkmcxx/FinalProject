@@ -117,7 +117,6 @@ void FileManager::createFile()
 		file.close();
 		Editor edit(name);
 		edit.menu();
-		
 	}
 	else
 	{
