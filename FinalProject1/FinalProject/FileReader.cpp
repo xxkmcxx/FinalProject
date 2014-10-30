@@ -9,22 +9,9 @@ FileReader::~FileReader()
 {
 
 }
-void FileReader::fileRead()
-{
-	cout << "\tV--------------------------File Content-------------------------V"<<endl << endl;
-	this->file.open(this->f_name,ios::in);	
-	char ch;
-	this->file.get(ch);
-	while (!file.fail())
-	{
-		cout.put(ch);
-		this->file.get(ch);
-	}
-	cout << endl;
-	this->file.close();
 
-}
-//replaces an existing line on a file
+
+//Replace Methots --------------
 void FileReader::lineReplace(int l_number)
 {
 	fstream file;
@@ -70,62 +57,6 @@ void FileReader::lineReplace(int l_number)
 	}
 	
 }
-//deletes a line on a file
-void FileReader::deleteLine(int l_number)
-{
-	fstream file;
-	file.open(this->f_name, ios::in);
-	string  line, bfr_Line, aft_Line;
-	if (l_number > this->lineCount()|| l_number <= 0)
-	{
-		cout << "The line entered does not match the number of lines displayed on the file." << endl;
-	}
-	else
-	{
-	
-		int i = 1, j = 1;
-		while (getline(file, line, '\n'))
-		{
-			if (i < l_number)
-			{
-				bfr_Line.append(line);
-				bfr_Line.append("\n");
-				i++;
-			}
-	
-			if (j > l_number)
-			{
-				aft_Line.append(line);
-				aft_Line.append("\n");
-	
-			}
-			j++;
-		}
-		file.close();
-		file.open(this->f_name, ios::out);
-		bfr_Line.append(aft_Line);
-		file << bfr_Line;
-		file.close();
-	}
-	
-}
-//counts how many lines are in a file
-int FileReader:: lineCount()
-{
-	char ch;
-	int count =0;
-	this->file.open(this->f_name, ios::in);
-	this->file.get(ch);
-	while (!file.eof()) //algorith for counting lines in a file
-	{
-		if (ch == '\n')
-			count++;
-		file.get(ch);
-	}
-	this->file.close();
-	return count;
-}
-//replaces a paragraph
 void FileReader::paragraphReplace(int p_number)
 	{
 	fstream file;
@@ -174,63 +105,6 @@ void FileReader::paragraphReplace(int p_number)
 		file.close();
 	}
 }
-void FileReader::deleteParagraph(int p_number)
-{
-	fstream file;
-	file.open(this->f_name, ios::in);
-	string  pgraph, bfr_pgraph, aft_pgraph;
-	if (p_number > this->paragraphCount() || p_number <= 0)
-	{
-		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
-	}
-	else
-	{
-
-		int i = 1, j = 1;
-		while (getline(file, pgraph, '`'))
-		{
-			if (i < p_number)
-			{
-				bfr_pgraph.append(pgraph);
-				bfr_pgraph.append("`");
-				i++;
-			}
-
-			if (j > p_number)
-			{
-				aft_pgraph.append(pgraph);
-				aft_pgraph.append("`");
-
-			}
-			j++;
-		}
-		file.close();
-		bfr_pgraph.append(aft_pgraph);
-		file.open(this->f_name, ios::out);
-		file << bfr_pgraph;
-		file.close();
-	}
-}
-int FileReader::paragraphCount()
-{
-	char ch;
-	int count = 0;
-	this->file.open(this->f_name, ios::in);
-	this->file.get(ch);
-	while (!file.eof()) //algorith for counting lines in a file
-	{
-		if (ch == '`')
-			count++;
-		file.get(ch);
-	}
-		this->file.close();
-	return count;
-}
-bool FileReader::is_empty(string f_name)
-{
-	ifstream file(f_name);
-	return(file.peek() == ifstream::traits_type::eof());
-}
 void FileReader::sentenceReplace(int s_number)
 {
 	fstream file;
@@ -273,6 +147,84 @@ void FileReader::sentenceReplace(int s_number)
 		file.close();
 	}
 }
+//------------------------------
+
+//Delete Methots---------------
+void FileReader::deleteLine(int l_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  line, bfr_Line, aft_Line;
+	if (l_number > this->lineCount()|| l_number <= 0)
+	{
+		cout << "The line entered does not match the number of lines displayed on the file." << endl;
+	}
+	else
+	{
+	
+		int i = 1, j = 1;
+		while (getline(file, line, '\n'))
+		{
+			if (i < l_number)
+			{
+				bfr_Line.append(line);
+				bfr_Line.append("\n");
+				i++;
+			}
+	
+			if (j > l_number)
+			{
+				aft_Line.append(line);
+				aft_Line.append("\n");
+	
+			}
+			j++;
+		}
+		file.close();
+		file.open(this->f_name, ios::out);
+		bfr_Line.append(aft_Line);
+		file << bfr_Line;
+		file.close();
+	}
+	
+}
+void FileReader::deleteParagraph(int p_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string  pgraph, bfr_pgraph, aft_pgraph;
+	if (p_number > this->paragraphCount() || p_number <= 0)
+	{
+		cout << "The paragraph number entered does not match the number of paragraph displayed on the file." << endl;
+	}
+	else
+	{
+
+		int i = 1, j = 1;
+		while (getline(file, pgraph, '`'))
+		{
+			if (i < p_number)
+			{
+				bfr_pgraph.append(pgraph);
+				bfr_pgraph.append("`");
+				i++;
+			}
+
+			if (j > p_number)
+			{
+				aft_pgraph.append(pgraph);
+				aft_pgraph.append("`");
+
+			}
+			j++;
+		}
+		file.close();
+		bfr_pgraph.append(aft_pgraph);
+		file.open(this->f_name, ios::out);
+		file << bfr_pgraph;
+		file.close();
+	}
+}
 void FileReader::deleteSentence(int s_number)
 {
 	fstream file;
@@ -310,6 +262,39 @@ void FileReader::deleteSentence(int s_number)
 		file.close();
 	}
 }
+//------------------------------
+
+//Count Methots-----------------
+int FileReader:: lineCount()
+{
+	char ch;
+	int count =0;
+	this->file.open(this->f_name, ios::in);
+	this->file.get(ch);
+	while (!file.eof()) //algorith for counting lines in a file
+	{
+		if (ch == '\n')
+			count++;
+		file.get(ch);
+	}
+	this->file.close();
+	return count;
+}
+int FileReader::paragraphCount()
+{
+	char ch;
+	int count = 0;
+	this->file.open(this->f_name, ios::in);
+	this->file.get(ch);
+	while (!file.eof()) //algorith for counting lines in a file
+	{
+		if (ch == '`')
+			count++;
+		file.get(ch);
+	}
+		this->file.close();
+	return count;
+}
 int FileReader::sentenceCount()
 {
 	char ch;
@@ -325,6 +310,43 @@ int FileReader::sentenceCount()
 	this->file.close();
 	return count;
 }
+void FileReader::wordPosCount(size_t remote_variable, string word_to_find, string file_content_holder)
+{
+	int i = 0;
+	cout << "We found " << word_to_find << " on: " << endl;
+	if (remote_variable != string::npos)
+	{
+		cout << '\t' << i + 1 << ')' << remote_variable << endl;
+		i++;
+	}
+	int z = 0;
+	for (unsigned int g = remote_variable; g == remote_variable; z = 1)
+	{
+		g = remote_variable;
+		int m = 1;
+		remote_variable = file_content_holder.find(word_to_find, remote_variable + z);
+		if (remote_variable > g && remote_variable < 40000)
+		{
+			cout << '\t' << i + 1 << ')' << remote_variable << endl;
+			i++;
+			g = remote_variable;
+		}
+		else
+		{
+			g = 0;
+		}
+	}
+}
+//------------------------------
+
+//Utility-----------------------
+bool FileReader::is_empty(string f_name)
+{
+	ifstream file(f_name);
+	return(file.peek() == ifstream::traits_type::eof());
+}
+//------------------------------
+
 void FileReader::editByLine(int l_number)
 {
 	fstream file;
@@ -364,30 +386,18 @@ void FileReader::editByLine(int l_number)
 	}
 
 }
-void FileReader::wordPosCount(size_t remote_variable, string word_to_find, string file_content_holder)
+void FileReader::fileRead()
 {
-	int i = 0;
-	cout << "We found " << word_to_find << " on: " << endl;
-	if (remote_variable != string::npos)
+	cout << "\tV--------------------------File Content-------------------------V"<<endl << endl;
+	this->file.open(this->f_name,ios::in);	
+	char ch;
+	this->file.get(ch);
+	while (!file.fail())
 	{
-		cout << '\t' << i + 1 << ')' << remote_variable << endl;
-		i++;
+		cout.put(ch);
+		this->file.get(ch);
 	}
-	int z = 0;
-	for (unsigned int g = remote_variable; g == remote_variable; z = 1)
-	{
-		g = remote_variable;
-		int m = 1;
-		remote_variable = file_content_holder.find(word_to_find, remote_variable + z);
-		if (remote_variable > g && remote_variable < 40000)
-		{
-			cout << '\t' << i + 1 << ')' << remote_variable << endl;
-			i++;
-			g = remote_variable;
-		}
-		else
-		{
-			g = 0;
-		}
-	}
+	cout << endl;
+	this->file.close();
+
 }

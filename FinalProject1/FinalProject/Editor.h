@@ -13,28 +13,41 @@ class Editor
 private:
 	string f_name;
 	fstream file;
-	bool isempty();
 	FileReader reader;
+	bool isempty();
 public:
 	Editor(string name);
 	Editor(char*name, int);
-	void editFile();
-	void clearFile();
-	void editLine();
-	void deleteLine();
-	void editParagraph();
-	void deleteParagraph();
-	void editWord();
-	void deleteWord();
-	void editSentence();
-	void deleteSentence();
-	void menu();
 	~Editor();
-	void addLine();
-	void addWord();
+
+	//Edit Methots------------
+	void editFile();
+	void editLine();
+	void editParagraph();
+	void editWord();
+	void editSentence();
+	//------------------------
+
+	//Delete Methots----------
+	void deleteLine();
+	void deleteParagraph();
+	void deleteWord();
+	void deleteSentence();
+	void clearFile();
+	//------------------------
+
+	//Replace Methots---------
 	void replaceLine();
 	void replaceParagraph();
 	void replaceWord();
 	void replaceSentence();
+	//------------------------
+
+	//Add Methots-------------
+	void addLine();
+	void addWord();
+	//------------------------
+
+	void menu();
 };
 
