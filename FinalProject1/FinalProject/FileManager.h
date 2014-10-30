@@ -4,6 +4,7 @@
 #include <string>
 #include "Editor.h"
 #include "FileReader.h"
+#include <locale>
 
 
 class FileManager
@@ -18,5 +19,6 @@ public:
 	void copyFile();
 	void openreadme();
 	bool fileExist(string name) const;
+	string toUpper(string word);
 };
 

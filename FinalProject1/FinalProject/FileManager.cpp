@@ -1,6 +1,5 @@
 #include "FileManager.h"
-#include <stdio.h>
-#include <Windows.h>
+
 
 FileManager::FileManager()
 {
@@ -112,7 +111,7 @@ void FileManager::createFile()
 		file.open(name, ios::out);
 		cout << "Creating File..." << endl;
 		this->loading();
-		cout << "\aFile creation was succeful!" << endl;
+		cout << "\aFile creation was sucessful!" << endl;
 		file.close();
 		Editor edit(name);
 		edit.menu();
@@ -148,6 +147,7 @@ void FileManager::createFile()
 void FileManager::copyFile()
 {
 	string source, destination, content;
+
 	FileReader emp(source);
 	do
 	{
@@ -183,13 +183,13 @@ void FileManager::copyFile()
 			cout << "Enter the name of the destination file: ";
 			cin >> destination;
 			destination.append(".txt");
-			if (destination == source)
+			if (this->toUpper(destination) == this->toUpper(source))
 			{
 				cout << "\aYou cant clone a file to itself. Try Again. \n\n Destination File: ";
 				cin >> destination;
 				destination.append(".txt");
 			}
-		} while (destination == source);
+		} while (this->toUpper(destination) == this->toUpper(source));
 		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
@@ -252,4 +252,17 @@ bool FileManager::fileExist(string name) const
 {
 	ifstream file(name);
 	return(file.fail());
+}
+
+string FileManager::toUpper(string word)
+{
+	string temp;
+	string str;
+	locale loc;
+	for (string::size_type i = 0; i < word.length(); ++i)
+	{
+		temp = (toupper(word[i], loc));
+		str = str.append(temp);
+	}
+	return str;
 }

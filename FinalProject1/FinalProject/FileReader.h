@@ -2,7 +2,10 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include <Windows.h>
 #include <string>
+#include <ctype.h>
 
 using namespace std;
 

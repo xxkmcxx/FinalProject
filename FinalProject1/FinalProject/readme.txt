@@ -5,7 +5,7 @@ Instrucctions for the Text Editor Program
    provide an array options that will help you
    edit a .txt document using the windows console.
 
-2.Use the user interface to navigate through
+2.Use the shown comands to navigate through
    the options available in the program.
 
 3. To edit a text chose to create a new file
@@ -33,7 +33,7 @@ Instrucctions for the Text Editor Program
    become available.
 
 If you want to report a bug or a misbehavior in the program,
-please dont hessitate to send a email to martinez_88552@gmail.com
+please dont hessitate to send a email to martinez_88552@students.pupr.edu
 
 
 The copyrights of this program belong to the Polytechnic
