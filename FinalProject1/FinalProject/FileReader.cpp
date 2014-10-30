@@ -217,13 +217,11 @@ int FileReader::paragraphCount()
 	this->file.get(ch);
 	while (!file.eof()) //algorith for counting lines in a file
 	{
-		string content;
-		fstream emp(this->f_name);
 		if (ch == '`')
 			count++;
 		file.get(ch);
-		this->file.close();
 	}
+	this->file.close();
 	return count;
 }
 bool FileReader::is_empty(string f_name)
