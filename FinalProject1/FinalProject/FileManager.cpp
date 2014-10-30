@@ -1,10 +1,8 @@
 #include "FileManager.h"
 
-
 FileManager::FileManager()
 {
 }
-
 FileManager::~FileManager()
 {
 }
@@ -58,7 +56,7 @@ void FileManager::menu()
 		}
 
 }
-
+//Menu Options---------------
 void FileManager::openFile()
 {
 	string name;
@@ -97,7 +95,6 @@ void FileManager::openFile()
 	Editor mem(name);
 	mem.menu();
 }
-
 void FileManager::createFile()
 {
 	string name;
@@ -143,7 +140,6 @@ void FileManager::createFile()
 		} while (yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 	}
 }
-
 void FileManager::copyFile()
 {
 	string source, destination, content;
@@ -212,7 +208,6 @@ void FileManager::copyFile()
 		}
 	}
 }
-
 void FileManager::loading()
 {
 	double progress = 0.0;
@@ -236,7 +231,6 @@ void FileManager::loading()
 	cout << endl;
 	cout <<endl;
 }
-
 void FileManager::openreadme(){
 
 	ifstream file;
@@ -247,13 +241,13 @@ void FileManager::openreadme(){
 	fr.fileRead();
 
 }
-
+//---------------------------
+//Utility--------------------
 bool FileManager::fileExist(string name) const
 {
 	ifstream file(name);
 	return(file.fail());
 }
-
 string FileManager::toUpper(string word)
 {
 	string temp;
@@ -266,3 +260,4 @@ string FileManager::toUpper(string word)
 	}
 	return str;
 }
+//---------------------------

@@ -7,6 +7,11 @@ Editor::Editor(string name) :f_name(name), reader(name)
 {
 	
 }
+Editor::~Editor()
+{
+	
+}
+//Edit Methots -----------------
 void Editor::editFile()
 {
 	FileReader emp(f_name);
@@ -33,35 +38,6 @@ void Editor::editFile()
 
 	file.close();
 }
-void Editor::clearFile()
-{
-	string yn;
-	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
-	cin >> yn;
-	do
-	{
-		if (yn == "Y" || yn == "y")
-		{
-			FileManager Mana;
-			Mana.loading();
-			this->file.open(this->f_name, ios::out | ios::trunc);
-			file.close();
-			cout << "File cleared" << endl;
-			return;
-		}
-		else if (yn == "n" || yn == "N")
-		{
-			FileManager Mana;
-			cout << "File wasn't deleted. Returning to main menu." << endl;
-			return;
-		}
-		else
-		{
-			cout << "Didn't get that. Try again. \n Yes or No? ";
-			cin >> yn;
-		}
-	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
-}
 void Editor::editLine()
 {
 	
@@ -79,22 +55,6 @@ void Editor::editLine()
 	}
 	
 }
-void Editor::deleteLine()
-{
-	int l_number;
-	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() <= 0)
-	{
-		cout << "Nothing to edit. File is empty." << endl;
-	}
-	else
-	{
-		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
-			<< "Enter the number of the line you want to delete" << endl;
-	cin >> l_number;
-	this->reader.deleteLine(l_number);
-}
-
-}
 void Editor::editParagraph()
 {
 	int p_number;
@@ -109,22 +69,6 @@ void Editor::editParagraph()
 		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
 		this->menu();
 	
-	}
-}
-void Editor::deleteParagraph()
-{
-	int p_number;
-	if (reader.paragraphCount() != 0)
-	{
-		cout << "Enter the number of the paragraph: " << endl;
-		cin >> p_number;
-		this->reader.deleteParagraph(p_number);
-	}
-	else
-	{
-		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
-		this->menu();
-
 	}
 }
 void Editor::editWord()
@@ -182,6 +126,57 @@ void Editor::editWord()
 	emp2 << content;
 	emp2.close();
 }
+void Editor::editSentence()
+{
+	
+	int s_number;
+	if (this->reader.is_empty(this->f_name)|| this->reader.sentenceCount() <= 0)
+	{
+		cout << "Nothing to edit. File has no sentences or is empty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.sentenceCount() << " sentences on file. " << endl
+			<< "Enter the number of the sentence you want to replace." << endl;
+	cin >> s_number;
+	this->reader.sentenceReplace(s_number);
+}
+	
+}
+//------------------------------
+//Delete Methots ---------------
+void Editor::deleteLine()
+{
+	int l_number;
+	if (this->reader.is_empty(this->f_name)|| this->reader.lineCount() <= 0)
+	{
+		cout << "Nothing to edit. File is empty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line you want to delete" << endl;
+	cin >> l_number;
+	this->reader.deleteLine(l_number);
+}
+
+}
+void Editor::deleteParagraph()
+{
+	int p_number;
+	if (reader.paragraphCount() != 0)
+	{
+		cout << "Enter the number of the paragraph: " << endl;
+		cin >> p_number;
+		this->reader.deleteParagraph(p_number);
+	}
+	else
+	{
+		cout << "\n\aWhoops! There are no pragraphs pointers on this file. \nRead the manual for more info. \n";
+		this->menu();
+
+	}
+}
 void Editor::deleteWord()
 {
 	string word, content, word2;
@@ -220,23 +215,6 @@ void Editor::deleteWord()
 	emp2 << content;
 	emp2.close();
 }
-void Editor::editSentence()
-{
-	
-	int s_number;
-	if (this->reader.is_empty(this->f_name)|| this->reader.sentenceCount() <= 0)
-	{
-		cout << "Nothing to edit. File has no sentences or is empty." << endl;
-	}
-	else
-	{
-		cout << "There are " << this->reader.sentenceCount() << " sentences on file. " << endl
-			<< "Enter the number of the sentence you want to replace." << endl;
-	cin >> s_number;
-	this->reader.sentenceReplace(s_number);
-}
-	
-}
 void Editor::deleteSentence()
 {
 	int s_number;
@@ -253,9 +231,66 @@ void Editor::deleteSentence()
 }
 	
 }
-Editor::~Editor()
+//------------------------------
+void Editor::clearFile()
 {
-	
+	string yn;
+	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
+	cin >> yn;
+	do
+	{
+		if (yn == "Y" || yn == "y")
+		{
+			FileManager Mana;
+			Mana.loading();
+			this->file.open(this->f_name, ios::out | ios::trunc);
+			file.close();
+			cout << "File cleared" << endl;
+			return;
+		}
+		else if (yn == "n" || yn == "N")
+		{
+			FileManager Mana;
+			cout << "File wasn't deleted. Returning to main menu." << endl;
+			return;
+		}
+		else
+		{
+			cout << "Didn't get that. Try again. \n Yes or No? ";
+			cin >> yn;
+		}
+	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
+}
+void Editor::replaceLine()
+{
+	int l_number;
+	if (this->reader.is_empty(this->f_name))
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line you want to replace: " << endl;
+		cin >> l_number;
+		this->reader.lineReplace(l_number);
+	}
+
+}
+void Editor::addLine()
+{
+	int l_number;
+	if (this->reader.is_empty(this->f_name))
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line where you want to edit: " << endl;
+		cin >> l_number;
+		this->reader.editByLine(l_number);
+	}
 }
 void Editor::menu()
 {
@@ -375,36 +410,5 @@ void Editor::menu()
 			cout << "\aInvalid input, please try again." << endl;
 			this->menu();
 		}
-	}
-}
-void Editor::replaceLine()
-{
-	int l_number;
-	if (this->reader.is_empty(this->f_name))
-	{
-		cout << "Nothing to edit. File is emtpty." << endl;
-	}
-	else
-	{
-		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
-			<< "Enter the number of the line you want to replace: " << endl;
-		cin >> l_number;
-		this->reader.lineReplace(l_number);
-	}
-
-}
-void Editor::addLine()
-{
-	int l_number;
-	if (this->reader.is_empty(this->f_name))
-	{
-		cout << "Nothing to edit. File is emtpty." << endl;
-	}
-	else
-	{
-		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
-			<< "Enter the number of the line where you want to edit: " << endl;
-		cin >> l_number;
-		this->reader.editByLine(l_number);
 	}
 }
