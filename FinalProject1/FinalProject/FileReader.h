@@ -35,6 +35,7 @@ public:
 	int sentenceCount();
 	int wordCount();
 	int wordCount(string word);
+	void wordPosCount(size_t remote_variable, string word_to_find, string file_content_holder);
 	//---------------------------------
 	//Add methots----------------------
 	void addWord();

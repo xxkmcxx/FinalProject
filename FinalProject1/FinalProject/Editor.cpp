@@ -130,7 +130,7 @@ void Editor::deleteParagraph()
 void Editor::editWord()
 {
 	string word, content, word2, word3;
-	unsigned int c = 1, i = 0, pos = 0;
+	unsigned int c = 1, pos = 0;
 	cout << "Type in the word you want to edit. Please type as it is in the file : ";
 	cin >> word;
 	ifstream emp(f_name);
@@ -156,29 +156,7 @@ void Editor::editWord()
 	cin >> word2;
 	fstream emp2(f_name);
 	size_t Found = content.find(word);
-	cout << "We found " << word << " on: " << endl;
-	if (Found != string::npos)
-	{
-		cout << '\t' << i + 1 << ')' << Found << endl;
-		i++;
-	}
-	int z = 0;
-	for (unsigned int g = Found; g == Found; z = 1)
-	{
-		g = Found;
-		int m = 1;
-		Found = content.find(word, Found + z);
-		if (Found > g && Found < 40000)
-		{
-			cout << '\t' << i + 1 << ')' << Found << endl;
-			i++;
-			g = Found;
-		}
-		else
-		{
-			g = 0;
-		}
-	}
+	reader.wordPosCount(Found, word, content);
 	cout << "Enter the position of the word: ";
 	cin >> pos;
 	int a = word.length();
@@ -230,27 +208,7 @@ void Editor::deleteWord()
 	}
 	fstream emp2(f_name);
 	size_t Found = content.find(word);
-	cout << "We found " << word << " on: " << endl;
-	if (Found != string::npos)
-	{
-		cout << '\t' << i + 1 << ')' << Found << endl;
-		i++;
-	}
-	for (unsigned int g = Found; g == Found;)
-	{
-		g = Found;
-		Found = content.find(word, Found + 1);
-		if (Found > g && Found < 40000)
-		{
-			cout << '\t' << i + 1 << ')' << Found << endl;
-			i++;
-			g = Found;
-		}
-		if (g == Found - 1)
-		{
-			g = 0;
-		}
-	}
+	reader.wordPosCount(Found, word, content);
 	cout << "Enter the position of the word: ";
 	cin >> pos;
 	for (unsigned int q = 0; q < word.length(); q++)
@@ -419,7 +377,6 @@ void Editor::menu()
 		}
 	}
 }
-
 void Editor::replaceLine()
 {
 	int l_number;
@@ -436,7 +393,6 @@ void Editor::replaceLine()
 	}
 
 }
-
 void Editor::addLine()
 {
 	int l_number;
