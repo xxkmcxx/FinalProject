@@ -174,7 +174,7 @@ void Editor::editWord()
 			i++;
 			g = Found;
 		}
-		else//if (g == Found - 1)
+		else
 		{
 			g = 0;
 		}
@@ -414,3 +414,19 @@ void Editor::menu()
 	}
 }
 
+void Editor::replaceLine()
+{
+	int l_number;
+	if (this->reader.is_empty(this->f_name))
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line you want to replace: " << endl;
+		cin >> l_number;
+		this->reader.lineReplace(l_number);
+	}
+
+}

@@ -30,5 +30,10 @@ public:
 	void deleteSentence();
 	void menu();
 	~Editor();
+
+	void replaceLine();
+	void replaceParagraph();
+	void replaceWord();
+	void replaceSentence();
 };
 

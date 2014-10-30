@@ -29,8 +29,8 @@ void FileReader::lineReplace(int l_number)
 {
 	fstream file;
 	file.open(this->f_name, ios::in);
-	string line,bfr_Line,aft_Line;
-	if (l_number > this->lineCount() || l_number <=0)
+	string line, bfr_Line, aft_Line;
+	if (l_number > this->lineCount() || l_number <= 0)
 	{
 		cout << "The line entered does not match the number of lines displayed on the file." << endl;
 	}
@@ -57,10 +57,10 @@ void FileReader::lineReplace(int l_number)
 		}
 		file.close();
 		string newline;
-		cout << "Enter the new line to replace with: " << endl;
+		cout << "Enter the new sentence to replace with :" << endl;
 		getline(cin, newline, '~');
 		if (newline[0] == '\n')
-			newline = newline.substr(1, newline.length());
+		newline = newline.substr(1, newline.length());
 		newline.append(aft_Line);
 		bfr_Line.append(newline);
 

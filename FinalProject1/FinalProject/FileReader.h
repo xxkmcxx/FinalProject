@@ -23,7 +23,6 @@ public:
 	void sentenceReplace(int s_number);
 	void paragraphReplace(int p_number);
 	//--------------------------------------
-
 	//delete methods-----------------------
 	void wordDelete(string word, int occurrence);
 	void deleteLine(int l_number);
@@ -36,6 +35,12 @@ public:
 	int sentenceCount();
 	int wordCount();
 	int wordCount(string word);
+	//---------------------------------
+	//Add methots----------------------
+	void addWord();
+	void addSentence();	
+	void addLine(int l_number);
+	void addParagraph();
 	//---------------------------------
 	~FileReader();
 	void fileRead();

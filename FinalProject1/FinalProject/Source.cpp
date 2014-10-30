@@ -16,5 +16,6 @@ int main()
 
 
 
+	fr.addLine(3);
 	return(0);
 }
