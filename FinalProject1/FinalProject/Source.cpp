@@ -8,6 +8,8 @@ using namespace std;
 int main()
 {
 	FileManager fm;
-	fm.menu();
+	FileReader fr("sebi");
+
+	fr.addLine(3);
 	return(0);
 }

@@ -174,7 +174,7 @@ void Editor::editWord()
 			i++;
 			g = Found;
 		}
-		else//if (g == Found - 1)
+		else
 		{
 			g = 0;
 		}

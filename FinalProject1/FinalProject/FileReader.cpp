@@ -27,10 +27,48 @@ void FileReader::fileRead()
 //replaces an existing line on a file
 void FileReader::lineReplace(int l_number)
 {
-	string file;
-	int;
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string line, bfr_Line, aft_Line;
+	if (l_number > this->lineCount() || l_number <= 0)
+	{
+		cout << "The line entered does not match the number of lines displayed on the file." << endl;
+	}
+	else
+	{
 
-	unsigned int Found = ;
+		int i = 1, j = 1;
+		while (getline(file, line, '\n'))
+		{
+			if (i < l_number)
+			{
+				bfr_Line.append(line);
+				bfr_Line.append("\n");
+				i++;
+			}
+
+			if (j > l_number)
+			{
+				aft_Line.append(line);
+				aft_Line.append("\n");
+
+			}
+			j++;
+		}
+		file.close();
+		string newline;
+		cout << "Enter the new sentence to replace with :" << endl;
+		getline(cin, newline, '~');
+		newline = newline.substr(1, newline.length());
+		newline.append("\n");
+		newline.append(aft_Line);
+		bfr_Line.append(newline);
+
+		file.open(this->f_name, ios::out);
+		file << bfr_Line;
+		file.close();
+	}
+
 }
 //deletes a line on a file
 void FileReader::deleteLine(int l_number)
@@ -289,30 +327,33 @@ int FileReader::sentenceCount()
 }
 void FileReader::addLine(int l_number)
 {
-	fstream file;
-	file.open(this->f_name, ios::in);
-	string line;
-
-	while (getline(file, line, '\n'))
+	fstream file(this->f_name);
+	string content;
+	int z = 0, i = 1;
+	int pos[4000];
+	getline(file, content, '~');
+	size_t Found = content.find('\n');
+	if (Found != string::npos)
 	{
-		if (l_number < this->lineCount())
-		{
-			line.append("\n", l_number - 1);
-		}
-
-		if (l_number > this->lineCount())
-		{
-			line.append("\n", this->lineCount());
-
-		}
-		j++;
+		pos[i] = Found;
+		i++;
 	}
-	file.close();
-	string newline;
-	cout << "Enter the new line to replace with: " << endl;
-	getline(cin, newline, '~');
-	newline = newline.substr(1, newline.length());
-	newline.append("\n");
-	file.open(this->f_name, ios::out);
-	file.close();
+	for (unsigned int g = Found; g == Found;)
+	{
+		g = Found;
+		Found = content.find('\n', Found + 1);
+		if (Found > g && Found < 4000)
+		{
+			cout << Found;
+			pos[i] = Found;
+			i++;
+			g = Found;
+		}
+		else
+		{
+			cout << " ERROR ";
+			g = 0;
+		}
+	}
+	content.append("\n", pos[l_number]);
 }
