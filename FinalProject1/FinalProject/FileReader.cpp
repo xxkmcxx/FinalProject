@@ -1,6 +1,8 @@
 #include "FileReader.h"
 #include <iostream>
 #include <string>
+#include <stdio.h>
+#include <ctype.h>
 #include <Windows.h>
 using namespace std;
 FileReader::FileReader(string name) : f_name(name)
@@ -178,7 +180,6 @@ void FileReader::paragraphReplace(int p_number)
 }
 void FileReader::deleteParagraph(int p_number)
 {
-	
 	fstream file;
 	file.open(this->f_name, ios::in);
 	string  pgraph, bfr_pgraph, aft_pgraph;

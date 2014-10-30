@@ -1,5 +1,6 @@
 #include "FileManager.h"
 #include <stdio.h>
+#include <ctype.h>
 #include <Windows.h>
 
 FileManager::FileManager()
@@ -148,6 +149,7 @@ void FileManager::createFile()
 void FileManager::copyFile()
 {
 	string source, destination, content;
+
 	FileReader emp(source);
 	do
 	{
