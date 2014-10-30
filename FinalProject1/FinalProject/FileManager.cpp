@@ -196,6 +196,7 @@ void FileManager::openreadme(){
 }
 //---------------------------
 
+//Utility--------------------
 bool FileManager::fileExist(string name)
 {
 	ifstream file(name);
