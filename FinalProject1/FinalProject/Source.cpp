@@ -11,6 +11,6 @@ int main()
 {
 	FileManager fm;
 	FileReader fr("kevin.txt");
-	fr.editByLine(3);
+	fm.menu();
 	return(0);
 }
