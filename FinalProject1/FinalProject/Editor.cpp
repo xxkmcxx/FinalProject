@@ -162,11 +162,12 @@ void Editor::editWord()
 		cout << '\t' << i + 1 << ')' << Found << endl;
 		i++;
 	}
-	for (unsigned int g = Found; g == Found;)
+	int z = 0;
+	for (unsigned int g = Found; g == Found; z = 1)
 	{
 		g = Found;
 		int m = 1;
-		Found = content.find(word, Found + 1);
+		Found = content.find(word, Found + z);
 		if (Found > g && Found < 40000)
 		{
 			cout << '\t' << i + 1 << ')' << Found << endl;
@@ -190,7 +191,7 @@ void Editor::editWord()
 		a = word2.length() - word.length();
 	}
 
-	if (word.length() < word2.length())
+	if (word.length() <= word2.length())
 		content.replace(pos, word.length() + a - 1, word2);
 	if (word.length() > word2.length())
 	{

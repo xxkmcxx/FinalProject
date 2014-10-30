@@ -1,6 +1,6 @@
-Paco el chato._
+Pepe chato._
 Paco el chato vivía en un rancho._ Al cumplir seis años Paco debía entrar a la escuela._
 Para eso su papá lo llevó a la ciudad, donde vivía su abuelita._
 Al llegar a la escuela, el primer día de clases, la abuelita le dijo 
 : - A la salida me esperas en la puerta._`
-`
+``
