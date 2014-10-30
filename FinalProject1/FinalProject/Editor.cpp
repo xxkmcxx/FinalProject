@@ -38,34 +38,6 @@ void Editor::editFile()
 
 	file.close();
 }
-void Editor::clearFile()
-{
-	string yn;
-	cout << "Are you sure you want to delete the file. After is done you cant undo. Y/N: ";
-	cin >> yn;
-	do
-	{
-		if (yn == "Y" || yn == "y")
-		{
-			
-			FileManager::loading();
-			this->file.open(this->f_name, ios::out | ios::trunc);
-			file.close();
-			cout << "File cleared" << endl;
-			return;
-		}
-		else if (yn == "n" || yn == "N")
-		{
-			cout << "File wasn't deleted. Returning to main menu." << endl;
-			return;
-		}
-		else
-		{
-			cout << "Didn't get that. Try again. \n Yes or No? ";
-			cin >> yn;
-		}
-	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
-}
 void Editor::editLine()
 {
 	
@@ -268,8 +240,7 @@ void Editor::clearFile()
 	{
 		if (yn == "Y" || yn == "y")
 		{
-			FileManager Mana;
-			Mana.loading();
+			FileManager::loading();
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
@@ -277,7 +248,6 @@ void Editor::clearFile()
 		}
 		else if (yn == "n" || yn == "N")
 		{
-			FileManager Mana;
 			cout << "File wasn't deleted. Returning to main menu." << endl;
 			return;
 		}
@@ -286,10 +256,8 @@ void Editor::clearFile()
 			cout << "\aDidn't get that. Try again. \n Yes or No? ";
 			cin >> yn;
 		}
-	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
+	} while (yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
-//------------------------------
-
 void Editor::replaceLine()
 {
 	int l_number;
