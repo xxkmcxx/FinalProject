@@ -26,9 +26,8 @@ Instrucctions for the Text Editor Program
 7. If you want to identify a paragraph in your text you must
    press '`' at the end of each paragraph.
 
-8. After finishing editing a text press '~' and "ENTER"
-   to finish editing and return to previous
-   menu.
+8. After finishing editing a text press "ENTER" and '~' and 
+"ENTER" to finish editing and return to previous menu.
 
 9. After editing a text, more text editing options will
    become available.
@@ -37,5 +36,5 @@ If you want to report a bug or a misbehavior in the program,
 please dont hessitate to send a email to martinez_88552@gmail.com
 
 
-The copyrights of this program belong to the Polytechnich
+The copyrights of this program belong to the Polytechnic
 University of Puerto Rico. 
