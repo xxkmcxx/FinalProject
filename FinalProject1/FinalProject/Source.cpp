@@ -10,6 +10,7 @@ using namespace std;
 int main()
 {
 	FileManager fm;
-	fm.menu();
+	FileReader fr("sebi.txt");
+	fr.addLine(3);
 	return(0);
 }

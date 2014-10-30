@@ -29,48 +29,10 @@ void FileReader::fileRead()
 //replaces an existing line on a file
 void FileReader::lineReplace(int l_number)
 {
-	fstream file;
-	file.open(this->f_name, ios::in);
-	string line,bfr_Line,aft_Line;
-	if (l_number > this->lineCount() || l_number <=0)
-	{
-		cout << "The line entered does not match the number of lines displayed on the file." << endl;
-	}
-	else
-	{
+	string file;
+	int;
 
-		int i = 1, j = 1;
-		while (getline(file, line, '\n'))
-		{
-			if (i < l_number)
-			{
-				bfr_Line.append(line);
-				bfr_Line.append("\n");
-				i++;
-			}
-
-			if (j > l_number)
-			{
-				aft_Line.append(line);
-				aft_Line.append("\n");
-
-			}
-			j++;
-		}
-		file.close();
-		string newline;
-		cout << "Enter the new line to replace with: " << endl;
-		getline(cin, newline, '~');
-		newline = newline.substr(1, newline.length());
-		newline.append("\n");
-		newline.append(aft_Line);
-		bfr_Line.append(newline);
-
-		file.open(this->f_name, ios::out);
-		file << bfr_Line;
-		file.close();
-	}
-	
+	unsigned int Found = ;
 }
 //deletes a line on a file
 void FileReader::deleteLine(int l_number)
@@ -327,4 +289,33 @@ int FileReader::sentenceCount()
 	}
 	this->file.close();
 	return count;
+}
+void FileReader::addLine(int l_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string line;
+
+	while (getline(file, line, '\n'))
+	{
+		if (l_number < this->lineCount())
+		{
+			line.append("\n", l_number - 1);
+		}
+
+		if (l_number > this->lineCount())
+		{
+			line.append("\n", this->lineCount());
+
+		}
+		j++;
+	}
+	file.close();
+	string newline;
+	cout << "Enter the new line to replace with: " << endl;
+	getline(cin, newline, '~');
+	newline = newline.substr(1, newline.length());
+	newline.append("\n");
+	file.open(this->f_name, ios::out);
+	file.close();
 }
