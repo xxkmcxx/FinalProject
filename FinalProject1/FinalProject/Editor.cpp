@@ -255,7 +255,7 @@ void Editor::clearFile()
 		}
 		else
 		{
-			cout << "Didn't get that. Try again. \n Yes or No? ";
+			cout << "\aDidn't get that. Try again. \n Yes or No? ";
 			cin >> yn;
 		}
 	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
