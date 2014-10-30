@@ -234,23 +234,23 @@ void FileManager::menu()
 		cin >> option;
 		if (option == "1")
 		{
-			this->openreadme();
-			this->menu();
+			FileManager::openreadme();
+			FileManager::menu();
 		}
 		else if (option == "2")
 		{
-			this->createFile();
-			this->menu();
+			FileManager::createFile();
+			FileManager::menu();
 		}
 		else if (option == "3")
 		{
-			this->openFile();
-			this->menu();
+			FileManager::openFile();
+			FileManager::menu();
 		}
 		else if (option == "4")
 		{
-			this->copyFile();
-			this->menu();
+			FileManager::copyFile();
+			FileManager::menu();
 		}
 		else if (option == "5")
 		{
@@ -260,7 +260,7 @@ void FileManager::menu()
 		else
 		{
 			cout << "\aInvalid input, please try again" << endl;
-			this->menu();
+			FileManager::menu();
 		}
 
 }
