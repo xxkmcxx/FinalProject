@@ -430,3 +430,19 @@ void Editor::replaceLine()
 	}
 
 }
+
+void Editor::addLine()
+{
+	int l_number;
+	if (this->reader.is_empty(this->f_name))
+	{
+		cout << "Nothing to edit. File is emtpty." << endl;
+	}
+	else
+	{
+		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
+			<< "Enter the number of the line where you want to edit: " << endl;
+		cin >> l_number;
+		this->reader.editByLine(l_number);
+	}
+}
