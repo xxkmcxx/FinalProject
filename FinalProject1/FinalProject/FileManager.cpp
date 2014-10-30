@@ -9,56 +9,7 @@ FileManager::~FileManager()
 }
 //---------------------------
 
-void FileManager::menu()
-{
-		MyMenu menu;
-		string option;
-		menu.cambiarTitulo("File Manager Menu                            I");
-		menu.agregarOpcion("User Manual for Editor            I");
-		menu.agregarOpcion("Create a new File                 I");
-		menu.agregarOpcion("Open an existing File             I");
-		menu.agregarOpcion("Clone File to new File            I");
-		menu.agregarOpcion("Exit                              I");
-		menu.cambiarPregunta("Please choose one of the option shown above. I");
-		
-
-		cout << "_____________________________________________" << endl;
-		cout << menu << endl;
-		cout << "_____________________________________________I" << endl;
-		cin >> option;
-		if (option == "1")
-		{
-			FileManager::openreadme();
-			FileManager::menu();
-		}
-		else if (option == "2")
-		{
-			FileManager::createFile();
-			FileManager::menu();
-		}
-		else if (option == "3")
-		{
-			FileManager::openFile();
-			FileManager::menu();
-		}
-		else if (option == "4")
-		{
-			FileManager::copyFile();
-			FileManager::menu();
-		}
-		else if (option == "5")
-		{
-			cout << "Thank you,Bye!" << endl;
-			return;
-		}
-		else
-		{
-			cout << "\aInvalid input, please try again" << endl;
-			FileManager::menu();
-		}
-
-}
-
+//Menu Options---------------
 void FileManager::openFile()
 {
 	string name;
