@@ -359,39 +359,40 @@ void Editor::menu()
 		}
 		else if (option == "6")
 		{
-			reader.editbyline();
-		}
-		else if (option == "6")
-		{
-			this->deleteLine();
+			this->addLine();
 			this->menu();
 		}
 		else if (option == "7")
 		{
-			this->editParagraph();
+			this->deleteLine();
 			this->menu();
 		}
 		else if (option == "8")
 		{
-			this->deleteParagraph();
+			this->editParagraph();
 			this->menu();
 		}
 		else if (option == "9")
 		{
-			this->editSentence();
+			this->deleteParagraph();
 			this->menu();
 		}
 		else if (option == "10")
 		{
-			this->deleteSentence();
+			this->editSentence();
 			this->menu();
 		}
 		else if (option == "11")
 		{
-			this->clearFile();
+			this->deleteSentence();
 			this->menu();
 		}
 		else if (option == "12")
+		{
+			this->clearFile();
+			this->menu();
+		}
+		else if (option == "13")
 		{
 			cout << "Saving document..." << endl
 				<< "Now going back to previous menu." << endl;
