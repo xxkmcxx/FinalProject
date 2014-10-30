@@ -59,8 +59,8 @@ void FileReader::lineReplace(int l_number)
 		string newline;
 		cout << "Enter the new line to replace with: " << endl;
 		getline(cin, newline, '~');
-		newline = newline.substr(1, newline.length());
-		newline.append("\n");
+		if (newline[0] == '\n')
+			newline = newline.substr(1, newline.length());
 		newline.append(aft_Line);
 		bfr_Line.append(newline);
 
@@ -324,4 +324,43 @@ int FileReader::sentenceCount()
 	}
 	this->file.close();
 	return count;
+}
+void FileReader::editByLine(int l_number)
+{
+	fstream file;
+	file.open(this->f_name, ios::in);
+	string line, str, temp;
+	if (l_number > this->lineCount() || l_number <= 0)
+	{
+		cout << "The line entered does not match the number of lines displayed on the file." << endl;
+	}
+	else
+	{
+		while (getline(file, line, '\n'))
+		{
+			str.append(line);
+			str.append("\n");
+		}
+		file.close();
+		string temp;
+		int j = 0;
+		int i = 0;
+		while (i < l_number - 1)
+		{
+			if (str[j] == '\n')
+			{
+				i++;
+			}
+			j++;
+		}
+		temp = str.substr(0, j);
+		temp.append("\n");
+		temp.append(str.substr(j, str.length()));
+		ofstream file(this->f_name);
+		file << temp;
+		file.close();
+		this->lineReplace(l_number);
+		
+	}
+
 }
