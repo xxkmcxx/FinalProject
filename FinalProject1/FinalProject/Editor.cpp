@@ -73,7 +73,7 @@ void Editor::editLine()
 	else
 	{ 
 		cout << "There are " << this->reader.lineCount() << " lines on file. " << endl
-			 << "Enter the number of the line you want to replace" << endl;
+			 << "Enter the number of the line you want to replace: " << endl;
 		cin >> l_number;
 		this->reader.lineReplace(l_number);
 	}

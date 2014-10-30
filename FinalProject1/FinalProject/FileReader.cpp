@@ -59,7 +59,7 @@ void FileReader::lineReplace(int l_number)
 		}
 		file.close();
 		string newline;
-		cout << "Enter the new sentence to replace with :" << endl;
+		cout << "Enter the new line to replace with: " << endl;
 		getline(cin, newline, '~');
 		newline = newline.substr(1, newline.length());
 		newline.append("\n");
@@ -159,12 +159,17 @@ void FileReader::paragraphReplace(int p_number)
 			j++;
 		}
 	file.close();
+	while (aft_pgraph[0] == '\n')
+	{
+		aft_pgraph = aft_pgraph.substr(1, aft_pgraph.length());
+	}
 		string newline;
 		cout << "Enter the new paragraph to replace with" << endl;
 		getline(cin, newline, '~');
 			newline = newline.substr(1, newline.length());
 		newline.append("\n");
 		newline.append(aft_pgraph);
+		bfr_pgraph.append("\n");
 		bfr_pgraph.append(newline);
 		file.open(this->f_name, ios::out);
 		file << bfr_pgraph;
@@ -221,7 +226,7 @@ int FileReader::paragraphCount()
 			count++;
 		file.get(ch);
 	}
-	this->file.close();
+		this->file.close();
 	return count;
 }
 bool FileReader::is_empty(string f_name)
