@@ -226,7 +226,7 @@ int FileReader::paragraphCount()
 			count++;
 		file.get(ch);
 	}
-	this->file.close();
+		this->file.close();
 	return count;
 }
 bool FileReader::is_empty(string f_name)
@@ -289,7 +289,7 @@ void FileReader::deleteSentence(int s_number)
 	{
 
 		int i = 1, j = 1;
-	    while (getline(file, sntnc, '_'))
+		while (getline(file, sntnc, '_'))
 		{
 			if (i < s_number)
 			{
