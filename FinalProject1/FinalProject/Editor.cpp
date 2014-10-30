@@ -42,8 +42,8 @@ void Editor::clearFile()
 	{
 		if (yn == "Y" || yn == "y")
 		{
-			FileManager Mana;
-			Mana.loading();
+			
+			FileManager::loading();
 			this->file.open(this->f_name, ios::out | ios::trunc);
 			file.close();
 			cout << "File cleared" << endl;
@@ -51,7 +51,6 @@ void Editor::clearFile()
 		}
 		else if (yn == "n" || yn == "N")
 		{
-			FileManager Mana;
 			cout << "File wasn't deleted. Returning to main menu." << endl;
 			return;
 		}

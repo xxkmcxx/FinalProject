@@ -9,16 +9,20 @@
 
 class FileManager
 {
-public:
+private:
+	static string toUpper(string word);
 	FileManager();
-	void openFile();
-	void createFile();
-	void menu();
 	~FileManager();
-	void loading();
-	void copyFile();
-	void openreadme();
-	bool fileExist(string name) const;
-	string toUpper(string word);
+	static bool fileExist(string name);
+public:
+
+	static void openFile();
+	static void createFile();
+	static void menu();
+	static void loading();
+	static void copyFile();
+	static void openreadme();
+	
+	
 };
 
