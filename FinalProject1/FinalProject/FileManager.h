@@ -9,7 +9,6 @@
 
 class FileManager
 {
-	private:
 public:
 	FileManager();
 	void openFile();
