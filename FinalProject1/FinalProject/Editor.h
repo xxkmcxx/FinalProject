@@ -30,7 +30,7 @@ public:
 	void deleteSentence();
 	void menu();
 	~Editor();
-
+	void addLine();
 	void replaceLine();
 	void replaceParagraph();
 	void replaceWord();
