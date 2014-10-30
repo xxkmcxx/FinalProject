@@ -1,9 +1,5 @@
 #include "FileReader.h"
-#include <iostream>
-#include <string>
-#include <stdio.h>
 #include <ctype.h>
-#include <Windows.h>
 using namespace std;
 FileReader::FileReader(string name) : f_name(name)
 {
