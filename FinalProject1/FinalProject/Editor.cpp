@@ -312,6 +312,7 @@ void Editor::menu()
 		menu.agregarOpcion("Edit a word.                     I");
 		menu.agregarOpcion("Delete a word.                   I");
 		menu.agregarOpcion("Edit a line.                     I");
+		menu.agregarOpcion("Add new line                     I");
 		menu.agregarOpcion("Delete a line.                   I");
 		menu.agregarOpcion("Edit a paragraph.                I");
 		menu.agregarOpcion("Delete a paragraph.              I");
@@ -355,6 +356,10 @@ void Editor::menu()
 		{
 			this->editLine();
 			this->menu();
+		}
+		else if (option == "6")
+		{
+			reader.editbyline();
 		}
 		else if (option == "6")
 		{
