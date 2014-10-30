@@ -17,7 +17,7 @@ void FileManager::openFile()
 	cin >> name;
 	while (name == "readme.txt" || name == "recent.txt")
 	{
-		cout << "Oops... Those files are for read only choose another file to open" << endl;
+		cout << "\aOops... Those files are for read only choose another file to open" << endl;
 		cin >> name;
 	}
 	name.append(".txt");

@@ -231,7 +231,6 @@ void Editor::deleteSentence()
 }
 	
 }
-//------------------------------
 void Editor::clearFile()
 {
 	string yn;
@@ -261,6 +260,8 @@ void Editor::clearFile()
 		}
 	}while(yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 }
+//------------------------------
+
 void Editor::replaceLine()
 {
 	int l_number;
