@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	
+
 	FileReader fr("Kevin.txt");
 	FileManager::menu();
 	return(0);

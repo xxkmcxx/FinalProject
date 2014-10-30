@@ -17,34 +17,35 @@ private:
 public:
 
 	FileReader(string name);
+	~FileReader();
+
 	//replace methods-----------------------
 	void wordReplace(string word, int occurrence);
 	void lineReplace(int l_number);
 	void sentenceReplace(int s_number);
 	void paragraphReplace(int p_number);
+	void editByLine(int l_number); //Adds a line to the text file without deleting text.
 	//--------------------------------------
+
 	//delete methods-----------------------
 	void wordDelete(string word, int occurrence);
 	void deleteLine(int l_number);
 	void deleteSentence(int s_number);
 	void deleteParagraph(int p_number);
 	//------------------------------------
+
 	//count methods-------------------
 	int lineCount();
 	int paragraphCount();
 	int sentenceCount();
 	int wordCount();
 	int wordCount(string word);
+	void wordPosCount(size_t remote_variable, string word_to_find, string file_content_holder); //Looks and print position of a word.
 	//---------------------------------
-	//Add methots----------------------
-	void addWord();
-	void addSentence();	
-	void addLine(int l_number);
-	void addParagraph();
-	//---------------------------------
-	~FileReader();
+
+	//Utility--------------------------
 	void fileRead();
 	bool is_empty(string f_name);
-	void editByLine(int l_number);
+	//---------------------------------
 };
 

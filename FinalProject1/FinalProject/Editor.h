@@ -31,6 +31,7 @@ public:
 	void menu();
 	~Editor();
 	void addLine();
+	void addWord();
 	void replaceLine();
 	void replaceParagraph();
 	void replaceWord();

@@ -364,3 +364,30 @@ void FileReader::editByLine(int l_number)
 	}
 
 }
+void FileReader::wordPosCount(size_t remote_variable, string word_to_find, string file_content_holder)
+{
+	int i = 0;
+	cout << "We found " << word_to_find << " on: " << endl;
+	if (remote_variable != string::npos)
+	{
+		cout << '\t' << i + 1 << ')' << remote_variable << endl;
+		i++;
+	}
+	int z = 0;
+	for (unsigned int g = remote_variable; g == remote_variable; z = 1)
+	{
+		g = remote_variable;
+		int m = 1;
+		remote_variable = file_content_holder.find(word_to_find, remote_variable + z);
+		if (remote_variable > g && remote_variable < 40000)
+		{
+			cout << '\t' << i + 1 << ')' << remote_variable << endl;
+			i++;
+			g = remote_variable;
+		}
+		else
+		{
+			g = 0;
+		}
+	}
+}

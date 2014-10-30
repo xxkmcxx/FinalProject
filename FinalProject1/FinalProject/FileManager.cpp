@@ -1,13 +1,13 @@
 #include "FileManager.h"
 
-
+//Contructores y Destructores
 FileManager::FileManager()
 {
 }
-
 FileManager::~FileManager()
 {
 }
+//---------------------------
 
 void FileManager::menu()
 {
@@ -66,7 +66,7 @@ void FileManager::openFile()
 	cin >> name;
 	while (name == "readme.txt" || name == "recent.txt")
 	{
-		cout << "Oops... Those files are for read only choose another file to open" << endl;
+		cout << "\aOops... Those files are for read only choose another file to open" << endl;
 		cin >> name;
 	}
 	name.append(".txt");
@@ -97,7 +97,6 @@ void FileManager::openFile()
 	Editor mem(name);
 	mem.menu();
 }
-
 void FileManager::createFile()
 {
 	string name;
@@ -143,7 +142,6 @@ void FileManager::createFile()
 		} while (yn != "y" || yn != "Y" || yn != "n" || yn != "N");
 	}
 }
-
 void FileManager::copyFile()
 {
 	string source, destination, content;
@@ -212,7 +210,6 @@ void FileManager::copyFile()
 		}
 	}
 }
-
 void FileManager::loading()
 {
 	double progress = 0.0;
@@ -236,7 +233,6 @@ void FileManager::loading()
 	cout << endl;
 	cout <<endl;
 }
-
 void FileManager::openreadme(){
 
 	ifstream file;
@@ -247,13 +243,13 @@ void FileManager::openreadme(){
 	fr.fileRead();
 
 }
+//---------------------------
 
 bool FileManager::fileExist(string name)
 {
 	ifstream file(name);
 	return(file.fail());
 }
-
 string FileManager::toUpper(string word)
 {
 	string temp;
@@ -265,4 +261,55 @@ string FileManager::toUpper(string word)
 		str.append(temp);
 	}
 	return str;
+}
+//---------------------------
+
+void FileManager::menu()
+{
+		MyMenu menu;
+		string option;
+		menu.cambiarTitulo("File Manager Menu                            I");
+		menu.agregarOpcion("User Manual for Editor            I");
+		menu.agregarOpcion("Create a new File                 I");
+		menu.agregarOpcion("Open an existing File             I");
+		menu.agregarOpcion("Clone File to new File            I");
+		menu.agregarOpcion("Exit                              I");
+		menu.cambiarPregunta("Please choose one of the option shown above. I");
+		
+
+		cout << "_____________________________________________" << endl;
+		cout << menu << endl;
+		cout << "_____________________________________________I" << endl;
+		cin >> option;
+		if (option == "1")
+		{
+			this->openreadme();
+			this->menu();
+		}
+		else if (option == "2")
+		{
+			this->createFile();
+			this->menu();
+		}
+		else if (option == "3")
+		{
+			this->openFile();
+			this->menu();
+		}
+		else if (option == "4")
+		{
+			this->copyFile();
+			this->menu();
+		}
+		else if (option == "5")
+		{
+			cout << "Thank you,Bye!" << endl;
+			return;
+		}
+		else
+		{
+			cout << "\aInvalid input, please try again" << endl;
+			this->menu();
+		}
+
 }
