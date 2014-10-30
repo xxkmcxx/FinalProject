@@ -9,7 +9,56 @@ FileManager::~FileManager()
 }
 //---------------------------
 
-//Menu Options---------------
+void FileManager::menu()
+{
+		MyMenu menu;
+		string option;
+		menu.cambiarTitulo("File Manager Menu                            I");
+		menu.agregarOpcion("User Manual for Editor            I");
+		menu.agregarOpcion("Create a new File                 I");
+		menu.agregarOpcion("Open an existing File             I");
+		menu.agregarOpcion("Clone File to new File            I");
+		menu.agregarOpcion("Exit                              I");
+		menu.cambiarPregunta("Please choose one of the option shown above. I");
+		
+
+		cout << "_____________________________________________" << endl;
+		cout << menu << endl;
+		cout << "_____________________________________________I" << endl;
+		cin >> option;
+		if (option == "1")
+		{
+			FileManager::openreadme();
+			FileManager::menu();
+		}
+		else if (option == "2")
+		{
+			FileManager::createFile();
+			FileManager::menu();
+		}
+		else if (option == "3")
+		{
+			FileManager::openFile();
+			FileManager::menu();
+		}
+		else if (option == "4")
+		{
+			FileManager::copyFile();
+			FileManager::menu();
+		}
+		else if (option == "5")
+		{
+			cout << "Thank you,Bye!" << endl;
+			return;
+		}
+		else
+		{
+			cout << "\aInvalid input, please try again" << endl;
+			FileManager::menu();
+		}
+
+}
+
 void FileManager::openFile()
 {
 	string name;
@@ -55,12 +104,12 @@ void FileManager::createFile()
 	cin >> name;
 	name.append(".txt");
 	
-	if (this->fileExist(name))
+	if (FileManager::fileExist(name))
 	{
 		fstream file;
 		file.open(name, ios::out);
 		cout << "Creating File..." << endl;
-		this->loading();
+		FileManager::loading();
 		cout << "\aFile creation was sucessful!" << endl;
 		file.close();
 		Editor edit(name);
@@ -103,11 +152,11 @@ void FileManager::copyFile()
 		cout << "Enter the name of the source file: ";
 		cin >> source;
 		source.append(".txt");
-		if (this->fileExist(source))
+		if (FileManager::fileExist(source))
 		{
 			cout << "This file does not exist. Try a file that exist." << endl;
 		}
-		if (emp.is_empty(source) && !this->fileExist(source))
+		if (emp.is_empty(source) && !FileManager::fileExist(source))
 		{
 			cout << "\aThis file is empty. Try a file with something on it.\n";
 		}
@@ -132,20 +181,20 @@ void FileManager::copyFile()
 			cout << "Enter the name of the destination file: ";
 			cin >> destination;
 			destination.append(".txt");
-			if (this->toUpper(destination) == this->toUpper(source))
+			if (FileManager::toUpper(destination) == FileManager::toUpper(source))
 			{
 				cout << "\aYou cant clone a file to itself. Try Again. \n\n Destination File: ";
 				cin >> destination;
 				destination.append(".txt");
 			}
-		} while (this->toUpper(destination) == this->toUpper(source));
+		} while (FileManager::toUpper(destination) == FileManager::toUpper(source));
 		destination.append(".txt");
 		ofstream file2(destination);
 		fstream file3(destination);
 		if (file3.is_open())
 		{
 			file3 << content;
-			this->loading();
+			FileManager::loading();
 			cout << "\aFile Cloning Completed." << endl << "You are editing " << destination << endl;
 		}
 		file.close();
@@ -196,8 +245,7 @@ void FileManager::openreadme(){
 }
 //---------------------------
 
-//Utility--------------------
-bool FileManager::fileExist(string name) const
+bool FileManager::fileExist(string name)
 {
 	ifstream file(name);
 	return(file.fail());
@@ -210,7 +258,7 @@ string FileManager::toUpper(string word)
 	for (string::size_type i = 0; i < word.length(); ++i)
 	{
 		temp = (toupper(word[i], loc));
-		str = str.append(temp);
+		str.append(temp);
 	}
 	return str;
 }

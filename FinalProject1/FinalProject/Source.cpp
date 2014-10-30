@@ -8,9 +8,8 @@ using namespace std;
 
 int main()
 {
-	FileManager fm;
-	FileReader fr("Kevin.txt");
 
-	fm.menu();
+	FileReader fr("Kevin.txt");
+	FileManager::menu();
 	return(0);
 }
