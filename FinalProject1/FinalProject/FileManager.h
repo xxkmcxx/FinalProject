@@ -18,6 +18,5 @@ public:
 	void copyFile();
 	void openreadme();
 	bool fileExist(string name) const;
-	void playsong();
 };
 
